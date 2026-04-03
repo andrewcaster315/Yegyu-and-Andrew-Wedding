@@ -632,6 +632,15 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+  // Set language from URL parameter (?lang=ko or ?lang=en)
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'ko') {
+    document.body.classList.replace('lang-en', 'lang-ko');
+    document.getElementById('btn-en').classList.remove('active');
+    document.getElementById('btn-ko').classList.add('active');
+    document.documentElement.lang = 'ko';
+  }
+
   function toggleLang() {
     const body = document.body;
     const isEn = body.classList.contains('lang-en');
