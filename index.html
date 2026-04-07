@@ -3,422 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andrew & Yegyu — September 19</title>
+<title>Andrew & Yegyu — September 19, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#F7F4EF;--warm-white:#FDFCFA;--ink:#1C1A17;
+  --muted:#5E574F;
+  --muted-light:#7A7167;
+  --accent:#B8A898;--border:rgba(28,26,23,0.12);
+  --cta:#7B8FC7;--cta-dark:#5A6FA8;--cta-text:#fff;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --serif-kr:'Noto Serif KR',serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--warm-white);color:var(--ink);font-size:16px;line-height:1.7;padding-bottom:52px}
 
-  :root {
-    --cream: #F7F4EF;
-    --warm-white: #FDFCFA;
-    --ink: #1C1A17;
-    --muted: #8A8478;
-    --accent: #B8A898;
-    --border: rgba(28,26,23,0.1);
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --serif-kr: 'Noto Serif KR', serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-  }
+/* LANG */
+body.lang-ko .ko{display:block}body.lang-ko .en{display:none}
+body.lang-en .en{display:block}body.lang-en .ko{display:none}
+.ko-inline,.en-inline{display:none}
+body.lang-ko .ko-inline{display:inline}body.lang-en .en-inline{display:inline}
+body.lang-ko .section-title,body.lang-ko .hero-names,body.lang-ko .stay-zone-name,body.lang-ko .footer-names{font-family:var(--serif-kr);font-weight:300}
 
-  html { scroll-behavior: smooth; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(253,252,250,0.95);backdrop-filter:blur(8px);border-bottom:.5px solid var(--border)}
+.nav-monogram{font-family:var(--serif);font-size:1.25rem;font-weight:400;letter-spacing:.1em;color:var(--ink);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.lang-toggle{display:flex;align-items:center;background:var(--cream);border:.5px solid var(--border);border-radius:20px;padding:3px;gap:2px;cursor:pointer}
+.lang-btn{font-size:.75rem;padding:4px 10px;border-radius:16px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:background .2s,color .2s;font-family:var(--sans)}
+.lang-btn.active{background:var(--warm-white);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 
-  body {
-    font-family: var(--sans);
-    background: var(--warm-white);
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.7;
-  }
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 80%,rgba(184,168,152,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 80% 20%,rgba(184,168,152,.08) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.hero-names{font-family:var(--serif);font-size:clamp(3rem,8vw,6rem);font-weight:300;line-height:1;color:var(--ink)}
+.hero-names .ampersand{font-style:italic;color:var(--muted-light);display:block;font-size:.6em;line-height:1.2;margin:.15em 0;font-family:var(--serif)}
+.hero-date{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--muted);letter-spacing:.15em;margin-top:1.75rem}
+.hero-location{font-size:.875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+.hero-divider{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);margin:3rem auto 0}
 
-  body.lang-ko .ko { display: block; }
-  body.lang-ko .en { display: none; }
-  body.lang-en .en { display: block; }
-  body.lang-en .ko { display: none; }
+/* COUNTDOWN */
+.countdown-section{padding:4rem 2rem;text-align:center}
+.countdown-label{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.countdown-grid{display:flex;justify-content:center;gap:3rem}
+.countdown-unit{display:flex;flex-direction:column;align-items:center}
+.countdown-number{font-family:var(--serif);font-size:3.5rem;font-weight:300;line-height:1;color:var(--ink)}
+.countdown-unit-label{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.4rem}
 
-  .ko-inline, .en-inline { display: none; }
-  body.lang-ko .ko-inline { display: inline; }
-  body.lang-en .en-inline { display: inline; }
+/* SECTIONS */
+.full-section{padding:6rem 2rem}
+.full-section-inner{max-width:860px;margin:0 auto}
+section{padding:6rem 2rem;max-width:860px;margin:0 auto}
+.alt-bg{background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
+.section-eyebrow{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;line-height:1.1;margin-bottom:2.5rem;color:var(--ink)}
+.section-divider{width:40px;height:1px;background:var(--accent);margin-bottom:2.5rem}
 
-  body.lang-ko h1, body.lang-ko h2,
-  body.lang-ko .hero-names,
-  body.lang-ko .section-title,
-  body.lang-ko .travel-card-title,
-  body.lang-ko .footer-names {
-    font-family: var(--serif-kr);
-    font-weight: 300;
-  }
+/* OUR STORY */
+.story-text{font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px}
+.story-text p+p{margin-top:1.5rem}
 
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 3rem;
-    background: rgba(253,252,250,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 0.5px solid var(--border);
-  }
+/* HERO PHOTO */
+.hero-photo-placeholder{width:200px;height:200px;border-radius:50%;background:var(--cream);border:1.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin:0 auto 2.5rem}
+.hero-photo-placeholder svg{opacity:.3}
+.hero-photo-placeholder span{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 1rem;text-align:center}
+/* When you swap in a real photo, use this class: */
+.hero-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid rgba(184,168,152,.5);margin:0 auto 2.5rem;display:block}
 
-  .nav-monogram {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    color: var(--ink);
-    text-decoration: none;
-  }
+/* CAROUSEL */
+.carousel{position:relative;width:100%;aspect-ratio:4/3;background:var(--cream);border:.5px solid var(--border);border-radius:4px;overflow:hidden}
+.carousel-slides{display:flex;height:100%;transition:transform .45s ease}
+.carousel-slide{min-width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:2rem}
+.carousel-slide img{width:100%;height:100%;object-fit:cover}
+.carousel-placeholder-icon{opacity:.25}
+.carousel-placeholder-text{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(253,252,250,.9);border:.5px solid var(--border);border-radius:2px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--ink);transition:background .2s;z-index:2}
+.carousel-btn:hover{background:var(--warm-white)}
+.carousel-prev{left:10px}
+.carousel-next{right:10px}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:1rem}
+.carousel-dot{width:7px;height:7px;border-radius:50%;background:transparent;border:1.5px solid var(--muted-light);cursor:pointer;transition:background .2s,border-color .2s}
+.carousel-dot.active{background:var(--muted);border-color:var(--muted)}
 
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-  }
+/* SCHEDULE */
+.schedule-list{list-style:none;display:flex;flex-direction:column}
+.schedule-item{display:grid;grid-template-columns:110px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:.5px solid var(--border);align-items:start}
+.schedule-item:first-child{border-top:.5px solid var(--border)}
+.schedule-time{font-family:var(--serif);font-size:1rem;color:var(--muted);font-style:italic;padding-top:2px}
+.schedule-event{font-size:.9375rem;font-weight:500;color:var(--ink);margin-bottom:.25rem}
+.schedule-detail{font-size:.875rem;color:var(--muted);line-height:1.5}
 
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
+/* WHERE TO STAY */
+.stay-intro{font-size:1rem;color:#2E2B27;max-width:620px;margin-bottom:.5rem;line-height:1.8}
+.stay-venue-link{font-size:.875rem;color:var(--muted);margin-bottom:3rem;display:block}
+.stay-venue-link a{color:var(--muted);border-bottom:1px solid var(--accent);text-decoration:none;padding-bottom:1px}
+.stay-venue-link a:hover{color:var(--ink)}
+.stay-zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+.stay-zone{background:var(--warm-white);border:.5px solid var(--border);border-radius:4px;overflow:hidden}
+.stay-zone-photo-placeholder{width:100%;height:220px;background:var(--cream);border-bottom:.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
+.stay-zone-photo-placeholder svg{opacity:.2}
+.stay-zone-photo-placeholder span{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 1rem}
+.stay-zone-photo-placeholder img{width:100%;height:100%;object-fit:cover}
+.stay-zone-body{padding:1.75rem}
+.stay-zone-vibe{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.stay-zone-name{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:.75rem;line-height:1.1}
+.stay-zone-desc{font-size:.9375rem;color:#2E2B27;line-height:1.8;margin-bottom:0}
+.hotel-list{border-top:.5px solid var(--border)}
+.hotel-item{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.75rem;border-bottom:.5px solid var(--border);text-decoration:none;color:inherit;transition:background .15s}
+.hotel-item:last-child{border-bottom:none}
+.hotel-item:hover{background:var(--cream)}
+.hotel-info{flex:1}
+.hotel-name{font-size:.9375rem;font-weight:500;color:var(--ink);margin-bottom:.25rem}
+.hotel-detail{font-size:.875rem;color:var(--muted);line-height:1.6}
+.hotel-map{font-size:.8rem;color:var(--ink);border-bottom:1px solid var(--accent);white-space:nowrap;padding-bottom:1px;flex-shrink:0;margin-top:3px}
 
-  .nav-links a {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+/* FAVORITES */
+.map-list-btn{display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 2rem;border:1.5px solid var(--cta);border-radius:3px;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cta-dark);text-decoration:none;transition:background .2s,color .2s;margin-bottom:2rem}
+.map-list-btn:hover{background:var(--cta);color:var(--cta-text)}
+.map-embed-placeholder{background:var(--warm-white);border:.5px solid var(--border);border-radius:4px;padding:3rem 2rem;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.map-embed-placeholder p{font-size:.9375rem;color:var(--muted);line-height:1.7;max-width:480px}
 
-  .nav-links a:hover { color: var(--ink); }
+/* FAQ */
+.faq-list{max-width:700px}
+.faq-item{border-bottom:.5px solid var(--border)}
+.faq-item:first-child{border-top:.5px solid var(--border)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:var(--ink);text-align:left;font-family:var(--sans)}
+.faq-arrow{font-size:.9rem;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding-bottom:1.5rem}
+.faq-item.open .faq-a{display:block}
+.faq-a p{font-size:.9375rem;color:#2E2B27;line-height:1.85}
+.faq-a p+p{margin-top:.75rem}
 
-  .lang-toggle {
-    display: flex;
-    align-items: center;
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    border-radius: 20px;
-    padding: 3px;
-    gap: 2px;
-    cursor: pointer;
-  }
+/* RSVP */
+.rsvp-embed-placeholder{background:var(--warm-white);border:.5px solid var(--border);border-radius:4px;padding:3rem 2rem;max-width:580px}
+.rsvp-embed-placeholder p{font-size:.9375rem;color:var(--muted);margin-bottom:.75rem}
+.rsvp-embed-placeholder code{font-size:.875rem;background:var(--cream);padding:.2rem .5rem;border-radius:3px;color:var(--ink)}
 
-  .lang-btn {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    padding: 4px 10px;
-    border-radius: 16px;
-    border: none;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    font-family: var(--sans);
-  }
+/* CALENDAR BUTTONS */
+.cal-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.25rem;border:1.5px solid var(--cta);border-radius:3px;font-size:.8rem;color:var(--cta-dark);text-decoration:none;background:transparent;transition:background .15s,color .15s;white-space:nowrap}
+.cal-btn:hover{background:var(--cta);color:var(--cta-text)}
 
-  .lang-btn.active {
-    background: var(--warm-white);
-    color: var(--ink);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
+/* HERO BACKGROUND IMAGE */
+.hero.has-bg{background-size:cover;background-position:center}
+.hero.has-bg::after{content:'';position:absolute;inset:0;background:rgba(253,252,250,0.72);pointer-events:none;z-index:0}
+.hero.has-bg>*{position:relative;z-index:1}
 
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 6rem 2rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
+/* VENUE SECTION */
+.venue-card{background:var(--warm-white);border:.5px solid var(--border);border-radius:4px;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;max-width:560px}
+.venue-detail{display:flex;gap:1rem;align-items:flex-start}
+.venue-detail-icon{flex-shrink:0;margin-top:2px;color:var(--muted)}
+.venue-detail-text{font-size:.9375rem;color:#2E2B27;line-height:1.6}
+.venue-detail-text strong{color:var(--ink);font-weight:500}
+.directions-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.75rem;background:var(--cta);color:var(--cta-text);border:none;border-radius:3px;font-size:.875rem;letter-spacing:.06em;text-decoration:none;transition:opacity .2s}
+.directions-btn:hover{opacity:.85;color:var(--cta-text)}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(184,168,152,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 80% 20%, rgba(184,168,152,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
+/* RSVP DRAWER — mobile only */
+.rsvp-drawer{position:fixed;bottom:0;left:0;right:0;z-index:200;transform:translateY(calc(100% - 52px));transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.rsvp-drawer.open{transform:translateY(0)}
+.rsvp-drawer-handle{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:var(--cta);color:var(--cta-text);cursor:pointer;user-select:none}
+.rsvp-drawer-handle-left{display:flex;align-items:center;gap:.75rem;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+.rsvp-drawer-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.7);flex-shrink:0;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.rsvp-drawer-chevron{font-size:1rem;transition:transform .35s;line-height:1;display:inline-block}
+.rsvp-drawer.open .rsvp-drawer-chevron{transform:rotate(180deg)}
+.rsvp-drawer-body{background:var(--warm-white);border-top:.5px solid var(--border);padding:2.5rem 2rem;max-height:75vh;overflow-y:auto}
+.rsvp-drawer-inner{max-width:640px;margin:0 auto}
 
-  .hero-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 2rem;
-  }
+/* FLOATING RSVP PILL — tablet & desktop */
+.rsvp-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;display:flex;align-items:center;gap:.6rem;padding:.8rem 1.6rem;background:var(--cta);color:var(--cta-text);border-radius:40px;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 20px rgba(123,143,199,.35);transition:opacity .2s,transform .2s,box-shadow .2s,visibility .2s}
+.rsvp-fab:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 6px 28px rgba(123,143,199,.45);color:var(--cta-text)}
+.rsvp-fab.hidden{opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none}
+.rsvp-fab-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);animation:pulse 2s ease infinite;flex-shrink:0}
 
-  .hero-names {
-    font-family: var(--serif);
-    font-size: clamp(4rem, 10vw, 9rem);
-    font-weight: 300;
-    line-height: 0.9;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-  }
+/* NAV RSVP — styled as pill on desktop */
+.nav-rsvp{background:var(--cta)!important;color:var(--cta-text)!important;padding:.35rem 1rem!important;border-radius:20px!important;letter-spacing:.08em!important}
+.nav-rsvp:hover{opacity:.85;color:var(--cta-text)!important}
 
-  .hero-names .ampersand {
-    font-style: italic;
-    color: var(--accent);
-    display: block;
-    font-size: 0.6em;
-    line-height: 1.1;
-    margin: 0.1em 0;
-    font-family: var(--serif);
-  }
+/* FOOTER */
+footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
+.footer-names{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--muted);margin-bottom:.5rem}
+.footer-date{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 
-  .hero-date {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--muted);
-    letter-spacing: 0.2em;
-    margin-top: 2rem;
-  }
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{animation:fadeUp .8s ease both}
+.hero-names{animation:fadeUp .8s ease .15s both}
+.hero-date{animation:fadeUp .8s ease .3s both}
+.hero-location{animation:fadeUp .8s ease .4s both}
+.hero-divider{animation:fadeUp .8s ease .5s both}
 
-  .hero-location {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 0.5rem;
-  }
-
-  .hero-divider {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-    margin: 3rem auto 0;
-  }
-
-  .countdown-section {
-    background: var(--cream);
-    padding: 4rem 2rem;
-    text-align: center;
-    border-top: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .countdown-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 2rem;
-  }
-
-  .countdown-grid {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-  }
-
-  .countdown-unit { display: flex; flex-direction: column; align-items: center; }
-
-  .countdown-number {
-    font-family: var(--serif);
-    font-size: 3.5rem;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--ink);
-  }
-
-  .countdown-unit-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 0.4rem;
-  }
-
-  section {
-    padding: 6rem 2rem;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  .section-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 2.5rem;
-    color: var(--ink);
-  }
-
-  .section-divider {
-    width: 40px;
-    height: 1px;
-    background: var(--accent);
-    margin-bottom: 2.5rem;
-  }
-
-  .story-text {
-    font-size: 1.0625rem;
-    line-height: 1.9;
-    color: #3D3A34;
-    max-width: 640px;
-  }
-
-  .story-text p + p { margin-top: 1.5rem; }
-
-  .schedule-list { list-style: none; display: flex; flex-direction: column; }
-
-  .schedule-item {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 2rem;
-    padding: 1.5rem 0;
-    border-bottom: 0.5px solid var(--border);
-    align-items: start;
-  }
-
-  .schedule-item:first-child { border-top: 0.5px solid var(--border); }
-
-  .schedule-time {
-    font-family: var(--serif);
-    font-size: 0.9rem;
-    color: var(--muted);
-    font-style: italic;
-    padding-top: 2px;
-  }
-
-  .schedule-event { font-size: 0.9375rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
-  .schedule-detail { font-size: 0.85rem; color: var(--muted); }
-
-  .travel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-
-  .travel-card {
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 1.75rem;
-  }
-
-  .travel-card-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-  }
-
-  .travel-card-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 300; margin-bottom: 0.5rem; }
-  .travel-card-body { font-size: 0.875rem; color: #5A5750; line-height: 1.7; }
-
-  .travel-card a {
-    color: var(--ink);
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    display: inline-block;
-    margin-top: 0.75rem;
-    border-bottom: 0.5px solid var(--accent);
-    text-decoration: none;
-    padding-bottom: 1px;
-    transition: border-color 0.2s;
-  }
-
-  .travel-card a:hover { border-color: var(--ink); }
-
-  .registry-intro { font-size: 1rem; color: #5A5750; max-width: 520px; margin-bottom: 2.5rem; line-height: 1.8; }
-  .registry-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-  .registry-btn {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    border: 0.5px solid var(--ink);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-    border-radius: 2px;
-  }
-
-  .registry-btn:hover { background: var(--ink); color: var(--warm-white); }
-
-  .rsvp-section {
-    background: var(--cream);
-    max-width: 100%;
-    padding: 6rem 2rem;
-    border-top: 0.5px solid var(--border);
-  }
-
-  .rsvp-inner { max-width: 860px; margin: 0 auto; }
-
-  .rsvp-embed-placeholder {
-    background: var(--warm-white);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 3rem 2rem;
-    max-width: 580px;
-  }
-
-  .rsvp-embed-placeholder p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; }
-  .rsvp-embed-placeholder code { font-size: 0.8rem; background: var(--cream); padding: 0.2rem 0.5rem; border-radius: 3px; color: var(--ink); }
-
-  footer { text-align: center; padding: 3rem 2rem; border-top: 0.5px solid var(--border); }
-
-  .footer-names { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; font-style: italic; color: var(--muted); margin-bottom: 0.5rem; }
-  .footer-date { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow  { animation: fadeUp 0.8s ease both; }
-  .hero-names    { animation: fadeUp 0.8s ease 0.15s both; }
-  .hero-date     { animation: fadeUp 0.8s ease 0.3s both; }
-  .hero-location { animation: fadeUp 0.8s ease 0.4s both; }
-  .hero-divider  { animation: fadeUp 0.8s ease 0.5s both; }
-
-  @media (max-width: 640px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.25rem; }
-    .countdown-grid { gap: 1.5rem; }
-    .schedule-item { grid-template-columns: 80px 1fr; gap: 1rem; }
-    section { padding: 4rem 1.5rem; }
-  }
-
-  @media (max-width: 480px) {
-    .nav-links { display: none; }
-    .countdown-number { font-size: 2.5rem; }
-  }
+/* RESPONSIVE */
+@media(max-width:768px){
+  .rsvp-fab{display:none}
+  body{padding-bottom:52px}
+}
+@media(min-width:769px){
+  .rsvp-drawer{display:none}
+}
+@media(max-width:700px){
+  .carousel{aspect-ratio:3/2}
+  nav{padding:1rem 1.25rem}
+  .nav-links{gap:1rem}
+  .schedule-item{grid-template-columns:90px 1fr;gap:1rem}
+  section{padding:4rem 1.5rem}
+  .full-section{padding:4rem 1.5rem}
+  .countdown-grid{gap:1.5rem}
+  .hero-photo-placeholder,.hero-photo{width:160px;height:160px}
+}
+@media(max-width:480px){.nav-links{display:none}.countdown-number{font-size:2.5rem}}
 </style>
 </head>
 <body class="lang-en">
 
+<!-- NAV -->
 <nav>
   <a href="#top" class="nav-monogram">A &amp; Y</a>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#story"><span class="en-inline">Our Story</span><span class="ko-inline">우리의 이야기</span></a></li>
       <li><a href="#schedule"><span class="en-inline">Schedule</span><span class="ko-inline">일정</span></a></li>
-      <li><a href="#travel"><span class="en-inline">Travel</span><span class="ko-inline">여행 정보</span></a></li>
-      <li><a href="#registry"><span class="en-inline">Registry</span><span class="ko-inline">선물</span></a></li>
-      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#venue"><span class="en-inline">Venue</span><span class="ko-inline">장소</span></a></li>
+      <li><a href="#travel"><span class="en-inline">Stay</span><span class="ko-inline">숙박</span></a></li>
+      <li><a href="#favorites"><span class="en-inline">Favorites</span><span class="ko-inline">추천 장소</span></a></li>
+      <li><a href="#faq">Q &amp; A</a></li>
+      <li><a href="#rsvp" class="nav-rsvp" onclick="handleRsvpClick(event)">RSVP</a></li>
     </ul>
     <div class="lang-toggle" onclick="toggleLang()">
       <button class="lang-btn active" id="btn-en">EN</button>
@@ -428,219 +244,509 @@
 </nav>
 
 <!-- HERO -->
+<!-- To add a background photo: add class="hero has-bg" and style="background-image:url('photos/hero-bg.jpg')" to the div below -->
 <div id="top" class="hero">
-  <p class="hero-eyebrow">
-    <span class="en-inline">We're getting married</span>
-    <span class="ko-inline">저희 결혼합니다</span>
-  </p>
+  <!-- Replace this div with: <img src="photos/hero-photo.jpg" alt="Andrew and Yegyu" class="hero-photo"> -->
+  <div class="hero-photo-placeholder">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+    <span>photos/hero-photo.jpg</span>
+  </div>
+  <p class="hero-eyebrow"><span class="en-inline">We're getting married</span><span class="ko-inline">저희 결혼합니다</span></p>
   <h1 class="hero-names">
     <span class="en-inline">Andrew<span class="ampersand">&amp;</span>Yegyu</span>
     <span class="ko-inline">앤드류<span class="ampersand">&amp;</span>예규</span>
   </h1>
-  <p class="hero-date">
-    <span class="en-inline">September 19, 2025</span>
-    <span class="ko-inline">2025년 9월 19일</span>
-  </p>
-  <p class="hero-location">
-    <span class="en-inline">Eun Deok Cultural Center &middot; Seoul, South Korea</span>
-    <span class="ko-inline">은덕문화원 &middot; 서울, 대한민국</span>
-  </p>
+  <p class="hero-date"><span class="en-inline">September 19, 2026</span><span class="ko-inline">2026년 9월 19일</span></p>
+  <p class="hero-location"><span class="en-inline">Eun Deok Cultural Center &middot; Seoul, South Korea</span><span class="ko-inline">은덕문화원 &middot; 서울, 대한민국</span></p>
   <div class="hero-divider"></div>
 </div>
 
 <!-- COUNTDOWN -->
-<div class="countdown-section">
-  <p class="countdown-label">
-    <span class="en-inline">Counting down</span>
-    <span class="ko-inline">결혼식까지</span>
-  </p>
+<div class="countdown-section" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+  <p class="countdown-label"><span class="en-inline">Counting down</span><span class="ko-inline">결혼식까지</span></p>
   <div class="countdown-grid">
-    <div class="countdown-unit">
-      <span class="countdown-number" id="cd-days">—</span>
-      <span class="countdown-unit-label"><span class="en-inline">Days</span><span class="ko-inline">일</span></span>
+    <div class="countdown-unit"><span class="countdown-number" id="cd-days">—</span><span class="countdown-unit-label"><span class="en-inline">Days</span><span class="ko-inline">일</span></span></div>
+    <div class="countdown-unit"><span class="countdown-number" id="cd-hours">—</span><span class="countdown-unit-label"><span class="en-inline">Hours</span><span class="ko-inline">시간</span></span></div>
+    <div class="countdown-unit"><span class="countdown-number" id="cd-mins">—</span><span class="countdown-unit-label"><span class="en-inline">Minutes</span><span class="ko-inline">분</span></span></div>
+    <div class="countdown-unit"><span class="countdown-number" id="cd-secs">—</span><span class="countdown-unit-label"><span class="en-inline">Seconds</span><span class="ko-inline">초</span></span></div>
+  </div>
+</div>
+
+<!-- RSVP -->
+<div class="full-section" id="rsvp" style="border-bottom:.5px solid var(--border)">
+  <div class="full-section-inner">
+    <p class="section-eyebrow"><span class="en-inline">Join us</span><span class="ko-inline">함께해 주세요</span></p>
+    <h2 class="section-title">RSVP</h2>
+    <div class="section-divider"></div>
+    <p style="font-size:1rem;color:#5A5750;max-width:500px;margin-bottom:2.5rem;line-height:1.8">
+      <span class="en-inline">Please let us know if you'll be joining us. Kindly respond by <strong style="white-space:nowrap">August 1, 2026</strong>.</span>
+      <span class="ko-inline"><strong>2026년 8월 1일</strong>까지 참석 여부를 알려주시면 감사하겠습니다.</span>
+    </p>
+    <!-- Replace this div with your Google Form <iframe> embed code -->
+    <div class="rsvp-embed-placeholder">
+      <p><strong><span class="en-inline">How to add your Google Form:</span><span class="ko-inline">Google 설문 추가 방법:</span></strong></p>
+      <p><span class="en-inline">1. Open your Google Form → click <strong>Send</strong></span><span class="ko-inline">1. Google 설문 열기 → <strong>보내기</strong> 클릭</span></p>
+      <p><span class="en-inline">2. Click the <strong>&lt; &gt;</strong> embed icon → copy the <code>&lt;iframe&gt;</code> code</span><span class="ko-inline">2. <strong>&lt; &gt;</strong> 아이콘 클릭 → <code>&lt;iframe&gt;</code> 코드 복사</span></p>
+      <p><span class="en-inline">3. Replace this entire div with that code</span><span class="ko-inline">3. 이 div를 코드로 교체</span></p>
     </div>
-    <div class="countdown-unit">
-      <span class="countdown-number" id="cd-hours">—</span>
-      <span class="countdown-unit-label"><span class="en-inline">Hours</span><span class="ko-inline">시간</span></span>
-    </div>
-    <div class="countdown-unit">
-      <span class="countdown-number" id="cd-mins">—</span>
-      <span class="countdown-unit-label"><span class="en-inline">Minutes</span><span class="ko-inline">분</span></span>
-    </div>
-    <div class="countdown-unit">
-      <span class="countdown-number" id="cd-secs">—</span>
-      <span class="countdown-unit-label"><span class="en-inline">Seconds</span><span class="ko-inline">초</span></span>
+
+    <div style="margin-top:2rem">
+      <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem"><span class="en-inline">Add to your calendar</span><span class="ko-inline">캘린더에 추가</span></p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T060000Z/20260919T140000Z&details=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea&location=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea" target="_blank" class="cal-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Google Calendar
+        </a>
+        <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260919T150000%0ADTEND:20260919T230000%0ASUMMARY:Andrew%20%26%20Yegyu%27s%20Wedding%0ALOCATION:Eun%20Deok%20Cultural%20Center%2C%20Seoul%2C%20South%20Korea%0AEND:VEVENT%0AEND:VCALENDAR" download="andrew-yegyu-wedding.ics" class="cal-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Apple / Outlook (.ics)
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- OUR STORY -->
-<section id="story">
+<section id="story" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
+  <div style="max-width:860px;margin:0 auto">
   <p class="section-eyebrow"><span class="en-inline">How it happened</span><span class="ko-inline">우리의 만남</span></p>
   <h2 class="section-title"><span class="en-inline">Our Story</span><span class="ko-inline">우리의 이야기</span></h2>
   <div class="section-divider"></div>
   <div class="story-text">
     <div class="en">
-      <p>Every great love story starts somewhere unexpected. Ours began with a moment neither of us planned — and somehow neither of us can imagine living without.</p>
-      <p>From that first meeting to late nights filled with laughter, long walks, and the quiet kind of happiness that only comes when you know you've found your person — we knew.</p>
-      <p>On September 19th, in the city of Seoul, we'll celebrate that knowing in front of everyone we love. We're so glad you'll be there.</p>
+      <p>It started with a birthday. On September 16, 2025, Yegyu was visiting New York City with her mom and aunt to celebrate — and somehow, in a city of eight million people, she crossed paths with Andrew.</p>
+      <p>That same evening became their first date at a wine bar in the city. The next day she joined him at a Mets game. That Friday she came to his best friend Mike's birthday party. And somehow, after all of that, neither of them wanted it to stop.</p>
+      <p>What began as an unexpected birthday encounter turned into something neither of them planned and both of them treasure. On September 19th, 2026 — in Seoul, the city Yegyu calls home — we'll celebrate that beginning together.</p>
       <p><em>— Andrew &amp; Yegyu</em></p>
     </div>
     <div class="ko">
-      <p>모든 아름다운 사랑 이야기는 예상치 못한 순간에 시작됩니다. 우리의 이야기도 그렇게 시작되었습니다 — 아무도 계획하지 않았던 그 순간부터, 서로 없는 삶은 상상할 수 없게 되었습니다.</p>
-      <p>처음 만난 날부터 웃음이 가득했던 밤들, 함께한 긴 산책, 그리고 진정한 내 사람을 찾았을 때만 느낄 수 있는 고요한 행복 — 우리는 알았습니다.</p>
-      <p>9월 19일, 서울에서 우리가 사랑하는 모든 분들 앞에서 그 확신을 축하하려 합니다. 함께해 주셔서 진심으로 감사합니다.</p>
+      <p>모든 것은 생일에서 시작되었습니다. 2025년 9월 16일, 예규는 생일을 맞아 엄마, 이모와 함께 뉴욕을 여행하고 있었습니다. 그리고 800만 명의 도시에서, 운명처럼 앤드류를 만났습니다.</p>
+      <p>그날 저녁 와인 바에서의 첫 데이트를 시작으로, 다음 날에는 메츠 야구 경기를 함께 관람했고, 그 주 금요일에는 앤드류의 절친한 친구 Mike의 생일 파티에도 함께했습니다. 그렇게 이어진 만남은 멈출 수가 없었습니다.</p>
+      <p>우연한 생일의 만남이 두 사람 모두 소중히 여기는 인연이 되었습니다. 2026년 9월 19일, 예규의 고향 서울에서 그 특별한 시작을 함께 축하합니다.</p>
       <p><em>— 앤드류 &amp; 예규</em></p>
     </div>
+  </div>
+
+  <!-- PHOTO CAROUSEL
+       To replace a placeholder with a real photo, swap the entire <div class="carousel-slide"> block with:
+       <div class="carousel-slide"><img src="photos/filename.jpg" alt="description"></div> -->
+  <div style="margin-top:3rem">
+    <div class="carousel" id="carousel">
+      <div class="carousel-slides" id="carouselSlides">
+        <div class="carousel-slide">
+          <svg class="carousel-placeholder-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="carousel-placeholder-text">The day we met — photos/met-sept-16.jpg</span>
+        </div>
+        <div class="carousel-slide">
+          <svg class="carousel-placeholder-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="carousel-placeholder-text">First date — wine bar — photos/first-date.jpg</span>
+        </div>
+        <div class="carousel-slide">
+          <svg class="carousel-placeholder-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="carousel-placeholder-text">Second date — Mets game — photos/mets-game.jpg</span>
+        </div>
+        <div class="carousel-slide">
+          <svg class="carousel-placeholder-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="carousel-placeholder-text">Mike's birthday party — photos/mikes-bday.jpg</span>
+        </div>
+        <div class="carousel-slide">
+          <svg class="carousel-placeholder-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="carousel-placeholder-text">photos/photo-5.jpg</span>
+        </div>
+        <div class="carousel-slide">
+          <svg class="carousel-placeholder-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="carousel-placeholder-text">photos/photo-6.jpg</span>
+        </div>
+      </div>
+      <button class="carousel-btn carousel-prev" onclick="carouselMove(-1)">&#8592;</button>
+      <button class="carousel-btn carousel-next" onclick="carouselMove(1)">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots">
+      <div class="carousel-dot active" onclick="carouselGoTo(0)"></div>
+      <div class="carousel-dot" onclick="carouselGoTo(1)"></div>
+      <div class="carousel-dot" onclick="carouselGoTo(2)"></div>
+      <div class="carousel-dot" onclick="carouselGoTo(3)"></div>
+      <div class="carousel-dot" onclick="carouselGoTo(4)"></div>
+      <div class="carousel-dot" onclick="carouselGoTo(5)"></div>
+    </div>
+  </div>
   </div>
 </section>
 
 <!-- SCHEDULE -->
-<div style="background: var(--cream); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); padding: 6rem 2rem;">
-  <div style="max-width: 860px; margin: 0 auto;" id="schedule">
-    <p class="section-eyebrow"><span class="en-inline">September 19, 2025</span><span class="ko-inline">2025년 9월 19일</span></p>
+<div class="full-section" style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+  <div class="full-section-inner" id="schedule">
+    <p class="section-eyebrow"><span class="en-inline">September 19, 2026</span><span class="ko-inline">2026년 9월 19일</span></p>
     <h2 class="section-title"><span class="en-inline">Day of Schedule</span><span class="ko-inline">당일 일정</span></h2>
     <div class="section-divider"></div>
     <ul class="schedule-list">
       <li class="schedule-item">
         <span class="schedule-time"><span class="en-inline">3:00 pm</span><span class="ko-inline">오후 3시</span></span>
-        <div>
-          <p class="schedule-event"><span class="en-inline">Guest Arrival &amp; Seating</span><span class="ko-inline">하객 도착 및 착석</span></p>
-          <p class="schedule-detail"><span class="en-inline">Eun Deok Cultural Center, Seoul</span><span class="ko-inline">은덕문화원, 서울</span></p>
-        </div>
+        <div><p class="schedule-event"><span class="en-inline">Guest Arrival &amp; Seating</span><span class="ko-inline">하객 도착 및 착석</span></p><p class="schedule-detail"><span class="en-inline">Eun Deok Cultural Center, Seoul</span><span class="ko-inline">은덕문화원, 서울</span></p></div>
       </li>
       <li class="schedule-item">
         <span class="schedule-time"><span class="en-inline">3:30 pm</span><span class="ko-inline">오후 3시 30분</span></span>
-        <div>
-          <p class="schedule-event"><span class="en-inline">Ceremony</span><span class="ko-inline">결혼식</span></p>
-          <p class="schedule-detail"><span class="en-inline">Main hall — please be seated by 3:20 pm</span><span class="ko-inline">메인 홀 — 3시 20분까지 착석해 주세요</span></p>
-        </div>
+        <div><p class="schedule-event"><span class="en-inline">Ceremony</span><span class="ko-inline">결혼식</span></p><p class="schedule-detail"><span class="en-inline">Main hall — please be seated by 3:20 pm</span><span class="ko-inline">메인 홀 — 3시 20분까지 착석해 주세요</span></p></div>
       </li>
       <li class="schedule-item">
         <span class="schedule-time"><span class="en-inline">4:30 pm</span><span class="ko-inline">오후 4시 30분</span></span>
-        <div>
-          <p class="schedule-event"><span class="en-inline">Cocktail Hour</span><span class="ko-inline">칵테일 시간</span></p>
-          <p class="schedule-detail"><span class="en-inline">Garden terrace — drinks &amp; canapés</span><span class="ko-inline">가든 테라스 — 음료 및 카나페</span></p>
-        </div>
+        <div><p class="schedule-event"><span class="en-inline">Cocktail Hour</span><span class="ko-inline">칵테일 시간</span></p><p class="schedule-detail"><span class="en-inline">Garden terrace — drinks &amp; canapés</span><span class="ko-inline">가든 테라스 — 음료 및 카나페</span></p></div>
       </li>
       <li class="schedule-item">
         <span class="schedule-time"><span class="en-inline">6:00 pm</span><span class="ko-inline">오후 6시</span></span>
-        <div>
-          <p class="schedule-event"><span class="en-inline">Dinner &amp; Celebrations</span><span class="ko-inline">피로연</span></p>
-          <p class="schedule-detail"><span class="en-inline">Banquet hall — dinner, toasts &amp; dancing</span><span class="ko-inline">연회장 — 만찬, 축사 및 댄스</span></p>
-        </div>
+        <div><p class="schedule-event"><span class="en-inline">Dinner &amp; Celebrations</span><span class="ko-inline">피로연</span></p><p class="schedule-detail"><span class="en-inline">Banquet hall — dinner, toasts &amp; dancing</span><span class="ko-inline">연회장 — 만찬, 축사 및 댄스</span></p></div>
       </li>
       <li class="schedule-item">
         <span class="schedule-time"><span class="en-inline">11:00 pm</span><span class="ko-inline">오후 11시</span></span>
-        <div>
-          <p class="schedule-event"><span class="en-inline">Farewell</span><span class="ko-inline">마무리</span></p>
-          <p class="schedule-detail"><span class="en-inline">Thank you for celebrating with us</span><span class="ko-inline">함께해 주셔서 감사합니다</span></p>
-        </div>
+        <div><p class="schedule-event"><span class="en-inline">Farewell</span><span class="ko-inline">마무리</span></p><p class="schedule-detail"><span class="en-inline">Thank you for celebrating with us</span><span class="ko-inline">함께해 주셔서 감사합니다</span></p></div>
       </li>
     </ul>
   </div>
 </div>
 
-<!-- TRAVEL -->
-<section id="travel">
-  <p class="section-eyebrow"><span class="en-inline">Getting there</span><span class="ko-inline">오시는 길</span></p>
-  <h2 class="section-title"><span class="en-inline">Travel &amp; Accommodations</span><span class="ko-inline">여행 및 숙박 안내</span></h2>
+<!-- VENUE & DIRECTIONS (cream) -->
+<section id="venue" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
+  <div style="max-width:860px;margin:0 auto">
+  <p class="section-eyebrow"><span class="en-inline">The venue</span><span class="ko-inline">웨딩 장소</span></p>
+  <h2 class="section-title"><span class="en-inline">Venue &amp; Directions</span><span class="ko-inline">장소 및 교통 안내</span></h2>
   <div class="section-divider"></div>
-  <div class="travel-grid">
-    <div class="travel-card">
-      <p class="travel-card-label"><span class="en-inline">Venue</span><span class="ko-inline">장소</span></p>
-      <p class="travel-card-title"><span class="en-inline">Eun Deok Cultural Center</span><span class="ko-inline">은덕문화원</span></p>
-      <p class="travel-card-body"><span class="en-inline">Seoul, South Korea. Full address and directions to follow closer to the date.</span><span class="ko-inline">서울, 대한민국. 상세 주소 및 약도는 추후 안내드리겠습니다.</span></p>
-      <a href="https://maps.google.com/?q=Eun+Deok+Cultural+Center+Seoul" target="_blank"><span class="en-inline">Open in Maps →</span><span class="ko-inline">지도에서 보기 →</span></a>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;align-items:start">
+    <!-- Venue photo — replace this div with: <img src="photos/venue.jpg" alt="Eun Deok Cultural Center" style="width:100%;height:300px;object-fit:cover;display:block;border-radius:4px"> -->
+    <div style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
+      <div style="width:100%;height:300px;background:var(--warm-white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">photos/venue.jpg</span>
+      </div>
     </div>
-    <div class="travel-card">
-      <p class="travel-card-label"><span class="en-inline">Flying in</span><span class="ko-inline">항공편</span></p>
-      <p class="travel-card-title"><span class="en-inline">Incheon International Airport</span><span class="ko-inline">인천국제공항</span></p>
-      <p class="travel-card-body"><span class="en-inline">ICN is Seoul's main international hub with direct flights from major cities worldwide. Allow about 60–90 min to reach central Seoul.</span><span class="ko-inline">인천국제공항은 세계 주요 도시에서 직항편이 운항됩니다. 서울 시내까지는 약 60~90분 소요됩니다.</span></p>
+    <div class="venue-card">
+      <div class="venue-detail">
+        <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div class="venue-detail-text">
+          <strong><span class="en-inline">Eun Deok Cultural Center</span><span class="ko-inline">은덕문화원</span></strong><br>
+          <span class="en-inline">Jongno District, Seoul, South Korea<br><span style="color:var(--muted);font-size:.875rem">Full address to follow closer to the date</span></span>
+          <span class="ko-inline">서울특별시 종로구<br><span style="color:var(--muted);font-size:.875rem">상세 주소는 추후 안내드리겠습니다</span></span>
+        </div>
+      </div>
+      <div class="venue-detail">
+        <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="venue-detail-text">
+          <span class="en-inline"><strong>Ceremony</strong> at 3:30 pm · Doors open at 3:00 pm</span>
+          <span class="ko-inline"><strong>결혼식</strong> 오후 3시 30분 · 입장 오후 3시</span>
+        </div>
+      </div>
+      <div class="venue-detail">
+        <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div class="venue-detail-text">
+          <span class="en-inline"><strong>By subway</strong> — Anguk Station (Line 3), 10 min walk</span>
+          <span class="ko-inline"><strong>지하철</strong> — 3호선 안국역에서 도보 10분</span>
+        </div>
+      </div>
+      <div class="venue-detail">
+        <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>
+        <div class="venue-detail-text">
+          <span class="en-inline"><strong>By taxi</strong> — Search "은덕문화원" on Kakao Taxi. Parking very limited.</span>
+          <span class="ko-inline"><strong>택시</strong> — 카카오택시에서 "은덕문화원" 검색. 주차 매우 제한적.</span>
+        </div>
+      </div>
+      <div>
+        <a class="directions-btn" href="https://maps.google.com/?q=은덕문화원+서울+종로구" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span class="en-inline">Get Directions</span><span class="ko-inline">길 찾기</span>
+        </a>
+      </div>
     </div>
-    <div class="travel-card">
-      <p class="travel-card-label"><span class="en-inline">Where to stay</span><span class="ko-inline">숙박</span></p>
-      <p class="travel-card-title"><span class="en-inline">Hotel Recommendations</span><span class="ko-inline">추천 호텔</span></p>
-      <p class="travel-card-body"><span class="en-inline">We'll share a curated list of nearby hotels at various price points. Check back soon.</span><span class="ko-inline">다양한 가격대의 인근 호텔 목록을 곧 안내드리겠습니다. 다시 방문해 주세요.</span></p>
-    </div>
-    <div class="travel-card">
-      <p class="travel-card-label"><span class="en-inline">Getting around</span><span class="ko-inline">교통편</span></p>
-      <p class="travel-card-title"><span class="en-inline">Seoul Transit</span><span class="ko-inline">서울 교통</span></p>
-      <p class="travel-card-body"><span class="en-inline">Seoul's subway is excellent and easy to navigate. Kakao Taxi and regular taxis are affordable and widely available.</span><span class="ko-inline">서울 지하철은 편리하고 이용하기 쉽습니다. 카카오택시와 일반 택시도 합리적인 가격으로 이용 가능합니다.</span></p>
-    </div>
+  </div>
   </div>
 </section>
 
-<!-- REGISTRY -->
-<div style="background: var(--cream); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); padding: 6rem 2rem;">
-  <div style="max-width: 860px; margin: 0 auto;" id="registry">
-    <p class="section-eyebrow"><span class="en-inline">Gifts</span><span class="ko-inline">선물</span></p>
-    <h2 class="section-title"><span class="en-inline">Registry</span><span class="ko-inline">선물 안내</span></h2>
-    <div class="section-divider"></div>
-    <p class="registry-intro">
-      <span class="en-inline">Your presence at our wedding is the greatest gift. If you'd like to give something, we've registered at a few places below.</span>
-      <span class="ko-inline">여러분의 참석이 저희에게 가장 큰 선물입니다. 선물을 주시고 싶으신 분들을 위해 아래에 등록해 두었습니다.</span>
-    </p>
-    <div class="registry-links">
-      <a href="#" class="registry-btn"><span class="en-inline">Registry One</span><span class="ko-inline">선물 목록 1</span></a>
-      <a href="#" class="registry-btn"><span class="en-inline">Registry Two</span><span class="ko-inline">선물 목록 2</span></a>
+<!-- WHERE TO STAY (white) -->
+<section id="travel" style="max-width:100%;padding:6rem 2rem;border-bottom:.5px solid var(--border)">
+  <div style="max-width:860px;margin:0 auto">
+  <p class="section-eyebrow"><span class="en-inline">Getting there</span><span class="ko-inline">오시는 길</span></p>
+  <h2 class="section-title"><span class="en-inline">Where to Stay</span><span class="ko-inline">숙박 추천</span></h2>
+  <div class="section-divider"></div>
+  <p class="stay-intro" style="margin-bottom:2rem">
+    <span class="en-inline">We recommend staying in one of two neighborhoods depending on the vibe you're after.</span>
+    <span class="ko-inline">여행 스타일에 따라 두 지역 중 하나를 추천드립니다.</span>
+  </p>
+  <div class="stay-zones">
+    <div class="stay-zone">
+      <!-- Replace with: <img src="photos/myeongdong-area.jpg" alt="Myeongdong" style="width:100%;height:220px;object-fit:cover;display:block"> -->
+      <div class="stay-zone-photo-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span>photos/myeongdong-area.jpg</span>
+      </div>
+      <div class="stay-zone-body">
+        <p class="stay-zone-vibe"><span class="en-inline">Lively &amp; Central</span><span class="ko-inline">활기차고 편리한</span></p>
+        <p class="stay-zone-name"><span class="en-inline">Myeongdong Area</span><span class="ko-inline">명동 지역</span></p>
+        <p class="stay-zone-desc"><span class="en-inline">Seoul's most vibrant neighborhood — street food, K-beauty shops, and restaurants open late. About 15–20 min from the venue by subway or taxi.</span><span class="ko-inline">서울에서 가장 활기찬 지역. 길거리 음식, K-뷰티 쇼핑. 웨딩 장소까지 약 15~20분.</span></p>
+      </div>
+      <div class="hotel-list">
+        <a class="hotel-item" href="https://maps.google.com/?q=The+Grand+Hotel+Myeongdong+Seoul" target="_blank">
+          <div class="hotel-info"><p class="hotel-name">The Grand Hotel Myeongdong</p><p class="hotel-detail"><span class="en-inline">Reliable mid-range hotel in the heart of Myeongdong. English-speaking staff.</span><span class="ko-inline">명동 중심의 합리적 가격 호텔. 영어 응대 가능.</span></p></div>
+          <span class="hotel-map"><span class="en-inline">Map →</span><span class="ko-inline">지도 →</span></span>
+        </a>
+        <a class="hotel-item" href="https://maps.google.com/?q=Sotetsu+Hotels+Splaisir+Seoul+Myeongdong" target="_blank">
+          <div class="hotel-info"><p class="hotel-name">Sotetsu Hotels The Splaisir</p><p class="hotel-detail"><span class="en-inline">Modern, spacious rooms. Walking distance to City Hall station.</span><span class="ko-inline">넓고 현대적인 객실. 시청역 도보 거리.</span></p></div>
+          <span class="hotel-map"><span class="en-inline">Map →</span><span class="ko-inline">지도 →</span></span>
+        </a>
+      </div>
     </div>
-    <p style="font-size: 0.8rem; color: var(--muted); margin-top: 1.5rem;"><em><span class="en-inline">Replace the buttons above with your actual registry URLs.</span><span class="ko-inline">위 버튼을 실제 선물 등록 링크로 교체해 주세요.</span></em></p>
+    <div class="stay-zone">
+      <!-- Replace with: <img src="photos/jongno-area.jpg" alt="Jongno" style="width:100%;height:220px;object-fit:cover;display:block"> -->
+      <div class="stay-zone-photo-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span>photos/jongno-area.jpg</span>
+      </div>
+      <div class="stay-zone-body">
+        <p class="stay-zone-vibe"><span class="en-inline">Calm &amp; Cultural</span><span class="ko-inline">조용하고 문화적인</span></p>
+        <p class="stay-zone-name"><span class="en-inline">Near the Venue (Jongno)</span><span class="ko-inline">웨딩 장소 근처 (종로)</span></p>
+        <p class="stay-zone-desc"><span class="en-inline">A quieter, historic neighborhood with palaces and hanok villages. Walking distance to the venue.</span><span class="ko-inline">고궁, 한옥마을의 조용한 역사 지구. 웨딩 장소까지 도보 가능.</span></p>
+      </div>
+      <div class="hotel-list">
+        <a class="hotel-item" href="https://maps.google.com/?q=Rakkojae+Seoul+Main+Hanok+Gahoe-dong" target="_blank">
+          <div class="hotel-info"><p class="hotel-name">Rakkojae Seoul Main Hanok</p><p class="hotel-detail"><span class="en-inline">140-year-old hanok guesthouse in Bukchon. Traditional breakfast included. Truly unforgettable.</span><span class="ko-inline">북촌 140년 역사 한옥 게스트하우스. 전통 한식 조식 포함.</span></p></div>
+          <span class="hotel-map"><span class="en-inline">Map →</span><span class="ko-inline">지도 →</span></span>
+        </a>
+        <a class="hotel-item" href="https://maps.google.com/?q=Hanok+Hotel+DAAM+Jongno+Seoul" target="_blank">
+          <div class="hotel-info"><p class="hotel-name">Hanok Hotel DAAM</p><p class="hotel-detail"><span class="en-inline">Charming hanok hotel near Ikseon-dong and the palaces. Quiet, local. Breakfast included.</span><span class="ko-inline">익선동과 고궁 근처 한옥 호텔. 조식 포함.</span></p></div>
+          <span class="hotel-map"><span class="en-inline">Map →</span><span class="ko-inline">지도 →</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- FAVORITES (cream) -->
+<div style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)" class="full-section" id="favorites">
+  <div class="full-section-inner">
+  <div class="full-section-inner">
+    <p class="section-eyebrow"><span class="en-inline">Recommended by us</span><span class="ko-inline">우리의 추천</span></p>
+    <h2 class="section-title"><span class="en-inline">Yegyu &amp; Andrew's Favorite Places</span><span class="ko-inline">예규 &amp; 앤드류가 추천하는 장소</span></h2>
+    <div class="section-divider"></div>
+    <p style="font-size:1rem;color:#5A5750;max-width:560px;margin-bottom:2.5rem;line-height:1.8">
+      <span class="en-inline">Seoul is endlessly wonderful. We've put together a Google Maps list of our favorite spots — restaurants, cafés, temples, hikes, and more. Open it on your phone and navigate directly.</span>
+      <span class="ko-inline">서울은 매력이 넘치는 도시입니다. 저희가 좋아하는 식당, 카페, 사원, 하이킹 코스를 Google 지도 리스트로 정리했습니다.</span>
+    </p>
+    <!-- Replace YOUR_GOOGLE_MAPS_LIST_URL with your actual Google Maps list link -->
+    <a class="map-list-btn" href="YOUR_GOOGLE_MAPS_LIST_URL" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <span class="en-inline">Open Our Seoul Map</span><span class="ko-inline">서울 추천 지도 열기</span>
+    </a>
+    <!-- Replace this entire div with your Google Maps <iframe> embed code -->
+    <div class="map-embed-placeholder">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.2;margin-bottom:.75rem"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <p class="en">Your Google Maps list embed will appear here.<br><span style="font-size:.8rem">Open your list → Share → Embed map → paste the &lt;iframe&gt; here replacing this div.</span></p>
+      <p class="ko">Google 지도 리스트 임베드가 여기에 표시됩니다.</p>
+    </div>
   </div>
 </div>
 
-<!-- RSVP -->
-<div class="rsvp-section" id="rsvp">
-  <div class="rsvp-inner">
-    <p class="section-eyebrow"><span class="en-inline">Join us</span><span class="ko-inline">함께해 주세요</span></p>
-    <h2 class="section-title">RSVP</h2>
-    <div class="section-divider"></div>
-    <p style="font-size: 1rem; color: #5A5750; max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8;">
-      <span class="en-inline">Please let us know if you'll be joining us. Kindly respond by <strong>August 1, 2025</strong>.</span>
-      <span class="ko-inline"><strong>2025년 8월 1일</strong>까지 참석 여부를 알려주시면 감사하겠습니다.</span>
-    </p>
-    <div class="rsvp-embed-placeholder">
-      <p><strong><span class="en-inline">How to add your Google Form here:</span><span class="ko-inline">Google 설문 추가 방법:</span></strong></p>
-      <p><span class="en-inline">1. Open your Google Form and click <strong>Send</strong></span><span class="ko-inline">1. Google 설문을 열고 <strong>보내기</strong>를 클릭</span></p>
-      <p><span class="en-inline">2. Click the <strong>&lt; &gt;</strong> embed icon</span><span class="ko-inline">2. <strong>&lt; &gt;</strong> 삽입 아이콘 클릭</span></p>
-      <p><span class="en-inline">3. Copy the <code>&lt;iframe&gt;</code> code and paste it here</span><span class="ko-inline">3. <code>&lt;iframe&gt;</code> 코드를 복사하여 여기에 붙여넣기</span></p>
-    </div>
-  </div>
-</div>
+<!-- Q & A (white) -->
+<section id="faq" style="max-width:100%;padding:6rem 2rem;border-bottom:.5px solid var(--border)">
+  <div style="max-width:860px;margin:0 auto">
+  <p class="section-eyebrow"><span class="en-inline">Good to know</span><span class="ko-inline">알아두면 좋은 것들</span></p>
+  <h2 class="section-title">Q &amp; A</h2>
+  <div class="section-divider"></div>
+  <div class="faq-list">
 
-<!-- FOOTER -->
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">Do I need a visa to visit South Korea?</span><span class="ko-inline">한국 방문 시 비자가 필요한가요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">US citizens can visit South Korea visa-free for up to 90 days for tourism. Your passport just needs to be valid for the duration of your stay — no advance application required. You'll receive an entry stamp on arrival at Incheon.</p>
+        <p class="ko">미국 시민권자는 관광 목적으로 최대 90일간 무비자 입국이 가능합니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">How do I get from Incheon Airport to Seoul?</span><span class="ko-inline">공항에서 서울 시내로 어떻게 가나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en"><strong>AREX Express Train</strong> — the easiest option. About 43 minutes to Seoul Station for around $10 USD. Follow "Airport Railroad" signs right after customs. Highly recommended.</p>
+        <p class="en"><strong>Taxi</strong> — great if you have a lot of luggage. Around $50–70 USD and 60–90 min depending on traffic. Use the official taxi stand outside arrivals — avoid anyone soliciting rides inside the terminal.</p>
+        <p class="ko">공항철도(AREX)로 서울역까지 약 43분, 택시로 약 60~90분 소요됩니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">Should I get an eSIM before I travel?</span><span class="ko-inline">eSIM을 미리 준비해야 하나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en"><strong>Yes — strongly recommended.</strong> Don't rely on your US carrier plan. An eSIM is the easiest solution — buy and activate it before you board and you'll have data the moment you land. Popular options: <strong>Airalo</strong> or <strong>Maya</strong> apps. Search "Korea data eSIM" — most 7–10 day plans are $10–20 USD. Most iPhones from XR onward support eSIM.</p>
+        <p class="en">Prefer a physical SIM? Pick one up at KT, SK Telecom, or LG U+ kiosks right in the Incheon arrivals hall.</p>
+        <p class="ko">Airalo나 Maya 앱에서 eSIM을 미리 구매하거나 공항 도착 후 통신사 부스에서 SIM 카드를 구입하세요.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">How do I get a transit card for the subway and bus?</span><span class="ko-inline">교통카드는 어떻게 구입하나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">Get a <strong>T-Money card</strong> — it works on all subways, city buses, and even some taxis. Pick one up at any convenience store (GS25, CU, 7-Eleven, Ministop) or at subway station vending machines. The card costs about 3,000 KRW (~$2 USD). Load it with 30,000–50,000 KRW to start and top up at any convenience store counter.</p>
+        <p class="en">Shortcut: Many iPhones and Android phones can add a virtual T-Money card to Apple Pay or Google Pay — check your wallet settings after you land.</p>
+        <p class="ko">T-Money 카드는 편의점(GS25, CU, 세븐일레븐 등)이나 지하철역에서 구입 가능합니다. 약 3,000원이며 충전식입니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">How do the subway and bus work? (Tap in, tap out)</span><span class="ko-inline">지하철과 버스는 어떻게 이용하나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">Seoul's subway is world-class, clean, air-conditioned, and runs until about midnight. <strong>Tap in</strong> by touching your T-Money card to the yellow reader at the turnstile. <strong>Tap out</strong> when you exit — this is important, as skipping it charges you the maximum fare. Buses work the same way: tap on, tap off. Transfer between subway and bus within 30 minutes and the second ride is free or discounted.</p>
+        <p class="en">All signs and announcements are in English too. Use <strong>Google Maps</strong> or <strong>Naver Maps</strong> for directions — both work great in Seoul.</p>
+        <p class="ko">승하차 시 T-Money 카드를 단말기에 태그하세요. 30분 이내 환승 시 추가 요금 없음.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">How do I get a taxi? Is Uber available?</span><span class="ko-inline">택시는 어떻게 이용하나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">Uber is not widely used in Korea. Download <strong>Kakao Taxi</strong> instead — it's the Korean equivalent, works great, is in English, and accepts credit cards. Download it before you arrive. You can also hail street taxis — just show the driver your destination in Korean text (copy it from Google Maps). Fares are very reasonable: a 20-minute cross-city ride is roughly $8–12 USD.</p>
+        <p class="ko">카카오택시 앱을 미리 설치하세요. 일반 택시도 많으며 카드와 현금 모두 사용 가능합니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">What currency do I need? Can I use my US credit card?</span><span class="ko-inline">화폐와 카드 사용은 어떻게 되나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">Currency is <strong>Korean Won (KRW)</strong>. Roughly 1,300–1,400 KRW = $1 USD, so 10,000 KRW ≈ $7–8. Visa and Mastercard are accepted almost everywhere. Carry some cash for street food stalls.</p>
+        <p class="en"><strong>Best way to get cash:</strong> Use a no-foreign-fee debit card (Charles Schwab, Wise) at a local ATM. The <strong>Wowpass card</strong> is also popular — load it with KRW at the airport and use it like a debit card everywhere.</p>
+        <p class="ko">한국 화폐는 원(KRW)입니다. 신용카드는 대부분의 곳에서 사용 가능합니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">What is the dress code?</span><span class="ko-inline">드레스 코드가 있나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">Formal or semi-formal attire. Cocktail dresses, suits, or traditional Korean hanbok are all warmly welcome. Please avoid wearing white or ivory out of respect for the bride.</p>
+        <p class="ko">포멀 또는 세미포멀 복장. 칵테일 드레스, 정장, 또는 한복 모두 환영합니다. 신부를 위해 흰색이나 아이보리는 피해주세요.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">Can I bring a plus one? Are children welcome?</span><span class="ko-inline">동반자나 어린이를 데려올 수 있나요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">Due to venue capacity, please only bring guests named on your invitation — indicate your plus one in your RSVP if included. Children are welcome at the ceremony. For the evening reception, we recommend arranging childcare if possible so the adults can fully enjoy the celebration.</p>
+        <p class="ko">초대장에 명시된 분들만 참석 가능합니다. 어린이는 결혼식에 환영하며, 저녁 피로연은 보육 서비스 이용을 권장합니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">What should the weather be like in September?</span><span class="ko-inline">9월 날씨는 어떤가요?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">September is one of the best times to visit Seoul. Expect warm, pleasant days around 22–26°C (72–79°F) with cool evenings. The summer humidity has passed and autumn colors are just beginning. Light layers are ideal — a cardigan or light jacket for the evening is recommended. Rain is possible but not common; a small umbrella or packable rain jacket is worth bringing.</p>
+        <p class="ko">9월은 서울을 방문하기 가장 좋은 시기 중 하나입니다. 낮에는 22~26°C의 따뜻하고 쾌적한 날씨, 저녁에는 선선합니다. 가벼운 겉옷을 준비하시고 우산도 챙기시면 좋습니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="en-inline">Will there be vegetarian options? Who do I contact with questions?</span><span class="ko-inline">채식 메뉴와 문의 방법은?</span></span>
+        <span class="faq-arrow">↓</span>
+      </button>
+      <div class="faq-a">
+        <p class="en">Yes — please note any dietary restrictions in your RSVP and we'll do our best to accommodate you. Korean cuisine is wonderfully varied and there will be something for everyone.</p>
+        <p class="en">For any other questions, feel free to reach out to us directly — contact details coming soon.</p>
+        <p class="ko">RSVP에 식이 제한 사항을 기재해 주세요. 다른 문의 사항은 직접 연락주시면 됩니다 — 연락처 추후 안내.</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+
 <footer>
   <p class="footer-names"><span class="en-inline">Andrew &amp; Yegyu</span><span class="ko-inline">앤드류 &amp; 예규</span></p>
-  <p class="footer-date"><span class="en-inline">September 19, 2025 &middot; Seoul, South Korea</span><span class="ko-inline">2025년 9월 19일 &middot; 서울, 대한민국</span></p>
+  <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, South Korea</span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
 </footer>
 
-<script>
-  const weddingDate = new Date('2025-09-19T15:00:00+09:00');
+<!-- FLOATING RSVP PILL (tablet & desktop) -->
+<a class="rsvp-fab" href="#rsvp" id="rsvpFab" onclick="handleRsvpClick(event)">
+  <span class="rsvp-fab-dot"></span>
+  RSVP
+</a>
 
+<!-- RSVP DRAWER (mobile) -->
+<div class="rsvp-drawer open" id="rsvpDrawer">
+  <div class="rsvp-drawer-handle" onclick="toggleDrawer()">
+    <div class="rsvp-drawer-handle-left">
+      <span class="rsvp-drawer-dot"></span>
+      <span><span class="en-inline">RSVP — Respond by August 1, 2026</span><span class="ko-inline">RSVP — 2026년 8월 1일까지</span></span>
+    </div>
+    <span class="rsvp-drawer-chevron">&#8963;</span>
+  </div>
+  <div class="rsvp-drawer-body">
+    <div class="rsvp-drawer-inner">
+      <p style="font-size:1rem;color:#2E2B27;margin-bottom:1.75rem;line-height:1.8">
+        <span class="en-inline">Please let us know if you'll be joining us. Kindly respond by <strong style="white-space:nowrap">August 1, 2026</strong>.</span>
+        <span class="ko-inline"><strong>2026년 8월 1일</strong>까지 참석 여부를 알려주시면 감사하겠습니다.</span>
+      </p>
+      <!-- Replace this div with your Google Form <iframe> embed code -->
+      <div class="rsvp-embed-placeholder" style="max-width:100%">
+        <p><strong><span class="en-inline">How to add your Google Form:</span><span class="ko-inline">Google 설문 추가 방법:</span></strong></p>
+        <p><span class="en-inline">1. Open your Google Form → click <strong>Send</strong></span><span class="ko-inline">1. Google 설문 열기 → <strong>보내기</strong> 클릭</span></p>
+        <p><span class="en-inline">2. Click the <strong>&lt; &gt;</strong> embed icon → copy the <code>&lt;iframe&gt;</code> code</span><span class="ko-inline">2. <strong>&lt; &gt;</strong> 아이콘 클릭 → <code>&lt;iframe&gt;</code> 코드 복사</span></p>
+        <p><span class="en-inline">3. Replace this entire div with that code</span><span class="ko-inline">3. 이 div를 코드로 교체</span></p>
+      </div>
+      <div style="margin-top:1.75rem">
+        <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem"><span class="en-inline">Add to your calendar</span><span class="ko-inline">캘린더에 추가</span></p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T060000Z/20260919T140000Z&details=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea&location=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea" target="_blank" class="cal-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Google Calendar
+          </a>
+          <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260919T150000%0ADTEND:20260919T230000%0ASUMMARY:Andrew%20%26%20Yegyu%27s%20Wedding%0ALOCATION:Eun%20Deok%20Cultural%20Center%2C%20Seoul%2C%20South%20Korea%0AEND:VEVENT%0AEND:VCALENDAR" download="andrew-yegyu-wedding.ics" class="cal-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Apple / Outlook (.ics)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* COUNTDOWN */
+  const weddingDate = new Date('2026-09-19T15:00:00+09:00');
   function updateCountdown() {
     const diff = weddingDate - new Date();
-    if (diff <= 0) {
-      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '0');
-      return;
-    }
-    document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
+    if (diff <= 0) { ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '0'); return; }
+    document.getElementById('cd-days').textContent = Math.floor(diff / 86400000);
     document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
-    document.getElementById('cd-mins').textContent  = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
-    document.getElementById('cd-secs').textContent  = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
   }
+  updateCountdown(); setInterval(updateCountdown, 1000);
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  // Set language from URL parameter (?lang=ko or ?lang=en)
-  const urlLang = new URLSearchParams(window.location.search).get('lang');
-  if (urlLang === 'ko') {
-    document.body.classList.replace('lang-en', 'lang-ko');
-    document.getElementById('btn-en').classList.remove('active');
-    document.getElementById('btn-ko').classList.add('active');
-    document.documentElement.lang = 'ko';
-  }
-
+  /* LANGUAGE TOGGLE */
   function toggleLang() {
     const body = document.body;
     const isEn = body.classList.contains('lang-en');
@@ -649,6 +755,65 @@
     document.getElementById('btn-en').classList.toggle('active', !isEn);
     document.getElementById('btn-ko').classList.toggle('active', isEn);
     document.documentElement.lang = isEn ? 'ko' : 'en';
+  }
+
+  /* CAROUSEL */
+  let carouselIndex = 0;
+  const slides = document.getElementById('carouselSlides');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const total = 6;
+
+  function carouselUpdate() {
+    slides.style.transform = `translateX(-${carouselIndex * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
+  }
+  function carouselMove(dir) {
+    carouselIndex = (carouselIndex + dir + total) % total;
+    carouselUpdate();
+  }
+  function carouselGoTo(i) {
+    carouselIndex = i;
+    carouselUpdate();
+  }
+
+  /* RSVP — drawer on mobile, scroll + floating pill on desktop */
+  function isMobile() { return window.innerWidth <= 768; }
+
+  function handleRsvpClick(e) {
+    if (isMobile()) {
+      e.preventDefault();
+      openDrawer();
+    }
+    // on desktop: let the href="#rsvp" scroll naturally
+  }
+
+  function toggleDrawer() {
+    document.getElementById('rsvpDrawer').classList.toggle('open');
+  }
+  function openDrawer() {
+    document.getElementById('rsvpDrawer').classList.add('open');
+  }
+
+  // Auto-open drawer on mobile only after page load
+  setTimeout(() => {
+    if (isMobile()) openDrawer();
+  }, 1200);
+
+  // Hide floating pill when RSVP section is visible on desktop
+  const rsvpSection = document.getElementById('rsvp');
+  const rsvpFab = document.getElementById('rsvpFab');
+  if (rsvpFab && rsvpSection) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        rsvpFab.classList.toggle('hidden', e.isIntersecting);
+      });
+    }, { threshold: 0.15 });
+    observer.observe(rsvpSection);
+  }
+
+  /* FAQ */
+  function toggleFaq(btn) {
+    btn.closest('.faq-item').classList.toggle('open');
   }
 </script>
 </body>
