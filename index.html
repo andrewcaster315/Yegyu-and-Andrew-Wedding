@@ -3,7 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andrew & Yegyu — September 19, 2026</title>
+<title>A&Y 2026</title>
+
+<!-- Tell search engines not to index, follow links, or show snippets/cached versions -->
+<meta name="robots" content="noindex, nofollow, nosnippet, noarchive, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, nosnippet, noarchive, noimageindex">
+
+<!-- Prevent social media platforms from generating previews/cards -->
+<meta name="twitter:card" content="none">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+
+<!-- Prevent browsers from sending the page URL as a referrer -->
+<meta name="referrer" content="no-referrer">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -187,6 +200,13 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .nav-rsvp{background:var(--cta)!important;color:var(--cta-text)!important;padding:.35rem 1rem!important;border-radius:20px!important;letter-spacing:.08em!important}
 .nav-rsvp:hover{opacity:.85;color:var(--cta-text)!important}
 
+
+/* IMAGE PROTECTION */
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+.img-wrap{position:relative;display:block;overflow:hidden}
+.img-wrap::after{content:'';position:absolute;inset:0;z-index:1}
+.img-wrap img{pointer-events:none;display:block;width:100%;height:100%;object-fit:cover}
+
 /* FOOTER */
 footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 .footer-names{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--muted);margin-bottom:.5rem}
@@ -223,6 +243,43 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </head>
 <body class="lang-en">
 
+<!-- PASSWORD GATE -->
+<div id="pwGate" style="position:fixed;inset:0;z-index:9999;background:var(--warm-white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center">
+  <p style="font-family:var(--serif);font-size:2.5rem;font-weight:300;color:var(--ink);margin-bottom:.5rem">Andrew &amp; Yegyu</p>
+  <p style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:3rem">September 19, 2026 · Seoul</p>
+  <div style="max-width:320px;width:100%">
+    <label for="pwInput" style="display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem">Enter password to continue</label>
+    <input id="pwInput" type="password" autocomplete="current-password" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()" style="width:100%;padding:.85rem 1.25rem;font-size:1rem;border:1px solid var(--border);border-radius:3px;background:var(--warm-white);color:var(--ink);font-family:var(--sans);outline:none;box-sizing:border-box;margin-bottom:.75rem" aria-label="Site password">
+    <p id="pwError" style="font-size:.85rem;color:#c0392b;min-height:1.2em;margin-bottom:.75rem" aria-live="polite"></p>
+    <button onclick="checkPw()" style="width:100%;padding:.85rem;background:var(--cta);color:#fff;border:none;border-radius:3px;font-size:.875rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Enter</button>
+  </div>
+</div>
+<script>
+  (function(){
+    // Check if already authenticated this session
+    if(sessionStorage.getItem('ay_auth')==='1'){
+      document.getElementById('pwGate').style.display='none';
+    }
+  })();
+  function checkPw(){
+    const val = document.getElementById('pwInput').value;
+    const err = document.getElementById('pwError');
+    // Simple hash check — not cryptographically secure, but sufficient for a wedding site
+    if(val.toLowerCase().trim() === 'timesless'){
+      sessionStorage.setItem('ay_auth','1');
+      const gate = document.getElementById('pwGate');
+      gate.style.transition = 'opacity .4s';
+      gate.style.opacity = '0';
+      setTimeout(()=>gate.style.display='none', 400);
+    } else {
+      err.textContent = 'Incorrect password. Please try again.';
+      document.getElementById('pwInput').value = '';
+      document.getElementById('pwInput').focus();
+    }
+  }
+</script>
+
+
 <!-- NAV -->
 <nav>
   <a href="#top" class="nav-monogram">A &amp; Y</a>
@@ -251,7 +308,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
     <span>photos/hero-photo.jpg</span>
   </div>
-  <p class="hero-eyebrow"><span class="en-inline">We're getting married</span><span class="ko-inline">저희 결혼합니다</span></p>
+  <p class="hero-eyebrow"><span class="en-inline">We are getting married</span><span class="ko-inline">저희 결혼합니다</span></p>
   <h1 class="hero-names">
     <span class="en-inline">Andrew<span class="ampersand">&amp;</span>Yegyu</span>
     <span class="ko-inline">앤드류<span class="ampersand">&amp;</span>예규</span>
@@ -293,11 +350,11 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     <div style="margin-top:2rem">
       <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem"><span class="en-inline">Add to your calendar</span><span class="ko-inline">캘린더에 추가</span></p>
       <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T060000Z/20260919T140000Z&details=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea&location=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea" target="_blank" class="cal-btn">
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T033000Z/20260919T110000Z&details=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea&location=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea" target="_blank" class="cal-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Google Calendar
         </a>
-        <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260919T150000%0ADTEND:20260919T230000%0ASUMMARY:Andrew%20%26%20Yegyu%27s%20Wedding%0ALOCATION:Eun%20Deok%20Cultural%20Center%2C%20Seoul%2C%20South%20Korea%0AEND:VEVENT%0AEND:VCALENDAR" download="andrew-yegyu-wedding.ics" class="cal-btn">
+        <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260919T123000%0ADTEND:20260919T200000%0ASUMMARY:Andrew%20%26%20Yegyu%27s%20Wedding%0ALOCATION:Eun%20Deok%20Cultural%20Center%2C%20Seoul%2C%20South%20Korea%0AEND:VEVENT%0AEND:VCALENDAR" download="andrew-yegyu-wedding.ics" class="cal-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Apple / Outlook (.ics)
         </a>
@@ -381,23 +438,23 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     <div class="section-divider"></div>
     <ul class="schedule-list">
       <li class="schedule-item">
-        <span class="schedule-time"><span class="en-inline">3:00 pm</span><span class="ko-inline">오후 3시</span></span>
+        <span class="schedule-time"><span class="en-inline">12:00 pm</span><span class="ko-inline">오후 12시</span></span>
         <div><p class="schedule-event"><span class="en-inline">Guest Arrival &amp; Seating</span><span class="ko-inline">하객 도착 및 착석</span></p><p class="schedule-detail"><span class="en-inline">Eun Deok Cultural Center, Seoul</span><span class="ko-inline">은덕문화원, 서울</span></p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time"><span class="en-inline">3:30 pm</span><span class="ko-inline">오후 3시 30분</span></span>
+        <span class="schedule-time"><span class="en-inline">12:30 pm</span><span class="ko-inline">오후 12시 30분</span></span>
         <div><p class="schedule-event"><span class="en-inline">Ceremony</span><span class="ko-inline">결혼식</span></p><p class="schedule-detail"><span class="en-inline">Main hall — please be seated by 3:20 pm</span><span class="ko-inline">메인 홀 — 3시 20분까지 착석해 주세요</span></p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time"><span class="en-inline">4:30 pm</span><span class="ko-inline">오후 4시 30분</span></span>
+        <span class="schedule-time"><span class="en-inline">1:30 pm</span><span class="ko-inline">오후 1시 30분</span></span>
         <div><p class="schedule-event"><span class="en-inline">Cocktail Hour</span><span class="ko-inline">칵테일 시간</span></p><p class="schedule-detail"><span class="en-inline">Garden terrace — drinks &amp; canapés</span><span class="ko-inline">가든 테라스 — 음료 및 카나페</span></p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time"><span class="en-inline">6:00 pm</span><span class="ko-inline">오후 6시</span></span>
+        <span class="schedule-time"><span class="en-inline">3:00 pm</span><span class="ko-inline">오후 3시</span></span>
         <div><p class="schedule-event"><span class="en-inline">Dinner &amp; Celebrations</span><span class="ko-inline">피로연</span></p><p class="schedule-detail"><span class="en-inline">Banquet hall — dinner, toasts &amp; dancing</span><span class="ko-inline">연회장 — 만찬, 축사 및 댄스</span></p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time"><span class="en-inline">11:00 pm</span><span class="ko-inline">오후 11시</span></span>
+        <span class="schedule-time"><span class="en-inline">8:00 pm</span><span class="ko-inline">오후 8시</span></span>
         <div><p class="schedule-event"><span class="en-inline">Farewell</span><span class="ko-inline">마무리</span></p><p class="schedule-detail"><span class="en-inline">Thank you for celebrating with us</span><span class="ko-inline">함께해 주셔서 감사합니다</span></p></div>
       </li>
     </ul>
@@ -430,8 +487,8 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       <div class="venue-detail">
         <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div class="venue-detail-text">
-          <span class="en-inline"><strong>Ceremony</strong> at 3:30 pm · Doors open at 3:00 pm</span>
-          <span class="ko-inline"><strong>결혼식</strong> 오후 3시 30분 · 입장 오후 3시</span>
+          <span class="en-inline"><strong>Ceremony</strong> at 12:30 pm · Doors open at 12:00 pm</span>
+          <span class="ko-inline"><strong>결혼식</strong> 오후 12시 30분 · 입장 오후 12시</span>
         </div>
       </div>
       <div class="venue-detail">
@@ -719,11 +776,11 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       <div style="margin-top:1.75rem">
         <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem"><span class="en-inline">Add to your calendar</span><span class="ko-inline">캘린더에 추가</span></p>
         <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T060000Z/20260919T140000Z&details=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea&location=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea" target="_blank" class="cal-btn">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T033000Z/20260919T110000Z&details=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea&location=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea" target="_blank" class="cal-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Google Calendar
           </a>
-          <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260919T150000%0ADTEND:20260919T230000%0ASUMMARY:Andrew%20%26%20Yegyu%27s%20Wedding%0ALOCATION:Eun%20Deok%20Cultural%20Center%2C%20Seoul%2C%20South%20Korea%0AEND:VEVENT%0AEND:VCALENDAR" download="andrew-yegyu-wedding.ics" class="cal-btn">
+          <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260919T123000%0ADTEND:20260919T200000%0ASUMMARY:Andrew%20%26%20Yegyu%27s%20Wedding%0ALOCATION:Eun%20Deok%20Cultural%20Center%2C%20Seoul%2C%20South%20Korea%0AEND:VEVENT%0AEND:VCALENDAR" download="andrew-yegyu-wedding.ics" class="cal-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Apple / Outlook (.ics)
           </a>
@@ -734,8 +791,17 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </div>
 
 <script>
+
+  /* DISABLE RIGHT-CLICK AND DRAG ON IMAGES */
+  document.addEventListener('contextmenu', function(e){
+    if(e.target.tagName==='IMG') e.preventDefault();
+  });
+  document.addEventListener('dragstart', function(e){
+    if(e.target.tagName==='IMG') e.preventDefault();
+  });
+
   /* COUNTDOWN */
-  const weddingDate = new Date('2026-09-19T15:00:00+09:00');
+  const weddingDate = new Date('2026-09-19T12:30:00+09:00');
   function updateCountdown() {
     const diff = weddingDate - new Date();
     if (diff <= 0) { ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '0'); return; }
@@ -750,12 +816,29 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   function toggleLang() {
     const body = document.body;
     const isEn = body.classList.contains('lang-en');
+    const newLang = isEn ? 'ko' : 'en';
     body.classList.toggle('lang-en', !isEn);
     body.classList.toggle('lang-ko', isEn);
     document.getElementById('btn-en').classList.toggle('active', !isEn);
     document.getElementById('btn-ko').classList.toggle('active', isEn);
-    document.documentElement.lang = isEn ? 'ko' : 'en';
+    document.documentElement.lang = newLang;
+    // Update URL so the language is shareable/bookmarkable
+    const url = new URL(window.location);
+    url.searchParams.set('lang', newLang);
+    history.replaceState(null, '', url);
   }
+
+  // Apply language from ?lang=ko URL parameter on load
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    if (lang === 'ko') {
+      document.body.classList.replace('lang-en', 'lang-ko');
+      document.getElementById('btn-en').classList.remove('active');
+      document.getElementById('btn-ko').classList.add('active');
+      document.documentElement.lang = 'ko';
+    }
+  })();
 
   /* CAROUSEL */
   let carouselIndex = 0;
