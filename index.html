@@ -256,16 +256,22 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </div>
 <script>
   (function(){
-    // Check if already authenticated this session
     if(sessionStorage.getItem('ay_auth')==='1'){
       document.getElementById('pwGate').style.display='none';
     }
   })();
-  function checkPw(){
-    const val = document.getElementById('pwInput').value;
+  async function checkPw(){
+    const val = document.getElementById('pwInput').value.toLowerCase().trim();
     const err = document.getElementById('pwError');
-    // Simple hash check — not cryptographically secure, but sufficient for a wedding site
-    if(val.toLowerCase().trim() === 'timesless'){
+    // Hash the input and compare against stored hash — password never stored in plain text
+    const msgBuffer = new TextEncoder().encode(val);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+    // Hash is split across two variables so it's not a single searchable string in source
+    const _a = '477184d32982a7dfd9a94f12cf6d719f';
+    const _b = '846c73890f97a9231f2f19dc4a420806';
+    if(hashHex === _a + _b){
       sessionStorage.setItem('ay_auth','1');
       const gate = document.getElementById('pwGate');
       gate.style.transition = 'opacity .4s';
