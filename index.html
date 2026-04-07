@@ -780,8 +780,8 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     const val = document.getElementById('pwInput').value.toLowerCase().trim();
     const err = document.getElementById('pwError');
     // Stored as two base64 halves — not plain text in source
-    const _a = atob('dGltZXNs');
-    const _b = atob('ZXNz');
+    const _a = atob('dGltZQ==');
+    const _b = atob('bGVzcw==');
     if(val === _a + _b){
       sessionStorage.setItem('ay_auth','1');
       const gate = document.getElementById('pwGate');
