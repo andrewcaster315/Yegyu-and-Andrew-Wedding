@@ -33,7 +33,7 @@
   --sans:'DM Sans',system-ui,sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--warm-white);color:var(--ink);font-size:16px;line-height:1.7;padding-bottom:52px}
+body{font-family:var(--sans);background:var(--warm-white);color:var(--ink);font-size:16px;line-height:1.7}
 
 /* LANG */
 body.lang-ko .ko{display:block}body.lang-ko .en{display:none}
@@ -58,7 +58,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 80%,rgba(184,168,152,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 80% 20%,rgba(184,168,152,.08) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
 .hero-names{font-family:var(--serif);font-size:clamp(2.25rem,6vw,4.5rem);font-weight:300;line-height:1;color:var(--ink)}
-.hero-names .ampersand{font-style:italic;color:#8C8680;font-family:var(--serif)}
+.ampersand{color:#8C8680;font-family:var(--serif)}
 .hero-date{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--muted);letter-spacing:.15em;margin-top:.4rem}
 .hero-location{font-size:.875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
 .hero-divider{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);margin:3rem auto 0}
@@ -149,8 +149,8 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .hotel-map{font-size:.8rem;color:var(--ink);border-bottom:1px solid var(--accent);white-space:nowrap;padding-bottom:1px;flex-shrink:0;margin-top:3px}
 
 /* FAVORITES */
-.map-list-btn{display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 2rem;border:1.5px solid var(--cta);border-radius:3px;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cta-dark);text-decoration:none;transition:background .2s,color .2s;margin-bottom:2rem}
-.map-list-btn:hover{background:var(--cta);color:var(--cta-text)}
+.map-list-btn{display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 2rem;border:1.5px solid var(--cta);border-radius:3px;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cta-text);text-decoration:none;transition:background .2s,color .2s;margin-bottom:2rem;background:var(--cta)}
+.map-list-btn:hover{background:var(--cta-dark);border-color:var(--cta-dark);color:var(--cta-text)}
 .map-embed-placeholder{background:var(--warm-white);border:.5px solid var(--border);border-radius:4px;padding:3rem 2rem;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .map-embed-placeholder p{font-size:.9375rem;color:var(--muted);line-height:1.7;max-width:480px}
 
@@ -202,19 +202,7 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .directions-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.75rem;background:var(--cta);color:var(--cta-text);border:none;border-radius:3px;font-size:.875rem;letter-spacing:.06em;text-decoration:none;transition:opacity .2s}
 .directions-btn:hover{opacity:.85;color:var(--cta-text)}
 
-/* RSVP DRAWER — mobile only */
-.rsvp-drawer{position:fixed;bottom:0;left:0;right:0;z-index:200;transform:translateY(calc(100% - 52px));transition:transform .4s cubic-bezier(.4,0,.2,1)}
-.rsvp-drawer.open{transform:translateY(0)}
-.rsvp-drawer-handle{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:var(--cta);color:var(--cta-text);cursor:pointer;user-select:none}
-.rsvp-drawer-handle-left{display:flex;align-items:center;gap:.75rem;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
-.rsvp-drawer-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.7);flex-shrink:0;animation:pulse 2s ease infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.rsvp-drawer-chevron{font-size:1rem;transition:transform .35s;line-height:1;display:inline-block}
-.rsvp-drawer.open .rsvp-drawer-chevron{transform:rotate(180deg)}
-.rsvp-drawer-body{background:var(--warm-white);border-top:.5px solid var(--border);padding:2.5rem 2rem;max-height:75vh;overflow-y:auto}
-.rsvp-drawer-inner{max-width:640px;margin:0 auto}
-
-/* FLOATING RSVP PILL — tablet & desktop */
+/* FLOATING RSVP PILL */
 .rsvp-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;display:flex;align-items:center;gap:.6rem;padding:.8rem 1.6rem;background:var(--cta);color:var(--cta-text);border-radius:40px;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 20px rgba(123,143,199,.35);transition:opacity .2s,transform .2s,box-shadow .2s,visibility .2s}
 .rsvp-fab:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 6px 28px rgba(123,143,199,.45);color:var(--cta-text)}
 .rsvp-fab.hidden{opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none}
@@ -245,13 +233,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 .hero-divider{animation:fadeUp .8s ease .5s both}
 
 /* RESPONSIVE */
-@media(max-width:768px){
-  .rsvp-fab{display:none}
-  body{padding-bottom:52px}
-}
-@media(min-width:769px){
-  .rsvp-drawer{display:none}
-}
+
 @media(max-width:700px){
   .carousel{aspect-ratio:3/2}
   nav{padding:1rem 1.25rem}
@@ -269,7 +251,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 <!-- PASSWORD GATE -->
 <div id="pwGate" style="position:fixed;inset:0;z-index:9999;background:var(--warm-white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center">
-  <p style="font-family:var(--serif);font-size:2.5rem;font-weight:300;color:var(--ink);margin-bottom:.5rem">Andrew &amp; Yegyu</p>
+  <p style="font-family:var(--serif);font-size:2.5rem;font-weight:300;color:var(--ink);margin-bottom:.5rem">Andrew <span class="ampersand">&amp;</span> Yegyu</p>
   <p style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:3rem">September 19, 2026 · Seoul</p>
   <div style="max-width:320px;width:100%">
     <label for="pwInput" style="display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem">Enter password to continue</label>
@@ -379,13 +361,13 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       <p>It started with a birthday. On September 16, 2025, Yegyu was visiting New York City with her mom and aunt to celebrate — and somehow, in a city of eight million people, she crossed paths with Andrew.</p>
       <p>That same evening became their first date at a wine bar in the city. The next day she joined him at a Mets game. That Friday she came to his best friend Mike's birthday party. And somehow, after all of that, neither of them wanted it to stop.</p>
       <p>What began as an unexpected birthday encounter turned into something neither of them planned and both of them treasure. On September 19th, 2026 — in Seoul, the city Yegyu calls home — we'll celebrate that beginning together.</p>
-      <p><em>— Andrew &amp; Yegyu</em></p>
+      <p><em>— Andrew <span class="ampersand">&amp;</span> Yegyu</em></p>
     </div>
     <div class="ko">
       <p>모든 것은 생일에서 시작되었습니다. 2025년 9월 16일, 예규는 생일을 맞아 엄마, 이모와 함께 뉴욕을 여행하고 있었습니다. 그리고 800만 명의 도시에서, 운명처럼 앤드류를 만났습니다.</p>
       <p>그날 저녁 와인 바에서의 첫 데이트를 시작으로, 다음 날에는 메츠 야구 경기를 함께 관람했고, 그 주 금요일에는 앤드류의 절친한 친구 Mike의 생일 파티에도 함께했습니다. 그렇게 이어진 만남은 멈출 수가 없었습니다.</p>
       <p>우연한 생일의 만남이 두 사람 모두 소중히 여기는 인연이 되었습니다. 2026년 9월 19일, 예규의 고향 서울에서 그 특별한 시작을 함께 축하합니다.</p>
-      <p><em>— 앤드류 &amp; 예규</em></p>
+      <p><em>— 앤드류 <span class="ampersand">&amp;</span> 예규</em></p>
     </div>
   </div>
 
@@ -467,12 +449,8 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   <h2 class="section-title"><span class="en-inline">Venue &amp; Directions</span><span class="ko-inline">장소 및 교통 안내</span></h2>
   <div class="section-divider"></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;align-items:start">
-    <!-- Venue photo — replace this div with: <img src="images/venue.jpg" alt="Eundeok Culture Center" style="width:100%;height:300px;object-fit:cover;display:block;border-radius:4px"> -->
     <div style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
-      <div style="width:100%;height:300px;background:var(--warm-white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">images/venue.jpg</span>
-      </div>
+      <img src="images/venue.jpg" alt="Eundeok Culture Center" style="width:100%;height:300px;object-fit:cover;display:block">
     </div>
     <div class="venue-card">
       <div class="venue-detail">
@@ -578,7 +556,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <div style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)" class="full-section" id="favorites">
   <div class="full-section-inner">
     <p class="section-eyebrow"><span class="en-inline">Recommended by us</span><span class="ko-inline">우리의 추천</span></p>
-    <h2 class="section-title"><span class="en-inline">Yegyu &amp; Andrew's Favorite Places</span><span class="ko-inline">예규 &amp; 앤드류가 추천하는 장소</span></h2>
+    <h2 class="section-title"><span class="en-inline">Andrew &amp; Yegyu's Favorite Places</span><span class="ko-inline">앤드류 &amp; 예규가 추천하는 장소</span></h2>
     <div class="section-divider"></div>
     <p style="font-size:1rem;color:#5A5750;max-width:560px;margin-bottom:2.5rem;line-height:1.8">
       <span class="en-inline">Seoul is endlessly wonderful. We've put together a Google Maps list of our favorite spots — restaurants, cafés, temples, hikes, and more. Open it on your phone and navigate directly.</span>
@@ -733,7 +711,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 
 <footer>
-  <p class="footer-names"><span class="en-inline">Andrew &amp; Yegyu</span><span class="ko-inline">앤드류 &amp; 예규</span></p>
+  <p class="footer-names"><span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span><span class="ko-inline">앤드류 <span class="ampersand">&amp;</span> 예규</span></p>
   <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, South Korea</span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
 </footer>
 
@@ -752,44 +730,6 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   RSVP
 </a>
 
-<!-- RSVP DRAWER (mobile) -->
-<div class="rsvp-drawer open" id="rsvpDrawer">
-  <div class="rsvp-drawer-handle" onclick="toggleDrawer()">
-    <div class="rsvp-drawer-handle-left">
-      <span class="rsvp-drawer-dot"></span>
-      <span><span class="en-inline">RSVP — Respond by August 1, 2026</span><span class="ko-inline">RSVP — 2026년 8월 1일까지</span></span>
-    </div>
-    <span class="rsvp-drawer-chevron">&#8963;</span>
-  </div>
-  <div class="rsvp-drawer-body">
-    <div class="rsvp-drawer-inner">
-      <p style="font-size:1rem;color:#2E2B27;margin-bottom:1.75rem;line-height:1.8">
-        <span class="en-inline">Please let us know if you'll be joining us. Kindly respond by <strong style="white-space:nowrap">August 1, 2026</strong>.</span>
-        <span class="ko-inline"><strong>2026년 8월 1일</strong>까지 참석 여부를 알려주시면 감사하겠습니다.</span>
-      </p>
-      <!-- Replace this div with your Google Form <iframe> embed code -->
-      <div class="rsvp-embed-placeholder" style="max-width:100%">
-        <p><strong><span class="en-inline">How to add your Google Form:</span><span class="ko-inline">Google 설문 추가 방법:</span></strong></p>
-        <p><span class="en-inline">1. Open your Google Form → click <strong>Send</strong></span><span class="ko-inline">1. Google 설문 열기 → <strong>보내기</strong> 클릭</span></p>
-        <p><span class="en-inline">2. Click the <strong>&lt; &gt;</strong> embed icon → copy the <code>&lt;iframe&gt;</code> code</span><span class="ko-inline">2. <strong>&lt; &gt;</strong> 아이콘 클릭 → <code>&lt;iframe&gt;</code> 코드 복사</span></p>
-        <p><span class="en-inline">3. Replace this entire div with that code</span><span class="ko-inline">3. 이 div를 코드로 교체</span></p>
-      </div>
-      <div style="margin-top:1.75rem">
-        <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem"><span class="en-inline">Add to your calendar</span><span class="ko-inline">캘린더에 추가</span></p>
-        <div style="display:flex;flex-direction:column;gap:.6rem;align-items:flex-start">
-          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T033000Z/20260919T110000Z&details=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea&location=Eun+Deok+Cultural+Center%2C+Seoul%2C+South+Korea" target="_blank" class="cal-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Google Calendar
-          </a>
-          <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260919T123000%0ADTEND:20260919T200000%0ASUMMARY:Andrew%20%26%20Yegyu%27s%20Wedding%0ALOCATION:Eun%20Deok%20Cultural%20Center%2C%20Seoul%2C%20South%20Korea%0AEND:VEVENT%0AEND:VCALENDAR" download="andrew-yegyu-wedding.ics" class="cal-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Apple / Outlook (.ics)
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
 
@@ -931,27 +871,10 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   }
 
   /* RSVP — drawer on mobile, scroll + floating pill on desktop */
-  function isMobile() { return window.innerWidth <= 768; }
-
   function handleRsvpClick(e) {
-    if (isMobile()) {
-      e.preventDefault();
-      openDrawer();
-    }
-    // on desktop: let the href="#rsvp" scroll naturally
+    e.preventDefault();
+    document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
   }
-
-  function toggleDrawer() {
-    document.getElementById('rsvpDrawer').classList.toggle('open');
-  }
-  function openDrawer() {
-    document.getElementById('rsvpDrawer').classList.add('open');
-  }
-
-  // Auto-open drawer on mobile only after page load
-  setTimeout(() => {
-    if (isMobile()) openDrawer();
-  }, 1200);
 
   // Hide floating pill when RSVP section is visible on desktop
   const rsvpSection = document.getElementById('rsvp');
