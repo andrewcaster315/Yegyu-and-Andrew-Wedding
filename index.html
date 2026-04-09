@@ -239,6 +239,12 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cta);outline-offset
   html{scroll-behavior:auto}
 }
 
+
+body.lang-ko #rsvp{background:var(--cream)!important}
+body.lang-ko #story{background:var(--warm-white)!important}
+body.lang-ko #venue{background:var(--cream)!important}
+body.lang-ko #venue .venue-card{background:var(--warm-white)}
+body.lang-ko #favorites{background:var(--cream)!important}
 /* FOOTER */
 footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
@@ -338,22 +344,10 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   </div>
 </div>
 
-<!-- NOTICE (Korean only) -->
-<div class="ko full-section" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);display:none">
-  <div class="full-section-inner">
-    <h2 class="section-title">Notice</h2>
-    <div class="section-divider"></div>
-    <p style="font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px">
-      공간 규정상 화환 반입이 어려우니 마음만 감사히 받겠습니다.<br>
-      (화환 및 주차 문의: <a href="tel:01089331875" style="color:var(--ink);border-bottom:.5px solid var(--accent);text-decoration:none">010-8933-1875</a>)
-    </p>
-  </div>
-</div>
-
 <!-- PARENTS (Korean only) -->
-<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);display:none">
+<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner">
-    <h2 class="section-title">Family</h2>
+    <h2 class="section-title">Parents</h2>
     <div class="section-divider"></div>
     <div style="font-size:1.0625rem;line-height:2;color:#2E2B27;max-width:640px">
       <p style="margin-bottom:1.5rem">
@@ -416,7 +410,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <section id="story" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
   <div style="max-width:860px;margin:0 auto">
   <p class="section-eyebrow"><span class="en-inline">How it happened</span><span class="ko-inline">우리의 만남</span></p>
-  <h2 class="section-title"><span class="en-inline">Our Story</span><span class="ko-inline">우리의 이야기</span></h2>
+  <h2 class="section-title">Our Story</h2>
   <div class="section-divider"></div>
   <div class="story-text">
     <div class="en">
@@ -478,7 +472,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <section id="venue" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
   <div style="max-width:860px;margin:0 auto">
   <p class="section-eyebrow"><span class="en-inline">The venue</span><span class="ko-inline">Location</span></p>
-  <h2 class="section-title"><span class="en-inline">Venue &amp; Directions</span><span class="ko-inline">오시는 길</span></h2>
+  <h2 class="section-title">Venue &amp; Directions</h2>
   <div class="section-divider"></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;align-items:start">
     <div style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
@@ -561,6 +555,18 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   </div>
 </section>
 
+<!-- NOTICE (Korean only) -->
+<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+  <div class="full-section-inner">
+    <h2 class="section-title">Notice</h2>
+    <div class="section-divider"></div>
+    <p style="font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px">
+      공간 규정상 화환 반입이 어려우니 마음만 감사히 받겠습니다.<br>
+      (화환 및 주차 문의: <a href="tel:01089331875" style="color:var(--ink);border-bottom:.5px solid var(--accent);text-decoration:none">010-8933-1875</a>)
+    </p>
+  </div>
+</div>
+
 <!-- SCHEDULE (cream) -->
 <div class="full-section ko-hidden" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner" id="schedule">
@@ -593,10 +599,10 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </div>
 
 <!-- WHERE TO STAY (white) -->
-<section id="travel" class="ko-hidden" style="max-width:100%;padding:6rem 2rem;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+<section id="travel" class="ko-hidden" style="background:var(--warm-white);max-width:100%;padding:6rem 2rem;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div style="max-width:860px;margin:0 auto">
   <p class="section-eyebrow"><span class="en-inline">Getting there</span><span class="ko-inline">오시는 길</span></p>
-  <h2 class="section-title"><span class="en-inline">Where to Stay</span><span class="ko-inline">숙박 추천</span></h2>
+  <h2 class="section-title">Where to Stay</h2>
   <div class="section-divider"></div>
   <p class="stay-intro" style="margin-bottom:2rem">
     <span class="en-inline">We recommend staying in one of two neighborhoods depending on the vibe you're after.</span>
@@ -655,7 +661,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <div style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)" class="full-section" id="favorites">
   <div class="full-section-inner">
     <p class="section-eyebrow"><span class="en-inline">Recommended by us</span><span class="ko-inline">우리의 추천</span></p>
-    <h2 class="section-title"><span class="en-inline">Andrew &amp; Yegyu's Favorite Places</span><span class="ko-inline">앤드류 &amp; 예규가 추천하는 장소</span></h2>
+    <h2 class="section-title">Andrew &amp; Yegyu's Favorite Places</h2>
     <div class="section-divider"></div>
     <p style="font-size:1rem;color:#5A5750;max-width:560px;margin-bottom:2.5rem;line-height:1.8">
       <span class="en-inline">Seoul is endlessly wonderful. We've put together a Google Maps list of our favorite spots — restaurants, cafés, temples, hikes, and more. Open it on your phone and navigate directly.</span>
