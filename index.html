@@ -48,7 +48,8 @@ body.lang-ko .venue-detail.ko{display:flex}
 body.lang-ko .venue-detail.en{display:none}
 .ko-inline,.en-inline{display:none}
 body.lang-ko .ko-inline{display:inline}body.lang-en .en-inline{display:inline}
-body.lang-ko .section-title,body.lang-ko .hero-names,body.lang-ko .stay-zone-name,body.lang-ko .footer-names{font-family:var(--serif-kr);font-weight:300}
+body.lang-ko .stay-zone-name,.footer-names{font-family:var(--serif-kr);font-weight:300}
+
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(253,252,250,0.95);backdrop-filter:blur(8px);border-bottom:.5px solid var(--border)}
@@ -335,7 +336,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- COUNTDOWN -->
 <div id="main-content" style="position:absolute;top:0;pointer-events:none" aria-hidden="true"></div>
 <div class="countdown-section" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
-  <p class="countdown-label"><span class="en-inline">Counting down</span><span class="ko-inline">결혼식까지</span></p>
+  <p class="countdown-label">Counting down</p>
   <div class="countdown-grid">
     <div class="countdown-unit"><span class="countdown-number" id="cd-days">—</span><span class="countdown-unit-label"><span class="en-inline">Days</span><span class="ko-inline">일</span></span></div>
     <div class="countdown-unit"><span class="countdown-number" id="cd-hours">—</span><span class="countdown-unit-label"><span class="en-inline">Hours</span><span class="ko-inline">시간</span></span></div>
@@ -375,7 +376,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- RSVP -->
 <div class="full-section" id="rsvp" style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner">
-    <p class="section-eyebrow"><span class="en-inline">Join us</span><span class="ko-inline">함께해 주세요</span></p>
+    <p class="section-eyebrow">Join us</p>
     <h2 class="section-title">RSVP</h2>
     <div class="section-divider"></div>
     <p style="font-size:1rem;color:#5A5750;margin-bottom:2.5rem;line-height:1.8">
@@ -409,7 +410,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- OUR STORY -->
 <section id="story" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
   <div style="max-width:860px;margin:0 auto">
-  <p class="section-eyebrow"><span class="en-inline">How it happened</span><span class="ko-inline">우리의 만남</span></p>
+  <p class="section-eyebrow">How it happened</p>
   <h2 class="section-title">Our Story</h2>
   <div class="section-divider"></div>
   <div class="story-text">
@@ -471,7 +472,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- VENUE & DIRECTIONS (white) -->
 <section id="venue" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
   <div style="max-width:860px;margin:0 auto">
-  <p class="section-eyebrow"><span class="en-inline">The venue</span><span class="ko-inline">Location</span></p>
+  <p class="section-eyebrow">The venue</p>
   <h2 class="section-title">Venue &amp; Directions</h2>
   <div class="section-divider"></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;align-items:start">
@@ -601,7 +602,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- WHERE TO STAY (white) -->
 <section id="travel" class="ko-hidden" style="background:var(--warm-white);max-width:100%;padding:6rem 2rem;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div style="max-width:860px;margin:0 auto">
-  <p class="section-eyebrow"><span class="en-inline">Getting there</span><span class="ko-inline">오시는 길</span></p>
+  <p class="section-eyebrow">Getting there</p>
   <h2 class="section-title">Where to Stay</h2>
   <div class="section-divider"></div>
   <p class="stay-intro" style="margin-bottom:2rem">
@@ -660,7 +661,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- FAVORITES (cream) -->
 <div style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)" class="full-section" id="favorites">
   <div class="full-section-inner">
-    <p class="section-eyebrow"><span class="en-inline">Recommended by us</span><span class="ko-inline">우리의 추천</span></p>
+    <p class="section-eyebrow">Recommended by us</p>
     <h2 class="section-title">Andrew &amp; Yegyu's Favorite Places</h2>
     <div class="section-divider"></div>
     <p style="font-size:1rem;color:#5A5750;max-width:560px;margin-bottom:2.5rem;line-height:1.8">
@@ -678,7 +679,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- Q & A (white) -->
 <section id="faq" class="ko-hidden" style="background:var(--warm-white);max-width:100%;padding:6rem 2rem;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div style="max-width:860px;margin:0 auto">
-  <p class="section-eyebrow"><span class="en-inline">Good to know</span><span class="ko-inline">알아두면 좋은 것들</span></p>
+  <p class="section-eyebrow">Good to know</p>
   <h2 class="section-title">Q &amp; A</h2>
   <div class="section-divider"></div>
   <div class="faq-list">
