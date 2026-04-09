@@ -127,7 +127,7 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 
 /* SCHEDULE */
 .schedule-list{list-style:none;display:flex;flex-direction:column}
-.schedule-item{display:grid;grid-template-columns:110px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:.5px solid var(--border);align-items:start}
+.schedule-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:.5px solid var(--border);align-items:start}
 .schedule-item:first-child{border-top:.5px solid var(--border)}
 .schedule-time{font-family:var(--serif);font-size:1rem;color:var(--muted);font-style:italic;padding-top:2px}
 .schedule-event{font-size:.9375rem;font-weight:500;color:var(--ink);margin-bottom:.25rem}
@@ -242,10 +242,9 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cta);outline-offset
 
 
 body.lang-ko #rsvp{background:var(--cream)!important}
-body.lang-ko #story{background:var(--warm-white)!important}
-body.lang-ko #venue{background:var(--cream)!important}
-body.lang-ko #venue .venue-card{background:var(--warm-white)}
-body.lang-ko #favorites{background:var(--cream)!important}
+body.lang-ko #story{background:var(--cream)!important}
+body.lang-ko #venue{background:var(--warm-white)!important}
+body.lang-ko #venue .venue-card{background:var(--cream)}
 /* FOOTER */
 footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
@@ -265,7 +264,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   .carousel{aspect-ratio:3/2}
   nav{padding:1rem 1.25rem}
   .nav-links{gap:1rem}
-  .schedule-item{grid-template-columns:90px 1fr;gap:1rem}
+  .schedule-item{grid-template-columns:140px 1fr;gap:1rem}
   section{padding:4rem 1.5rem}
   .full-section{padding:4rem 1.5rem}
   .countdown-grid{gap:1.5rem}
@@ -318,7 +317,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     <span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span>
     <span class="ko-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span>
   </h1>
-  <img src="images/dancing-graphic.png" alt="Andrew and Yegyu dancing" style="width:min(460px,88vw);height:auto;margin:0 auto 2rem;display:block;opacity:.92" draggable="false">
+  <img src="images/dancing-graphic.png" alt="Andrew and Yegyu dancing" style="width:min(460px,88vw);height:auto;display:block;opacity:.92;margin-bottom:2rem" draggable="false">
   <p class="hero-eyebrow"><span class="en-inline">We are getting married</span><span class="ko-inline">We are getting married</span></p>
   <div class="hero-when-where">
     <div class="hero-when">
@@ -347,29 +346,51 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 <!-- PARENTS (Korean only) -->
 <div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
-  <div class="full-section-inner">
-    <h2 class="section-title">Parents</h2>
-    <div class="section-divider"></div>
-    <div style="font-size:1.0625rem;line-height:2;color:#2E2B27;max-width:640px">
-      <p style="margin-bottom:1.5rem">
-        이병대, 정종희의 딸 <strong>예규</strong><br>
-        데이비드 캐스터, 셰릴 캐스터의 아들 <strong>앤드류</strong>
-      </p>
-      <div style="display:flex;flex-direction:column;gap:.5rem">
-        <a href="tel:01055121743" style="font-size:.9375rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.75rem">
-          <span style="color:var(--muted);font-size:.85rem;min-width:120px">신부 아버지 이병대</span>
-          <span style="border-bottom:.5px solid var(--accent);padding-bottom:1px">010-5512-1743</span>
-        </a>
-        <a href="tel:01052981743" style="font-size:.9375rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.75rem">
-          <span style="color:var(--muted);font-size:.85rem;min-width:120px">신부 어머니 정종희</span>
-          <span style="border-bottom:.5px solid var(--accent);padding-bottom:1px">010-5298-1743</span>
-        </a>
-        <a href="tel:01023831743" style="font-size:.9375rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.75rem">
-          <span style="color:var(--muted);font-size:.85rem;min-width:120px">신부 이예규</span>
-          <span style="border-bottom:.5px solid var(--accent);padding-bottom:1px">010-2383-1743</span>
-        </a>
+  <div class="full-section-inner" style="text-align:center">
+
+    <!-- Intro poem -->
+    <p style="font-size:1.0625rem;line-height:2;color:#2E2B27;max-width:600px;margin:0 auto 3rem">
+      1년의 설렘, 수천 킬로미터의 기다림.<br>
+      바다를 건너 이제 같은 곳에서 함께하려 합니다.<br>
+      작은 결혼식에 가장 소중한 분들을 모시고<br>
+      축복을 부탁드리고 싶습니다.
+    </p>
+
+    <!-- Two-column parents layout -->
+    <div style="display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem">
+      <!-- Groom -->
+      <div style="text-align:center;min-width:160px">
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:.25rem">데이비드 캐스터, 셰릴 캐스터</p>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:.5rem">의 아들</p>
+        <p style="font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--ink);letter-spacing:.05em"><strong>앤드류</strong></p>
+      </div>
+      <!-- Divider -->
+      <div style="width:1px;background:var(--border);align-self:stretch;min-height:80px"></div>
+      <!-- Bride -->
+      <div style="text-align:center;min-width:160px">
+        <p style="font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:.25rem">이병대, 정종희</p>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:.5rem">의 딸</p>
+        <p style="font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--ink);letter-spacing:.05em"><strong>예규</strong></p>
       </div>
     </div>
+
+    <!-- 연락하기 -->
+    <p style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem">연락하기</p>
+    <div style="display:inline-flex;flex-direction:column;gap:.75rem">
+      <a href="tel:01055121743" style="font-size:.9375rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.75rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--muted)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.55a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span style="color:var(--muted);font-size:.875rem">신부 아버지 <strong style="color:var(--ink)">이병대</strong></span>
+      </a>
+      <a href="tel:01052981743" style="font-size:.9375rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.75rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--muted)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.55a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span style="color:var(--muted);font-size:.875rem">신부 어머니 <strong style="color:var(--ink)">정종희</strong></span>
+      </a>
+      <a href="tel:01023831743" style="font-size:.9375rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.75rem">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--muted)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.55a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span style="color:var(--muted);font-size:.875rem">신부 <strong style="color:var(--ink)">이예규</strong></span>
+      </a>
+    </div>
+
   </div>
 </div>
 
@@ -381,7 +402,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     <div class="section-divider"></div>
     <p style="font-size:1rem;color:#5A5750;margin-bottom:2.5rem;line-height:1.8">
       <span class="en-inline">Please let us know if you'll be joining us. Kindly respond by <strong style="white-space:nowrap">August 1, 2026</strong>.</span>
-      <span class="ko-inline">축하의 마음으로 참석해 주실 모든 분을 정중히 모시고자 하오니, 참석 여부를 알려주시면 감사하겠습니다.</span>
+      <span class="ko-inline">소규모로 진행되는 예식으로 한 분 한 분 정중히 모시고자 하오니, 참석 여부를 미리 알려주시면 감사하겠습니다.</span>
     </p>
     <!-- Replace this div with your Google Form <iframe> embed code -->
     <div class="rsvp-embed-placeholder">
@@ -392,7 +413,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     </div>
 
     <div style="margin-top:2rem">
-      <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem"><span class="en-inline">Add to your calendar</span><span class="ko-inline">캘린더에 추가</span></p>
+      <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem"><span class="en-inline">Add to your calendar</span><span class="ko-inline">캘린더 추가하기</span></p>
       <div style="display:flex;flex-direction:column;gap:.6rem;align-items:flex-start">
         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Andrew+%26+Yegyu%27s+Wedding&dates=20260919T033000Z/20260919T060000Z&details=Eundeok+Cultural+Center%2C+Jongno+District%2C+Seoul%2C+Korea&location=Eundeok+Cultural+Center%2C+Jongno+District%2C+Seoul%2C+Korea" target="_blank" class="cal-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -406,6 +427,20 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     </div>
   </div>
 </div>
+
+<!-- NOTICE (Korean only) -->
+<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+  <div class="full-section-inner">
+    <h2 class="section-title">Notice</h2>
+    <div class="section-divider"></div>
+    <ul style="font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px;list-style:disc;padding-left:1.5rem;display:flex;flex-direction:column;gap:.5rem">
+      <li>공간 규정상 화환 반입이 어려우니 마음만 감사히 받겠습니다.<br>
+      <span style="font-size:.9375rem;color:var(--muted)">(화환 및 주차 문의: <a href="tel:01089331875" style="color:var(--muted);text-decoration:none">010-8933-1875</a>)</span></li>
+      <li>식사는 지정석으로 진행되오니, 참석 여부를 미리 알려주시면 감사하겠습니다.</li>
+    </ul>
+  </div>
+</div>
+
 
 <!-- OUR STORY -->
 <section id="story" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
@@ -473,56 +508,75 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <section id="venue" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
   <div style="max-width:860px;margin:0 auto">
   <p class="section-eyebrow">The venue</p>
-  <h2 class="section-title">Venue &amp; Directions</h2>
+  <h2 class="section-title">Directions</h2>
   <div class="section-divider"></div>
+  <p class="ko" style="font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:2rem;line-height:1.5">은덕문화원<br><span style="font-size:1rem;font-weight:400;color:var(--muted)">서울 종로구 창덕궁길 51</span></p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;align-items:start">
-    <div style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
-      <img loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:300px;object-fit:cover;display:block">
+
+    <!-- LEFT COLUMN -->
+    <div>
+      <!-- English: venue photo -->
+      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
+        <img loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:300px;object-fit:cover;display:block">
+      </div>
+
+      <!-- Korean: pin + address + naver map + buttons -->
+      <div class="ko">
+        <!-- Pin + address -->
+        <div class="venue-detail" style="margin-bottom:1.25rem">
+          <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div class="venue-detail-text">
+            <strong>은덕문화원</strong><br>서울 종로구 창덕궁길 51
+          </div>
+        </div>
+        <!-- Naver Map placeholder -->
+        <div style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);margin-bottom:.75rem">
+          <!-- Replace this div with iframe from map.naver.com → 공유 → 지도 퍼가기 -->
+          <div style="width:100%;height:260px;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Naver Map embed</span>
+            <span style="font-size:.7rem;color:var(--muted)">map.naver.com → 공유 → 지도 퍼가기</span>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+          <a href="https://naver.me/xucTEk3e" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:#03C75A;color:#fff;border-radius:4px;font-size:.82rem;font-weight:500;text-decoration:none;font-family:var(--sans)"><svg width="14" height="14" viewBox="0 0 24 24" fill="white" style="flex-shrink:0"><path d="M13.61 12.83L10.17 7H7v10h3.39V12.17L14.83 17H18V7h-3.39v5.83z"/></svg>네이버지도</a>
+          <a href="https://kko.to/yZietwsPAV" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:#FEE500;color:#1A1A1A;border-radius:4px;font-size:.82rem;font-weight:500;text-decoration:none;font-family:var(--sans)"><svg width="14" height="14" viewBox="0 0 24 24" fill="#1A1A1A" style="flex-shrink:0"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.64 1.63 4.96 4.08 6.34L6 20l4.05-2.67c.63.09 1.28.17 1.95.17 4.97 0 9-3.36 9-7.5S16.97 3 12 3z"/></svg>카카오내비</a>
+        </div>
+      </div>
     </div>
+
+    <!-- RIGHT COLUMN: cream venue card -->
     <div class="venue-card" style="background:var(--cream)">
 
-      <!-- Name & Address -->
-      <div class="venue-detail">
+      <!-- Name & Address — English only -->
+      <div class="venue-detail en">
         <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         <div class="venue-detail-text">
-          <strong><span class="en-inline">Eundeok Cultural Center</span><span class="ko-inline">은덕문화원</span></strong><br>
-          <span class="en-inline">Jongno District, Seoul, South Korea</span>
-          <span class="ko-inline">서울 종로구 창덕궁길 51</span>
+          <strong>Eundeok Cultural Center</strong><br>Jongno District, Seoul, South Korea
         </div>
       </div>
 
-      <!-- Ceremony time — English only -->
-      <div class="venue-detail en">
-        <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <div class="venue-detail-text"><strong>Ceremony</strong> at 12:30 pm · Doors open at 12:00 pm</div>
-      </div>
-
-      <!-- Naver map — Korean only -->
-      <div class="ko">
-        <!-- Replace this div with: <img loading="lazy" src="images/naver-map.png" alt="Naver Map" style="width:100%;border-radius:4px;border:.5px solid var(--border)"> -->
-        <div style="width:100%;height:180px;background:var(--warm-white);border-radius:4px;border:.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          <span style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">images/naver-map.png</span>
-        </div>
-        <div style="display:flex;gap:.75rem;margin-top:.75rem;flex-wrap:wrap">
-          <a href="https://naver.me/xucTEk3e" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:#03C75A;color:#fff;border-radius:4px;font-size:.82rem;font-weight:500;text-decoration:none;font-family:var(--sans)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>네이버지도</a>
-          <a href="https://kko.to/yZietwsPAV" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:#FEE500;color:#1A1A1A;border-radius:4px;font-size:.82rem;font-weight:500;text-decoration:none;font-family:var(--sans)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>카카오내비</a>
-        </div>
-      </div>
 
       <!-- Subway — both languages -->
       <div class="venue-detail">
         <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="4" y="3" width="16" height="13" rx="3"/><line x1="4" y1="10" x2="20" y2="10"/><circle cx="8.5" cy="16.5" r="1.5"/><circle cx="15.5" cy="16.5" r="1.5"/><line x1="8.5" y1="18" x2="6" y2="21"/><line x1="15.5" y1="18" x2="18" y2="21"/><line x1="8" y1="6.5" x2="8" y2="8.5"/><line x1="12" y1="6.5" x2="12" y2="8.5"/><line x1="16" y1="6.5" x2="16" y2="8.5"/></svg>
         <div class="venue-detail-text">
           <span class="en-inline"><strong>By subway</strong> — Anguk Station (Line 3), Exit 3 · 7 min walk</span>
-          <span class="ko-inline"><strong>지하철</strong> — <span style="color:#E87B21;font-weight:500">안국역</span> 3번 출구 도보 7분</span>
+          <span class="ko-inline"><strong>지하철</strong> — <strong>안국역</strong> 3번 출구 도보 7분</span>
         </div>
       </div>
 
       <!-- Bus — Korean only -->
       <div class="venue-detail ko">
         <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="4" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><line x1="7" y1="4" x2="7" y2="10"/><line x1="12" y1="4" x2="12" y2="10"/><line x1="17" y1="4" x2="17" y2="10"/></svg>
-        <div class="venue-detail-text"><strong>버스</strong> — 버스 정류장 정보 추후 안내 예정</div>
+        <div class="venue-detail-text"><strong>버스</strong> — 창덕궁 정류장에서 하차<br><span style="color:var(--muted)">109, 151, 162, 171, 172, 272, 601, 7025</span></div>
+      </div>
+
+      <!-- Bus — English only -->
+      <div class="venue-detail en">
+        <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="4" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><line x1="7" y1="4" x2="7" y2="10"/><line x1="12" y1="4" x2="12" y2="10"/><line x1="17" y1="4" x2="17" y2="10"/></svg>
+        <div class="venue-detail-text"><strong>By bus</strong> — Bus stop information coming soon</div>
       </div>
 
       <!-- Taxi — English only -->
@@ -540,7 +594,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       <!-- Parking — Korean only -->
       <div class="venue-detail ko">
         <svg class="venue-detail-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
-        <div class="venue-detail-text"><strong>주차</strong> — 별도의 주차 공간이 마련되어 있지 않아, 주차를 원하시는 경우 '현대사옥 머시기머시기'</div>
+        <div class="venue-detail-text"><strong>주차</strong><br>1. 현대계동사옥 주차장 '서문 입구'<br>2. 안국역 4번 출구 주차장 이용<br><span style="color:var(--muted);font-size:.875rem">(주차 문의: <a href="tel:01089331875" style="color:var(--muted);text-decoration:none">010-8933-1875</a>)</span><br><strong>주변 교통과 주차가 혼잡하오니 대중교통 이용을 권장드립니다.</strong></div>
       </div>
 
       <!-- Get Directions — English only -->
@@ -556,18 +610,6 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   </div>
 </section>
 
-<!-- NOTICE (Korean only) -->
-<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
-  <div class="full-section-inner">
-    <h2 class="section-title">Notice</h2>
-    <div class="section-divider"></div>
-    <p style="font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px">
-      공간 규정상 화환 반입이 어려우니 마음만 감사히 받겠습니다.<br>
-      (화환 및 주차 문의: <a href="tel:01089331875" style="color:var(--ink);border-bottom:.5px solid var(--accent);text-decoration:none">010-8933-1875</a>)
-    </p>
-  </div>
-</div>
-
 <!-- SCHEDULE (cream) -->
 <div class="full-section ko-hidden" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner" id="schedule">
@@ -576,24 +618,24 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     <div class="section-divider"></div>
     <ul class="schedule-list">
       <li class="schedule-item">
-        <span class="schedule-time">12:00 pm</span>
-        <div><p class="schedule-event">Guest Arrival &amp; Hanbok Photo Opportunity</p><p class="schedule-detail">Eundeok Cultural Center — guests are welcomed and may take photos in the hanbok area</p></div>
+        <span class="schedule-time">11:30 am – 12:00 pm</span>
+        <div><p class="schedule-event">Guest Arrival</p><p class="schedule-detail">Eundeok Cultural Center — guests are welcomed and may take photos in the hanbok area</p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time">12:30 pm</span>
-        <div><p class="schedule-event">Ceremony (Yesik)</p><p class="schedule-detail">Main hall — please be seated by 12:20 pm. The ceremony will last approximately 30 minutes.</p></div>
+        <span class="schedule-time">12:20 pm</span>
+        <div><p class="schedule-event">Please be seated</p><p class="schedule-detail">Kindly take your seats in the main hall by 12:20 pm</p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time">1:00 pm</span>
-        <div><p class="schedule-event">Couple &amp; Family Photos (Pyebaek)</p><p class="schedule-detail">Private family bowing ceremony followed by wedding party photos — guests are invited to enjoy refreshments</p></div>
+        <span class="schedule-time">12:30 – 1:05 pm</span>
+        <div><p class="schedule-event">Ceremony (Yesik)</p><p class="schedule-detail">Wedding ceremony in the main hall</p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time">1:30 pm</span>
-        <div><p class="schedule-event">Wedding Banquet (Piroyeon)</p><p class="schedule-detail">Banquet hall — a traditional Korean wedding meal served buffet style. Toasts and celebrations with family and friends.</p></div>
+        <span class="schedule-time">1:05 – 1:20 pm</span>
+        <div><p class="schedule-event">Photo Session</p><p class="schedule-detail">Couple and family photos — guests are invited to enjoy refreshments</p></div>
       </li>
       <li class="schedule-item">
-        <span class="schedule-time">3:00 pm</span>
-        <div><p class="schedule-event">Farewell</p><p class="schedule-detail">Thank you for celebrating with us — guests are welcome to linger and continue celebrating</p></div>
+        <span class="schedule-time">1:10 – 2:30 pm</span>
+        <div><p class="schedule-event">Lunch (Piroyeon)</p><p class="schedule-detail">Traditional Korean wedding banquet served buffet style</p></div>
       </li>
     </ul>
   </div>
@@ -659,7 +701,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </section>
 
 <!-- FAVORITES (cream) -->
-<div style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)" class="full-section" id="favorites">
+<div style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)" class="full-section ko-hidden" id="favorites">
   <div class="full-section-inner">
     <p class="section-eyebrow">Recommended by us</p>
     <h2 class="section-title">Andrew &amp; Yegyu's Favorite Places</h2>
