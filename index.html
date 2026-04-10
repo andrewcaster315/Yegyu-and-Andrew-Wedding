@@ -482,11 +482,6 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       </div>
 
       <div class="rsvp-field">
-        <label for="rsvp-dietary-ko">식이 제한 또는 알레르기</label>
-        <input type="text" id="rsvp-dietary-ko" name="dietary" placeholder="해당 없으면 비워 두세요" autocomplete="off">
-      </div>
-
-      <div class="rsvp-field">
         <label for="rsvp-email-ko">이메일 주소</label>
         <input type="email" id="rsvp-email-ko" name="email" placeholder="선택 사항 — 연락이 필요할 경우 사용됩니다" autocomplete="email">
         <span class="rsvp-field-error" id="err-email-ko">유효한 이메일 주소를 입력해 주세요.</span>
@@ -541,11 +536,6 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
           </select>
         </div>
         <span class="rsvp-field-error" id="err-attending">Please let us know if you'll be attending.</span>
-      </div>
-
-      <div class="rsvp-field">
-        <label for="rsvp-dietary">Dietary restrictions or allergies</label>
-        <input type="text" id="rsvp-dietary" name="dietary" placeholder="Leave blank if none" autocomplete="off">
       </div>
 
       <div class="rsvp-field">
@@ -1227,7 +1217,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
           form.style.display = 'none';
           if (attending === 'Joyfully accepts') {
             successTitle.textContent = 'We\u2019ll see you in Seoul' + (name ? ', ' + name : '') + '.';
-            successMsg.textContent = 'Thank you for letting us know \u2014 we\u2019re so glad you\u2019ll be there. September 19th can\u2019t come soon enough.';
+            successMsg.textContent = 'Thank you for letting us know \u2014 we\u2019re so glad you\u2019ll be there.';
           } else {
             successTitle.textContent = 'Thank you for letting us know' + (name ? ', ' + name : '') + '.';
             successMsg.textContent = 'We\u2019ll miss you dearly. We hope to celebrate with you another time soon.';
