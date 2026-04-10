@@ -672,7 +672,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       <!-- Korean: pin + address + naver map + buttons -->
       <div class="ko">
         <!-- Naver Map placeholder -->
-        <div style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);margin-bottom:.75rem">
+        <div style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);margin-bottom:.75rem;cursor:zoom-in" onclick="openMapLightbox()">
           <img loading="lazy" src="images/korean-map.jpg" alt="은덕문화원 지도" style="width:100%;display:block">
         </div>
         <!-- Navigation buttons -->
@@ -1090,6 +1090,18 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       document.documentElement.lang = 'ko';
     }
   })();
+
+  /* MAP LIGHTBOX */
+  function openMapLightbox() {
+    const lightboxEl = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    lightboxImg.src = 'images/korean-map.jpg';
+    lightboxImg.alt = '은덕문화원 지도';
+    lightboxCounter.textContent = '';
+    lightboxEl.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
   /* LIGHTBOX */
   const lightboxEl = document.getElementById('lightbox');
