@@ -499,7 +499,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     </form>
 
     <!-- Korean success message -->
-    <div class="rsvp-success ko" id="rsvpSuccessKo" aria-live="polite" style="display:none">
+    <div class="rsvp-success" id="rsvpSuccessKo" aria-live="polite" style="display:none">
       <div class="rsvp-success-icon">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent)"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
@@ -1163,7 +1163,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
   /* RSVP FORM — AJAX SUBMISSION */
   (function() {
-    const form = document.querySelector('.rsvp-form');
+    const form = document.querySelector('.rsvp-form.en');
     const success = document.getElementById('rsvpSuccess');
     const successTitle = document.getElementById('rsvpSuccessTitle');
     const successMsg = document.getElementById('rsvpSuccessMsg');
