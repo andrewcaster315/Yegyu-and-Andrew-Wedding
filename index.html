@@ -46,6 +46,9 @@ body.lang-en .venue-detail.en{display:flex}
 body.lang-en .venue-detail.ko{display:none}
 body.lang-ko .venue-detail.ko{display:flex}
 body.lang-ko .venue-detail.en{display:none}
+/* rsvp form needs flex not block */
+body.lang-en .rsvp-form.en{display:flex}
+body.lang-ko .rsvp-form.ko{display:flex}
 .ko-inline,.en-inline{display:none}
 body.lang-ko .ko-inline{display:inline}body.lang-en .en-inline{display:inline}
 body.lang-ko .stay-zone-name,.footer-names{font-family:var(--serif-kr);font-weight:300}
@@ -245,6 +248,42 @@ body.lang-ko #rsvp{background:var(--cream)!important}
 body.lang-ko #story{background:var(--cream)!important}
 body.lang-ko #venue{background:var(--warm-white)!important}
 body.lang-ko #venue .venue-card{background:var(--cream)}
+/* RSVP FORM */
+.rsvp-form{display:flex;flex-direction:column;gap:1.75rem;max-width:520px}
+.rsvp-field{display:flex;flex-direction:column;gap:.5rem}
+.rsvp-field label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-light)}
+.rsvp-field input,.rsvp-field textarea{font-family:var(--sans);font-size:.9375rem;color:#2E2B27;background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:var(--accent)}
+.rsvp-field input:focus,.rsvp-field textarea:focus{border-color:var(--cta);background:var(--warm-white)}
+.rsvp-field textarea{resize:none;min-height:80px;line-height:1.7}
+/* Custom dropdown */
+.rsvp-select-wrap{position:relative}
+.rsvp-select-btn{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-family:var(--sans);font-size:.9375rem;color:var(--accent);background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;cursor:pointer;transition:border-color .2s;text-align:left;user-select:none}
+.rsvp-select-btn.selected{color:#2E2B27}
+.rsvp-select-btn:focus{border-color:var(--cta);outline:none}
+.rsvp-select-chevron{flex-shrink:0;transition:transform .2s;color:var(--muted-light)}
+.rsvp-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--warm-white);border:.5px solid var(--border);border-radius:3px;overflow:hidden;z-index:50;display:none;box-shadow:0 8px 24px rgba(28,26,23,.08)}
+.rsvp-dropdown.open{display:block}
+.rsvp-option{padding:.75rem 1rem;font-size:.9375rem;color:var(--ink);cursor:pointer;transition:background .15s}
+.rsvp-option:hover{background:var(--cream)}
+.rsvp-option.chosen{color:var(--cta-dark);background:var(--cream)}
+.rsvp-select-wrap.open .rsvp-select-chevron{transform:rotate(180deg)}
+.rsvp-select-wrap.open .rsvp-select-btn{border-color:var(--cta);background:var(--warm-white)}
+/* hidden real select for form submission */
+.rsvp-select-hidden{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
+.rsvp-submit-row{padding-top:.75rem;display:flex;flex-direction:column;gap:1rem}
+.rsvp-submit{display:inline-flex;align-items:center;gap:.6rem;background:var(--cta);color:var(--cta-text);border:none;border-radius:3px;font-family:var(--sans);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;cursor:pointer;transition:background .15s;align-self:flex-start}
+.rsvp-submit:hover{background:var(--cta-dark)}
+.rsvp-submit:active{transform:scale(.98)}
+.rsvp-note{font-size:.78rem;color:var(--muted-light);line-height:1.7;max-width:420px}
+.rsvp-field-error{font-size:.75rem;color:#b94040;margin-top:.35rem;display:none}
+.rsvp-field-error.visible{display:block}
+.rsvp-field input.invalid,.rsvp-field textarea.invalid,.rsvp-select-btn.invalid{border-color:#b94040}
+.rsvp-success{display:none;flex-direction:column;gap:1.5rem;max-width:520px;padding:3rem 0}
+.rsvp-success-icon{width:44px;height:44px;border-radius:50%;border:.5px solid var(--accent);display:flex;align-items:center;justify-content:center}
+.rsvp-success-title{font-family:var(--serif);font-size:clamp(1.5rem,4vw,2.25rem);font-weight:300;color:var(--ink);line-height:1.2}
+.rsvp-success-msg{font-size:1rem;color:var(--muted);line-height:1.8}
+
 /* FOOTER */
 footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
@@ -404,12 +443,131 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       <span class="en-inline">Please let us know if you'll be joining us. Kindly respond by <strong style="white-space:nowrap">August 1, 2026</strong>.</span>
       <span class="ko-inline">소규모로 진행되는 예식으로 한 분 한 분 정중히 모시고자 하오니, 참석 여부를 미리 알려주시면 감사하겠습니다.</span>
     </p>
-    <!-- Replace this div with your Google Form <iframe> embed code -->
-    <div class="rsvp-embed-placeholder">
-      <p><strong><span class="en-inline">How to add your Google Form:</span><span class="ko-inline">Google 설문 추가 방법:</span></strong></p>
-      <p><span class="en-inline">1. Open your Google Form → click <strong>Send</strong></span><span class="ko-inline">1. Google 설문 열기 → <strong>보내기</strong> 클릭</span></p>
-      <p><span class="en-inline">2. Click the <strong>&lt; &gt;</strong> embed icon → copy the <code>&lt;iframe&gt;</code> code</span><span class="ko-inline">2. <strong>&lt; &gt;</strong> 아이콘 클릭 → <code>&lt;iframe&gt;</code> 코드 복사</span></p>
-      <p><span class="en-inline">3. Replace this entire div with that code</span><span class="ko-inline">3. 이 div를 코드로 교체</span></p>
+
+    <!-- Korean RSVP form -->
+    <form class="rsvp-form ko" id="rsvpFormKo" action="https://formspree.io/f/xpqogwyj" method="POST">
+
+      <div class="rsvp-field">
+        <label for="rsvp-name-ko">성함</label>
+        <input type="text" id="rsvp-name-ko" name="name" placeholder="성함을 입력해 주세요" required autocomplete="name">
+        <span class="rsvp-field-error" id="err-name-ko">성함을 입력해 주세요.</span>
+      </div>
+
+      <div class="rsvp-field">
+        <label>참석 여부</label>
+        <div class="rsvp-select-wrap" id="attendingWrapKo">
+          <button type="button" class="rsvp-select-btn" id="attendingBtnKo" aria-haspopup="listbox" aria-expanded="false">
+            <span id="attendingLabelKo">선택해 주세요</span>
+            <svg class="rsvp-select-chevron" width="11" height="7" viewBox="0 0 11 7" fill="none"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+          </button>
+          <div class="rsvp-dropdown" id="attendingDropdownKo" role="listbox">
+            <div class="rsvp-option" role="option" data-value="참석">참석</div>
+            <div class="rsvp-option" role="option" data-value="불참">불참</div>
+          </div>
+          <select class="rsvp-select-hidden" name="attending" id="rsvp-attending-ko" required aria-hidden="true" tabindex="-1">
+            <option value="" disabled selected></option>
+            <option value="참석">참석</option>
+            <option value="불참">불참</option>
+          </select>
+        </div>
+        <span class="rsvp-field-error" id="err-attending-ko">참석 여부를 선택해 주세요.</span>
+      </div>
+
+      <div class="rsvp-field">
+        <label for="rsvp-dietary-ko">식이 제한 또는 알레르기</label>
+        <input type="text" id="rsvp-dietary-ko" name="dietary" placeholder="해당 없으면 비워 두세요" autocomplete="off">
+      </div>
+
+      <div class="rsvp-field">
+        <label for="rsvp-email-ko">이메일 주소</label>
+        <input type="email" id="rsvp-email-ko" name="email" placeholder="선택 사항 — 연락이 필요할 경우 사용됩니다" autocomplete="email">
+        <span class="rsvp-field-error" id="err-email-ko">유효한 이메일 주소를 입력해 주세요.</span>
+      </div>
+
+      <div class="rsvp-field">
+        <label for="rsvp-message-ko">신랑 신부에게 전하는 말</label>
+        <textarea id="rsvp-message-ko" name="message" placeholder="하고 싶은 말씀이 있으시면 적어 주세요…"></textarea>
+      </div>
+
+      <div class="rsvp-submit-row">
+        <button type="submit" class="rsvp-submit" id="rsvpSubmitBtnKo">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          <span id="rsvpSubmitLabelKo">참석 여부 보내기</span>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Korean success message -->
+    <div class="rsvp-success ko" id="rsvpSuccessKo" aria-live="polite" style="display:none">
+      <div class="rsvp-success-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent)"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p class="rsvp-success-title" id="rsvpSuccessTitleKo"></p>
+      <p class="rsvp-success-msg" id="rsvpSuccessMsgKo"></p>
+    </div>
+    <!-- Formspree RSVP form — replace YOUR_FORM_ID with your actual Formspree form ID -->
+    <form class="rsvp-form en" action="https://formspree.io/f/xpqogwyj" method="POST">
+
+      <div class="rsvp-field">
+        <label for="rsvp-name">Full name(s)</label>
+        <input type="text" id="rsvp-name" name="name" placeholder="Your full name(s)" required autocomplete="name">
+        <span class="rsvp-field-error" id="err-name">Please enter your name.</span>
+      </div>
+
+      <div class="rsvp-field">
+        <label>Will you be attending?</label>
+        <div class="rsvp-select-wrap" id="attendingWrap">
+          <button type="button" class="rsvp-select-btn" id="attendingBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="attendingLabel">Please select</span>
+            <svg class="rsvp-select-chevron" width="11" height="7" viewBox="0 0 11 7" fill="none"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+          </button>
+          <div class="rsvp-dropdown" id="attendingDropdown" role="listbox">
+            <div class="rsvp-option" role="option" data-value="Joyfully accepts">Joyfully accepts</div>
+            <div class="rsvp-option" role="option" data-value="Regretfully declines">Regretfully declines</div>
+          </div>
+          <select class="rsvp-select-hidden" name="attending" id="rsvp-attending" required aria-hidden="true" tabindex="-1">
+            <option value="" disabled selected></option>
+            <option value="Joyfully accepts">Joyfully accepts</option>
+            <option value="Regretfully declines">Regretfully declines</option>
+          </select>
+        </div>
+        <span class="rsvp-field-error" id="err-attending">Please let us know if you'll be attending.</span>
+      </div>
+
+      <div class="rsvp-field">
+        <label for="rsvp-dietary">Dietary restrictions or allergies</label>
+        <input type="text" id="rsvp-dietary" name="dietary" placeholder="Leave blank if none" autocomplete="off">
+      </div>
+
+      <div class="rsvp-field">
+        <label for="rsvp-email">Email address</label>
+        <input type="email" id="rsvp-email" name="email" placeholder="Optional — in case we need to reach you" autocomplete="email">
+        <span class="rsvp-field-error" id="err-email">Please enter a valid email address.</span>
+      </div>
+
+      <div class="rsvp-field">
+        <label for="rsvp-message">Message for the couple</label>
+        <textarea id="rsvp-message" name="message" placeholder="Anything you'd like to share…"></textarea>
+      </div>
+
+      <div class="rsvp-submit-row">
+        <button type="submit" class="rsvp-submit" id="rsvpSubmitBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          <span id="rsvpSubmitLabel">Send RSVP</span>
+        </button>
+
+      </div>
+
+    </form>
+
+    <!-- Success message (shown after submission) -->
+    <div class="rsvp-success" id="rsvpSuccess" aria-live="polite" style="display:none">
+      <div class="rsvp-success-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent)"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p class="rsvp-success-title" id="rsvpSuccessTitle"></p>
+      <p class="rsvp-success-msg" id="rsvpSuccessMsg"></p>
     </div>
 
     <div style="margin-top:2rem">
@@ -1002,6 +1160,224 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     if (e.key === 'ArrowRight') lightboxMove(1);
     if (e.key === 'Escape') closeLightbox();
   });
+
+  /* RSVP FORM — AJAX SUBMISSION */
+  (function() {
+    const form = document.querySelector('.rsvp-form');
+    const success = document.getElementById('rsvpSuccess');
+    const successTitle = document.getElementById('rsvpSuccessTitle');
+    const successMsg = document.getElementById('rsvpSuccessMsg');
+    const submitBtn = document.getElementById('rsvpSubmitBtn');
+    const submitLabel = document.getElementById('rsvpSubmitLabel');
+    if (!form || !success) return;
+
+    function clearErrors() {
+      form.querySelectorAll('.rsvp-field-error').forEach(e => e.classList.remove('visible'));
+      form.querySelectorAll('.invalid').forEach(e => e.classList.remove('invalid'));
+    }
+
+    function showError(id, fieldEl) {
+      const err = document.getElementById(id);
+      if (err) err.classList.add('visible');
+      if (fieldEl) fieldEl.classList.add('invalid');
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      clearErrors();
+
+      const data = new FormData(form);
+      const attending = data.get('attending') || '';
+      const name = (data.get('name') || '').trim().split(' ')[0];
+
+      // Client-side validation
+      let hasError = false;
+      if (!data.get('name').trim()) {
+        showError('err-name', document.getElementById('rsvp-name'));
+        hasError = true;
+      }
+      if (!attending) {
+        showError('err-attending', document.getElementById('attendingBtn'));
+        hasError = true;
+      }
+      if (hasError) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitLabel.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        const json = await res.json();
+
+        if (res.ok) {
+          form.style.display = 'none';
+          if (attending === 'Joyfully accepts') {
+            successTitle.textContent = 'We\u2019ll see you in Seoul' + (name ? ', ' + name : '') + '.';
+            successMsg.textContent = 'Thank you for letting us know \u2014 we\u2019re so glad you\u2019ll be there. September 19th can\u2019t come soon enough.';
+          } else {
+            successTitle.textContent = 'Thank you for letting us know' + (name ? ', ' + name : '') + '.';
+            successMsg.textContent = 'We\u2019ll miss you dearly. We hope to celebrate with you another time soon.';
+          }
+          success.style.display = 'flex';
+          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          // Handle Formspree field-level errors
+          if (json.errors) {
+            json.errors.forEach(function(err) {
+              if (err.field === 'email') showError('err-email', document.getElementById('rsvp-email'));
+              if (err.field === 'name') showError('err-name', document.getElementById('rsvp-name'));
+            });
+          }
+          submitBtn.disabled = false;
+          submitLabel.textContent = 'Send RSVP';
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitLabel.textContent = 'Send RSVP';
+        alert('Something went wrong. Please check your connection and try again.');
+      }
+    });
+  })();
+
+  /* RSVP KOREAN FORM */
+  (function() {
+    // Korean dropdown
+    const wrap = document.getElementById('attendingWrapKo');
+    const btn = document.getElementById('attendingBtnKo');
+    const dropdown = document.getElementById('attendingDropdownKo');
+    const label = document.getElementById('attendingLabelKo');
+    const hidden = document.getElementById('rsvp-attending-ko');
+    if (wrap) {
+      function openKo() { dropdown.classList.add('open'); wrap.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      function closeKo() { dropdown.classList.remove('open'); wrap.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      btn.addEventListener('click', function(e) { e.preventDefault(); dropdown.classList.contains('open') ? closeKo() : openKo(); });
+      dropdown.querySelectorAll('.rsvp-option').forEach(function(opt) {
+        opt.addEventListener('click', function() {
+          label.textContent = opt.dataset.value;
+          hidden.value = opt.dataset.value;
+          btn.classList.add('selected');
+          dropdown.querySelectorAll('.rsvp-option').forEach(o => o.classList.remove('chosen'));
+          opt.classList.add('chosen');
+          closeKo();
+        });
+      });
+      document.addEventListener('click', function(e) { if (!wrap.contains(e.target)) closeKo(); });
+    }
+
+    // Korean AJAX submission
+    const form = document.getElementById('rsvpFormKo');
+    const success = document.getElementById('rsvpSuccessKo');
+    const successTitle = document.getElementById('rsvpSuccessTitleKo');
+    const successMsg = document.getElementById('rsvpSuccessMsgKo');
+    const submitBtn = document.getElementById('rsvpSubmitBtnKo');
+    const submitLabel = document.getElementById('rsvpSubmitLabelKo');
+    if (!form || !success) return;
+
+    function clearErrors() {
+      form.querySelectorAll('.rsvp-field-error').forEach(e => e.classList.remove('visible'));
+      form.querySelectorAll('.invalid').forEach(e => e.classList.remove('invalid'));
+    }
+    function showError(id, fieldEl) {
+      const err = document.getElementById(id);
+      if (err) err.classList.add('visible');
+      if (fieldEl) fieldEl.classList.add('invalid');
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      clearErrors();
+      const data = new FormData(form);
+      const attending = data.get('attending') || '';
+      const name = (data.get('name') || '').trim();
+      let hasError = false;
+      if (!name) { showError('err-name-ko', document.getElementById('rsvp-name-ko')); hasError = true; }
+      if (!attending) { showError('err-attending-ko', document.getElementById('attendingBtnKo')); hasError = true; }
+      if (hasError) return;
+      submitBtn.disabled = true;
+      submitLabel.textContent = '전송 중…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        const json = await res.json();
+        if (res.ok) {
+          form.style.display = 'none';
+          if (attending === '참석') {
+            successTitle.textContent = (name ? name + ', ' : '') + '서울에서 만나요.';
+            successMsg.textContent = '참석 의사를 알려주셔서 감사합니다. 9월 19일이 기다려집니다.';
+          } else {
+            successTitle.textContent = '알려주셔서 감사합니다' + (name ? ', ' + name : '') + '.';
+            successMsg.textContent = '함께하지 못해 아쉽지만, 마음만큼은 함께하겠습니다.';
+          }
+          success.style.display = 'flex';
+          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          if (json.errors) {
+            json.errors.forEach(function(err) {
+              if (err.field === 'email') showError('err-email-ko', document.getElementById('rsvp-email-ko'));
+              if (err.field === 'name') showError('err-name-ko', document.getElementById('rsvp-name-ko'));
+            });
+          }
+          submitBtn.disabled = false;
+          submitLabel.textContent = '참석 여부 보내기';
+        }
+      } catch(err) {
+        submitBtn.disabled = false;
+        submitLabel.textContent = '참석 여부 보내기';
+        alert('오류가 발생했습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.');
+      }
+    });
+  })();
+
+  /* RSVP CUSTOM DROPDOWN */
+  (function() {
+    const wrap = document.getElementById('attendingWrap');
+    const btn = document.getElementById('attendingBtn');
+    const dropdown = document.getElementById('attendingDropdown');
+    const label = document.getElementById('attendingLabel');
+    const hidden = document.getElementById('rsvp-attending');
+    if (!wrap) return;
+
+    function openDropdown() {
+      dropdown.classList.add('open');
+      wrap.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function closeDropdown() {
+      dropdown.classList.remove('open');
+      wrap.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropdown.classList.contains('open') ? closeDropdown() : openDropdown();
+    });
+
+    dropdown.querySelectorAll('.rsvp-option').forEach(function(opt) {
+      opt.addEventListener('click', function() {
+        const val = opt.dataset.value;
+        label.textContent = val;
+        hidden.value = val;
+        btn.classList.add('selected');
+        dropdown.querySelectorAll('.rsvp-option').forEach(o => o.classList.remove('chosen'));
+        opt.classList.add('chosen');
+        closeDropdown();
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!wrap.contains(e.target)) closeDropdown();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDropdown();
+    });
+  })();
 
   /* CAROUSEL */
   let carouselIndex = 0;
