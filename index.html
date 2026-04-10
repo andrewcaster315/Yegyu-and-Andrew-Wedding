@@ -246,9 +246,9 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cta);outline-offset
 
 
 body.lang-ko #rsvp{background:var(--cream)!important}
-body.lang-ko #story{background:var(--cream)!important}
-body.lang-ko #venue{background:var(--warm-white)!important}
-body.lang-ko #venue .venue-card{background:var(--cream)}
+body.lang-ko #story{background:var(--warm-white)!important}
+body.lang-ko #venue{background:var(--cream)!important}
+body.lang-ko #venue .venue-card{background:var(--warm-white)}
 /* RSVP FORM */
 .rsvp-form{display:flex;flex-direction:column;gap:1.75rem;max-width:520px}
 .rsvp-field{display:flex;flex-direction:column;gap:.5rem}
@@ -576,20 +576,6 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     </div>
   </div>
 </div>
-
-<!-- NOTICE (Korean only) -->
-<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
-  <div class="full-section-inner">
-    <h2 class="section-title">Notice</h2>
-    <div class="section-divider"></div>
-    <ul style="font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px;list-style:disc;padding-left:1.5rem;display:flex;flex-direction:column;gap:.5rem">
-      <li>공간 규정상 화환 반입이 어려우니 마음만 감사히 받겠습니다.<br>
-      <span style="font-size:.9375rem;color:var(--muted)">(화환 및 주차 문의: <a href="tel:01089331875" style="color:var(--muted);text-decoration:none">010-8933-1875</a>)</span></li>
-      <li>식사는 지정석으로 진행되오니, 참석 여부를 미리 알려주시면 감사하겠습니다.</li>
-    </ul>
-  </div>
-</div>
-
 
 <!-- OUR STORY -->
 <section id="story" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
@@ -990,6 +976,20 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </section>
 
 
+<!-- NOTICE (Korean only) -->
+<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+  <div class="full-section-inner">
+    <h2 class="section-title">Notice</h2>
+    <div class="section-divider"></div>
+    <ul style="font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px;list-style:disc;padding-left:1.5rem;display:flex;flex-direction:column;gap:.5rem">
+      <li>공간 규정상 화환 반입이 어려우니 마음만 감사히 받겠습니다.<br>
+      <span style="font-size:.9375rem;color:var(--muted)">(화환 및 주차 문의: <a href="tel:01089331875" style="color:var(--muted);text-decoration:none">010-8933-1875</a>)</span></li>
+      <li>식사는 지정석으로 진행되오니, 참석 여부를 미리 알려주시면 감사하겠습니다.</li>
+    </ul>
+  </div>
+</div>
+
+
 <footer>
   <p class="footer-names"><span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span><span class="ko-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span></p>
   <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, South Korea</span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
@@ -1092,15 +1092,46 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   })();
 
   /* MAP LIGHTBOX */
+  (function() {
+    var mapOverlay = document.createElement('div');
+    mapOverlay.id = 'mapLightbox';
+    mapOverlay.style.cssText = 'position:fixed;inset:0;z-index:1000;background:rgba(20,18,16,.95);display:none;align-items:center;justify-content:center';
+    mapOverlay.setAttribute('role', 'dialog');
+    mapOverlay.setAttribute('aria-modal', 'true');
+    mapOverlay.setAttribute('aria-label', '지도 크게 보기');
+
+    var closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.setAttribute('aria-label', '닫기');
+    closeBtn.style.cssText = 'position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.7);font-size:2rem;cursor:pointer;line-height:1;padding:.25rem';
+    closeBtn.onclick = closeMapLightbox;
+
+    var img = document.createElement('img');
+    img.src = 'images/korean-map.jpg';
+    img.alt = '은덕문화원 지도';
+    img.style.cssText = 'max-width:92vw;max-height:90vh;object-fit:contain;border-radius:2px;user-select:none';
+
+    mapOverlay.appendChild(closeBtn);
+    mapOverlay.appendChild(img);
+    document.body.appendChild(mapOverlay);
+
+    mapOverlay.addEventListener('click', function(e) {
+      if (e.target === mapOverlay) closeMapLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (mapOverlay.style.display !== 'none' && e.key === 'Escape') closeMapLightbox();
+    });
+  })();
+
   function openMapLightbox() {
-    const lightboxEl = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCounter = document.getElementById('lightboxCounter');
-    lightboxImg.src = 'images/korean-map.jpg';
-    lightboxImg.alt = '은덕문화원 지도';
-    lightboxCounter.textContent = '';
-    lightboxEl.classList.add('open');
+    var el = document.getElementById('mapLightbox');
+    el.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+  }
+  function closeMapLightbox() {
+    var el = document.getElementById('mapLightbox');
+    el.style.display = 'none';
+    document.body.style.overflow = '';
   }
 
   /* LIGHTBOX */
