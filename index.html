@@ -118,23 +118,23 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 /* CAROUSEL */
 .carousel-viewport{overflow:hidden;width:100%;position:relative}
 .carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform;align-items:center}
-.carousel-slide{flex:0 0 70%;padding:0 .75rem;box-sizing:border-box;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s;opacity:.5;transform:scale(.92);cursor:pointer}
+.carousel-slide{flex:0 0 85%;padding:0 .75rem;box-sizing:border-box;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s;opacity:.5;transform:scale(.94);cursor:pointer}
 .carousel-slide.active{opacity:1;transform:scale(1);cursor:zoom-in}
 .carousel-slide img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block}
-.carousel-nav{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:1.5rem}
-.carousel-arrow{background:none;border:1.5px solid rgba(123,143,199,.5);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#7B8FC7;transition:background .2s,border-color .2s;flex-shrink:0}
-.carousel-arrow:hover{background:rgba(123,143,199,.12);border-color:#7B8FC7}
-.carousel-dots{display:flex;justify-content:center;gap:8px}
-.carousel-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1.5px solid rgba(123,143,199,.5);cursor:pointer;transition:background .2s,border-color .2s}
-.carousel-dot.active{background:#7B8FC7;border-color:#7B8FC7}
-@media(min-width:600px){.carousel-slide{flex:0 0 55%}}
-@media(min-width:900px){.carousel-slide{flex:0 0 45%}}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2rem}
+.carousel-arrow{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;transition:background .2s,border-color .2s;flex-shrink:0}
+.carousel-arrow:hover{background:rgba(255,255,255,.22);border-color:#fff}
+.carousel-dots{display:flex;justify-content:center;align-items:center;gap:10px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:background .2s,transform .2s}
+.carousel-dot.active{background:#fff;transform:scale(1.25)}
+@media(min-width:600px){.carousel-slide{flex:0 0 70%}}
+@media(min-width:900px){.carousel-slide{flex:0 0 60%}}
 
 /* SCHEDULE */
 .schedule-list{list-style:none;display:flex;flex-direction:column}
 .schedule-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:.5px solid var(--border);align-items:start}
 .schedule-item:first-child{border-top:.5px solid var(--border)}
-.schedule-time{font-family:var(--serif);font-size:1rem;color:var(--muted);font-style:italic;padding-top:2px}
+.schedule-time{font-family:var(--serif);font-size:1.1875rem;color:var(--muted);font-style:italic;padding-top:2px}
 .schedule-event{font-size:.9375rem;font-weight:500;color:var(--ink);margin-bottom:.25rem}
 .schedule-detail{font-size:.875rem;color:var(--muted);line-height:1.5}
 
@@ -564,8 +564,8 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 
 <!-- PHOTOS -->
-<section id="photos" style="background:#1A1520;border-top:.5px solid rgba(255,255,255,.06);border-bottom:.5px solid rgba(255,255,255,.06);max-width:100%;padding:7rem 2rem">
-  <div style="max-width:860px;margin:0 auto">
+<section id="photos" style="background:#1A1520;border-top:.5px solid rgba(255,255,255,.06);border-bottom:.5px solid rgba(255,255,255,.06);max-width:100%;padding:7rem 0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+  <div style="width:100%">
     <div class="carousel-viewport" id="carousel" role="region" aria-label="Photo carousel">
       <div class="carousel-track" id="carouselSlides">
         <div class="carousel-slide active" onclick="openLightbox(0)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-15.jpg" alt="Andrew and Yegyu"></div>
@@ -581,7 +581,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       </div>
     </div>
     <div class="carousel-nav">
-      <button class="carousel-arrow" onclick="carouselGoTo(carouselCurrent-1)" aria-label="Previous photo">
+      <button class="carousel-arrow" onclick="carouselStep(-1)" aria-label="Previous photo">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
       <div class="carousel-dots" id="carouselDots">
@@ -596,7 +596,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
         <div class="carousel-dot" onclick="carouselGoTo(8)"></div>
         <div class="carousel-dot" onclick="carouselGoTo(9)"></div>
       </div>
-      <button class="carousel-arrow" onclick="carouselGoTo(carouselCurrent+1)" aria-label="Next photo">
+      <button class="carousel-arrow" onclick="carouselStep(1)" aria-label="Next photo">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
@@ -1326,18 +1326,37 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     });
   })();
 
-  /* CAROUSEL */
+  /* CAROUSEL — infinite loop */
   (function() {
     var track = document.getElementById('carouselSlides');
     var dots = document.querySelectorAll('.carousel-dot');
-    var slideEls = document.querySelectorAll('.carousel-slide');
-    var total = slideEls.length;
-    window.carouselCurrent = 0;
+    var origSlides = Array.from(document.querySelectorAll('.carousel-slide'));
+    var total = origSlides.length;
     var startX = 0;
     var isDragging = false;
+    var isTransitioning = false;
+    var clonesBefore = 3;
+    var clonesAfter = 3;
+
+    // Clone slides at both ends for seamless infinite loop
+    for (var i = 0; i < clonesBefore; i++) {
+      var clone = origSlides[total - 1 - i].cloneNode(true);
+      clone.classList.remove('active');
+      clone.removeAttribute('onclick');
+      track.insertBefore(clone, track.firstChild);
+    }
+    for (var j = 0; j < clonesAfter; j++) {
+      var clone2 = origSlides[j].cloneNode(true);
+      clone2.classList.remove('active');
+      clone2.removeAttribute('onclick');
+      track.appendChild(clone2);
+    }
+
+    var allSlides = Array.from(track.querySelectorAll('.carousel-slide'));
+    window.carouselCurrent = clonesBefore;
 
     function getSlideWidth() {
-      return slideEls[0] ? slideEls[0].offsetWidth : 0;
+      return allSlides[0] ? allSlides[0].offsetWidth : 0;
     }
 
     function updateCarousel(animate) {
@@ -1345,14 +1364,36 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       var viewportW = track.parentElement.offsetWidth;
       var offset = (viewportW / 2) - (sw / 2) - (window.carouselCurrent * sw);
       if (!animate) track.style.transition = 'none';
+      else track.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1)';
       track.style.transform = 'translateX(' + offset + 'px)';
       if (!animate) requestAnimationFrame(function() { track.style.transition = ''; });
-      slideEls.forEach(function(s, i) { s.classList.toggle('active', i === window.carouselCurrent); });
-      dots.forEach(function(d, i) { d.classList.toggle('active', i === window.carouselCurrent); });
+      var realIndex = (window.carouselCurrent - clonesBefore + total) % total;
+      allSlides.forEach(function(s, i) { s.classList.toggle('active', i === window.carouselCurrent); });
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === realIndex); });
     }
 
-    window.carouselGoTo = function(i) {
-      window.carouselCurrent = (i + total) % total;
+    track.addEventListener('transitionend', function() {
+      isTransitioning = false;
+      if (window.carouselCurrent < clonesBefore) {
+        window.carouselCurrent = window.carouselCurrent + total;
+        updateCarousel(false);
+      } else if (window.carouselCurrent >= clonesBefore + total) {
+        window.carouselCurrent = window.carouselCurrent - total;
+        updateCarousel(false);
+      }
+    });
+
+    window.carouselGoTo = function(realIndex) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      window.carouselCurrent = clonesBefore + ((realIndex % total + total) % total);
+      updateCarousel(true);
+    };
+
+    window.carouselStep = function(dir) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      window.carouselCurrent += dir;
       updateCarousel(true);
     };
 
@@ -1360,14 +1401,14 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     track.addEventListener('touchend', function(e) {
       if (!isDragging) return;
       var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) window.carouselGoTo(window.carouselCurrent + (diff > 0 ? 1 : -1));
+      if (Math.abs(diff) > 40) window.carouselStep(diff > 0 ? 1 : -1);
       isDragging = false;
     }, { passive: true });
-    track.addEventListener('mousedown', function(e) { startX = e.clientX; isDragging = true; });
+    track.addEventListener('mousedown', function(e) { startX = e.clientX; isDragging = true; e.preventDefault(); });
     track.addEventListener('mouseup', function(e) {
       if (!isDragging) return;
       var diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) window.carouselGoTo(window.carouselCurrent + (diff > 0 ? 1 : -1));
+      if (Math.abs(diff) > 40) window.carouselStep(diff > 0 ? 1 : -1);
       isDragging = false;
     });
 
