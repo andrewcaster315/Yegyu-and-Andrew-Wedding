@@ -29,7 +29,7 @@
   --muted:#5E574F;
   --muted-light:#7A7167;
   --accent:#B8A898;--border:rgba(28,26,23,0.12);
-  --cta:#7B8FC7;--cta-dark:#5A6FA8;--cta-text:#fff;
+  --cta:#5A6FA8;--cta-dark:#4D6099;--cta-text:#fff;--purple-dark:#1A1520;--purple-mid:#4A4468;--purple-cta:#5A6FA8;--purple-light:#E8E4F4;--purple-pale:#F2F0FA;--placeholder:#6B6B9E;
   --serif:'Cormorant Garamond',Georgia,serif;
   --serif-kr:'Noto Serif KR',serif;
   --sans:'DM Sans',system-ui,sans-serif;
@@ -48,7 +48,7 @@ body.lang-ko .venue-detail.ko{display:flex}
 body.lang-ko .venue-detail.en{display:none}
 /* rsvp form needs flex not block */
 body.lang-ko #rsvpSuccess{display:none!important}
-body.lang-ko #photos{background:#1A1520!important}
+body.lang-ko #photos{background:var(--purple-dark)!important}
 body.lang-en .rsvp-form.en{display:flex}
 body.lang-ko .rsvp-form.ko{display:flex}
 .ko-inline,.en-inline{display:none}
@@ -72,7 +72,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 80%,rgba(184,168,152,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 80% 20%,rgba(184,168,152,.08) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
 .hero-names{font-family:var(--serif);font-size:clamp(2.25rem,6vw,4.5rem);font-weight:300;line-height:1;color:var(--ink)}
-.ampersand{color:#8C8680;font-family:var(--serif);font-style:normal}
+.ampersand{color:var(--muted-light);font-family:var(--serif);font-style:normal}
 .hero-date{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--muted);letter-spacing:.15em;margin-top:.4rem}
 .hero-location{font-size:.875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
 .hero-divider{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);margin:3rem auto 0}
@@ -105,7 +105,7 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .section-divider{width:40px;height:1px;background:var(--accent);margin-bottom:2.5rem}
 
 /* OUR STORY */
-.story-text{font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px}
+.story-text{font-size:1.0625rem;line-height:1.9;color:var(--ink);max-width:640px}
 .story-text p+p{margin-top:1.5rem}
 
 /* HERO PHOTO */
@@ -140,20 +140,16 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .schedule-detail{font-size:.875rem;color:var(--muted);line-height:1.5}
 
 /* WHERE TO STAY */
-.stay-intro{font-size:1rem;color:#2E2B27;max-width:620px;margin-bottom:.5rem;line-height:1.8}
+.stay-intro{font-size:1rem;color:var(--ink);max-width:620px;margin-bottom:.5rem;line-height:1.8}
 .stay-venue-link{font-size:.875rem;color:var(--muted);margin-bottom:3rem;display:block}
 .stay-venue-link a{color:var(--muted);border-bottom:1px solid var(--accent);text-decoration:none;padding-bottom:1px}
 .stay-venue-link a:hover{color:var(--ink)}
 .stay-zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
 .stay-zone{background:var(--warm-white);border:.5px solid var(--border);border-radius:4px;overflow:hidden}
-.stay-zone-photo-placeholder{width:100%;height:220px;background:var(--cream);border-bottom:.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
-.stay-zone-photo-placeholder svg{opacity:.2}
-.stay-zone-photo-placeholder span{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 1rem}
-.stay-zone-photo-placeholder img{width:100%;height:100%;object-fit:cover}
 .stay-zone-body{padding:1.75rem}
 .stay-zone-vibe{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
 .stay-zone-name{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:.75rem;line-height:1.1}
-.stay-zone-desc{font-size:.9375rem;color:#2E2B27;line-height:1.8;margin-bottom:0}
+.stay-zone-desc{font-size:.9375rem;color:var(--ink);line-height:1.8;margin-bottom:0}
 .hotel-list{border-top:.5px solid var(--border)}
 .hotel-item{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.75rem;border-bottom:.5px solid var(--border);text-decoration:none;color:inherit;transition:background .15s}
 .hotel-item:last-child{border-bottom:none}
@@ -171,15 +167,15 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 
 /* FAQ */
 .faq-list{max-width:700px}
-.faq-item{border-bottom:1px solid #D4CBC0;padding:0}
-.faq-item:first-child{border-top:1px solid #D4CBC0}
+.faq-item{border-bottom:1px solid var(--accent);padding:0}
+.faq-item:first-child{border-top:1px solid var(--accent)}
 .faq-item:last-child{border-bottom:none}
 .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:var(--ink);text-align:left;font-family:var(--sans)}
 .faq-arrow{font-size:.9rem;color:var(--muted);transition:transform .25s;flex-shrink:0}
 .faq-item.open .faq-arrow{transform:rotate(180deg)}
 .faq-a{display:none;padding-bottom:1.5rem}
 .faq-item.open .faq-a{display:block}
-.faq-a p{font-size:.9375rem;color:#2E2B27;line-height:1.85}
+.faq-a p{font-size:.9375rem;color:var(--ink);line-height:1.85}
 .faq-a p+p{margin-top:.75rem}
 
 /* RSVP */
@@ -195,10 +191,10 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(26,21,32,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
 .lightbox.open{opacity:1;visibility:visible}
 .lightbox-img{max-width:92vw;max-height:82vh;object-fit:contain;border-radius:6px;user-select:none;-webkit-user-drag:none}
-.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-size:1.25rem;cursor:pointer;line-height:1;transition:background .2s,border-color .2s}
-.lightbox-close:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6);color:#fff}
-.lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
-.lightbox-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
+.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.25rem;cursor:pointer;line-height:1;transition:background .2s,border-color .2s}
+.lightbox-close:hover{background:rgba(255,255,255,.22);border-color:#fff}
+.lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.lightbox-btn:hover{background:rgba(255,255,255,.22);border-color:#fff}
 .lightbox-prev{left:1rem}
 .lightbox-next{right:1rem}
 .lightbox-counter{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
@@ -212,14 +208,14 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .venue-card{background:var(--warm-white);border:.5px solid var(--border);border-radius:4px;padding:2rem;display:flex;flex-direction:column;gap:1.25rem}
 .venue-detail{display:flex;flex-direction:row;gap:.875rem;align-items:flex-start;width:100%}
 .venue-detail-icon{flex-shrink:0;margin-top:2px;color:var(--muted);min-width:18px}
-.venue-detail-text{font-size:.9375rem;color:#2E2B27;line-height:1.6;flex:1}
+.venue-detail-text{font-size:.9375rem;color:var(--ink);line-height:1.6;flex:1}
 .venue-detail-text strong{color:var(--ink);font-weight:500}
 .directions-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.75rem 1.75rem;background:var(--cta);color:var(--cta-text);border:none;border-radius:3px;font-size:.875rem;letter-spacing:.06em;text-decoration:none;transition:opacity .2s}
 .directions-btn:hover{opacity:.85;color:var(--cta-text)}
 
 /* FLOATING RSVP PILL */
-.rsvp-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;display:flex;align-items:center;gap:.6rem;padding:.8rem 1.6rem;background:var(--cta);color:var(--cta-text);border-radius:40px;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 20px rgba(123,143,199,.35);transition:opacity .2s,transform .2s,box-shadow .2s,visibility .2s}
-.rsvp-fab:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 6px 28px rgba(123,143,199,.45);color:var(--cta-text)}
+.rsvp-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;display:flex;align-items:center;gap:.6rem;padding:.8rem 1.6rem;background:var(--cta);color:var(--cta-text);border-radius:40px;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 20px rgba(90,111,168,.35);transition:opacity .2s,transform .2s,box-shadow .2s,visibility .2s}
+.rsvp-fab:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 6px 28px rgba(90,111,168,.45);color:var(--cta-text)}
 .rsvp-fab.hidden{opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none}
 .rsvp-fab-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);animation:pulse 2s ease infinite;flex-shrink:0}
 
@@ -247,30 +243,30 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cta);outline-offset
 }
 
 
-body.lang-ko #rsvp{background:var(--cream)!important}
+body.lang-ko #rsvp{background:var(--purple-light)!important}
 body.lang-ko #venue{background:var(--cream)!important}
 body.lang-ko #venue .venue-card{background:var(--warm-white)}
 /* RSVP FORM */
 .rsvp-form{display:flex;flex-direction:column;gap:1.75rem;max-width:520px}
 .rsvp-field{display:flex;flex-direction:column;gap:.5rem}
-.rsvp-field label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-light)}
-.rsvp-field input,.rsvp-field textarea{font-family:var(--sans);font-size:.9375rem;color:#2E2B27;background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none}
-.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:var(--accent)}
-.rsvp-field input:focus,.rsvp-field textarea:focus{border-color:var(--cta);background:var(--warm-white)}
+.rsvp-field label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-mid)}
+.rsvp-field input,.rsvp-field textarea{font-family:var(--sans);font-size:.9375rem;color:var(--ink);background:#fff;border:.5px solid rgba(90,111,168,.4);border-radius:3px;padding:.7rem 1rem;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:var(--placeholder)}
+.rsvp-field input:focus,.rsvp-field textarea:focus{border-color:var(--cta);background:#fff}
 .rsvp-field textarea{resize:none;min-height:80px;line-height:1.7}
 /* Custom dropdown */
 .rsvp-select-wrap{position:relative}
-.rsvp-select-btn{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-family:var(--sans);font-size:.9375rem;color:var(--accent);background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;cursor:pointer;transition:border-color .2s;text-align:left;user-select:none}
+.rsvp-select-btn{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-family:var(--sans);font-size:.9375rem;color:#6B6B9E;background:#fff;border:.5px solid rgba(90,111,168,.4);border-radius:3px;padding:.7rem 1rem;width:100%;cursor:pointer;transition:border-color .2s;text-align:left;user-select:none}
 .rsvp-select-btn.selected{color:#2E2B27}
 .rsvp-select-btn:focus{border-color:var(--cta);outline:none}
 .rsvp-select-chevron{flex-shrink:0;transition:transform .2s;color:var(--muted-light)}
-.rsvp-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--warm-white);border:.5px solid var(--border);border-radius:3px;overflow:hidden;z-index:50;display:none;box-shadow:0 8px 24px rgba(28,26,23,.08)}
+.rsvp-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:.5px solid rgba(90,111,168,.4);border-radius:3px;overflow:hidden;z-index:50;display:none;box-shadow:0 8px 24px rgba(90,111,168,.12)}
 .rsvp-dropdown.open{display:block}
 .rsvp-option{padding:.75rem 1rem;font-size:.9375rem;color:var(--ink);cursor:pointer;transition:background .15s}
-.rsvp-option:hover{background:var(--cream)}
-.rsvp-option.chosen{color:var(--cta-dark);background:var(--cream)}
+.rsvp-option:hover{background:var(--purple-light)}
+.rsvp-option.chosen{color:var(--purple-mid);background:var(--purple-light)}
 .rsvp-select-wrap.open .rsvp-select-chevron{transform:rotate(180deg)}
-.rsvp-select-wrap.open .rsvp-select-btn{border-color:var(--cta);background:var(--warm-white)}
+.rsvp-select-wrap.open .rsvp-select-btn{border-color:var(--cta);background:#fff}
 /* hidden real select for form submission */
 .rsvp-select-hidden{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
 .rsvp-submit-row{padding-top:.75rem;display:flex;flex-direction:column;gap:1rem}
@@ -382,7 +378,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   <div class="full-section-inner" style="text-align:center">
 
     <!-- Intro poem -->
-    <p style="font-size:1.0625rem;line-height:2;color:#2E2B27;max-width:600px;margin:0 auto 3rem">
+    <p style="font-size:1.0625rem;line-height:2;color:var(--ink);max-width:600px;margin:0 auto 3rem">
       1년의 설렘, 수천 킬로미터의 기다림.<br>
       바다를 건너 이제 같은 곳에서 함께하려 합니다.<br>
       작은 결혼식에 가장 소중한 분들을 모시고<br>
@@ -428,12 +424,12 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </div>
 
 <!-- RSVP -->
-<div class="full-section" id="rsvp" style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+<div class="full-section" id="rsvp" style="background:var(--purple-light);border-top:.5px solid rgba(90,111,168,.2);border-bottom:.5px solid rgba(90,111,168,.2)">
   <div class="full-section-inner">
     <p class="section-eyebrow">Join us</p>
     <h2 class="section-title">RSVP</h2>
     <div class="section-divider"></div>
-    <p style="font-size:1rem;color:#5A5750;margin-bottom:2.5rem;line-height:1.8">
+    <p style="font-size:1rem;color:var(--muted);margin-bottom:2.5rem;line-height:1.8">
       <span class="en-inline">Please let us know if you'll be joining us. Kindly respond by <strong style="white-space:nowrap">August 1, 2026</strong>.</span>
       <span class="ko-inline">소규모로 진행되는 예식으로 한 분 한 분 정중히 모시고자 하오니, 참석 여부를 미리 알려주시면 감사하겠습니다.</span>
     </p>
@@ -565,7 +561,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 
 <!-- PHOTOS -->
-<section id="photos" style="background:#1A1520;border-top:.5px solid rgba(255,255,255,.06);border-bottom:.5px solid rgba(255,255,255,.06);max-width:100%;padding:7rem 0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+<section id="photos" style="background:var(--purple-dark);border-top:.5px solid rgba(255,255,255,.06);border-bottom:.5px solid rgba(255,255,255,.06);max-width:100%;padding:7rem 0;display:flex;flex-direction:column;align-items:center;justify-content:center">
   <div style="width:100%">
     <div class="carousel-viewport" id="carousel" role="region" aria-label="Photo carousel">
       <div class="carousel-track" id="carouselSlides">
@@ -611,13 +607,13 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   <h2 class="section-title">Directions</h2>
   <div class="section-divider"></div>
   <p class="ko" style="font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:2rem;line-height:1.5">은덕문화원<br><span style="font-size:1rem;font-weight:400;color:var(--muted)">서울 종로구 창덕궁길 51</span></p>
-  <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch">
+  <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
 
     <!-- LEFT COLUMN -->
-    <div style="display:flex;flex-direction:column">
+    <div>
       <!-- English: venue photo -->
-      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);flex:1">
-        <img loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
+        <img loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:360px;object-fit:cover;display:block">
       </div>
 
       <!-- Korean: pin + address + naver map + buttons -->
@@ -736,11 +732,6 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   </p>
   <div class="stay-zones">
     <div class="stay-zone">
-      <!-- Replace with: <img loading="lazy" src="images/myeongdong-area.jpg" alt="Myeongdong" style="width:100%;height:220px;object-fit:cover;display:block"> -->
-      <div class="stay-zone-photo-placeholder">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span>images/myeongdong-area.jpg</span>
-      </div>
       <div class="stay-zone-body">
         <p class="stay-zone-vibe"><span class="en-inline">Lively &amp; Central</span><span class="ko-inline">활기차고 편리한</span></p>
         <p class="stay-zone-name"><span class="en-inline">Myeongdong Area</span><span class="ko-inline">명동 지역</span></p>
@@ -758,11 +749,6 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       </div>
     </div>
     <div class="stay-zone">
-      <!-- Replace with: <img loading="lazy" src="images/jongno-area.jpg" alt="Jongno" style="width:100%;height:220px;object-fit:cover;display:block"> -->
-      <div class="stay-zone-photo-placeholder">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span>images/jongno-area.jpg</span>
-      </div>
       <div class="stay-zone-body">
         <p class="stay-zone-vibe"><span class="en-inline">Calm &amp; Cultural</span><span class="ko-inline">조용하고 문화적인</span></p>
         <p class="stay-zone-name"><span class="en-inline">Near the Venue (Jongno)</span><span class="ko-inline">웨딩 장소 근처 (종로)</span></p>
@@ -789,7 +775,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     <p class="section-eyebrow">Recommended by us</p>
     <h2 class="section-title">Andrew &amp; Yegyu's Favorite Places</h2>
     <div class="section-divider"></div>
-    <p style="font-size:1rem;color:#5A5750;max-width:560px;margin-bottom:2.5rem;line-height:1.8">
+    <p style="font-size:1rem;color:var(--muted);max-width:560px;margin-bottom:2.5rem;line-height:1.8">
       <span class="en-inline">We've put together a Google Maps list of our favorite spots — restaurants, cafés, attractions, and more. Open it on your phone and navigate directly.</span>
       <span class="ko-inline">저희가 좋아하는 서울 맛집 지도입니다. 멀리서 오시는 분들께 도움이 되면 좋겠습니다.</span>
     </p>
@@ -940,7 +926,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   <div class="full-section-inner">
     <h2 class="section-title">Notice</h2>
     <div class="section-divider"></div>
-    <ul style="font-size:1.0625rem;line-height:1.9;color:#2E2B27;max-width:640px;list-style:disc;padding-left:1.5rem;display:flex;flex-direction:column;gap:.5rem">
+    <ul style="font-size:1.0625rem;line-height:1.9;color:var(--ink);max-width:640px;list-style:disc;padding-left:1.5rem;display:flex;flex-direction:column;gap:.5rem">
       <li>공간 규정상 화환 반입이 어려우니 마음만 감사히 받겠습니다.<br>
       <span style="font-size:.9375rem;color:var(--muted)">(화환 및 주차 문의: <a href="tel:01089331875" style="color:var(--muted);text-decoration:none">010-8933-1875</a>)</span></li>
       <li>식사는 지정석으로 진행되오니, 참석 여부를 미리 알려주시면 감사하겠습니다.</li>
@@ -950,6 +936,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 
 <footer>
+  <img src="images/favicon.png" alt="Andrew and Yegyu" style="width:48px;height:48px;object-fit:contain;opacity:.7;margin-bottom:1.25rem">
   <p class="footer-names"><span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span><span class="ko-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span></p>
   <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, South Korea</span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
 </footer>
@@ -957,9 +944,9 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
   <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close photo viewer">&times;</button>
-  <button class="lightbox-btn lightbox-prev" onclick="lightboxMove(-1)" aria-label="Previous photo">&#8592;</button>
+  <button class="lightbox-btn lightbox-prev" onclick="lightboxMove(-1)" aria-label="Previous photo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
   <img loading="lazy" class="lightbox-img" id="lightboxImg" src="" alt="Andrew and Yegyu">
-  <button class="lightbox-btn lightbox-next" onclick="lightboxMove(1)" aria-label="Next photo">&#8594;</button>
+  <button class="lightbox-btn lightbox-next" onclick="lightboxMove(1)" aria-label="Next photo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
   <p class="lightbox-counter" id="lightboxCounter"></p>
 </div>
 
@@ -1335,11 +1322,11 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     var total = origSlides.length;
     var startX = 0;
     var isDragging = false;
-    var isTransitioning = false;
-    var clonesBefore = 3;
-    var clonesAfter = 3;
+    var clonesBefore = 4;
+    var clonesAfter = 4;
+    var jumpTimeout = null;
 
-    // Clone slides at both ends for seamless infinite loop
+    // Clone slides at both ends
     for (var i = 0; i < clonesBefore; i++) {
       var clone = origSlides[total - 1 - i].cloneNode(true);
       clone.classList.remove('active');
@@ -1360,22 +1347,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       return allSlides[0] ? allSlides[0].offsetWidth : 0;
     }
 
-    function updateCarousel(animate) {
-      var sw = getSlideWidth();
-      var viewportW = track.parentElement.offsetWidth;
-      var offset = (viewportW / 2) - (sw / 2) - (window.carouselCurrent * sw);
-      if (!animate) track.style.transition = 'none';
-      else track.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1)';
-      track.style.transform = 'translateX(' + offset + 'px)';
-      if (!animate) requestAnimationFrame(function() { track.style.transition = ''; });
-      var realIndex = (window.carouselCurrent - clonesBefore + total) % total;
-      allSlides.forEach(function(s, i) { s.classList.toggle('active', i === window.carouselCurrent); });
-      dots.forEach(function(d, i) { d.classList.toggle('active', i === realIndex); });
-    }
-
-    track.addEventListener('transitionend', function(e) {
-      if (e.propertyName !== 'transform') return;
-      isTransitioning = false;
+    function jump() {
       if (window.carouselCurrent < clonesBefore) {
         window.carouselCurrent = window.carouselCurrent + total;
         updateCarousel(false);
@@ -1383,18 +1355,37 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
         window.carouselCurrent = window.carouselCurrent - total;
         updateCarousel(false);
       }
+    }
+
+    function updateCarousel(animate) {
+      var sw = getSlideWidth();
+      var viewportW = track.parentElement.offsetWidth;
+      var offset = (viewportW / 2) - (sw / 2) - (window.carouselCurrent * sw);
+      track.style.transition = animate ? 'transform .5s cubic-bezier(.4,0,.2,1)' : 'none';
+      track.style.transform = 'translateX(' + offset + 'px)';
+      if (!animate) requestAnimationFrame(function() { track.style.transition = ''; });
+      var realIndex = (window.carouselCurrent - clonesBefore % total + total * 2) % total;
+      allSlides.forEach(function(s, i) { s.classList.toggle('active', i === window.carouselCurrent); });
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === realIndex); });
+      // Schedule jump after animation as fallback
+      if (animate) {
+        if (jumpTimeout) clearTimeout(jumpTimeout);
+        jumpTimeout = setTimeout(jump, 550);
+      }
+    }
+
+    track.addEventListener('transitionend', function(e) {
+      if (e.propertyName !== 'transform') return;
+      if (jumpTimeout) clearTimeout(jumpTimeout);
+      jump();
     });
 
     window.carouselGoTo = function(realIndex) {
-      if (isTransitioning) return;
-      isTransitioning = true;
       window.carouselCurrent = clonesBefore + ((realIndex % total + total) % total);
       updateCarousel(true);
     };
 
     window.carouselStep = function(dir) {
-      if (isTransitioning) return;
-      isTransitioning = true;
       window.carouselCurrent += dir;
       updateCarousel(true);
     };
