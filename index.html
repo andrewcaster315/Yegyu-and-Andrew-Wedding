@@ -936,7 +936,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 
 <footer>
-  <img src="images/favicon.png" alt="Andrew and Yegyu" style="width:72px;height:72px;object-fit:contain;opacity:.7;margin-bottom:.75rem">
+  <img loading="lazy" src="images/favicon.png" alt="Andrew and Yegyu" style="width:72px;height:72px;object-fit:contain;opacity:.7;margin-bottom:.75rem">
   <p class="footer-names"><span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span><span class="ko-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span></p>
   <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, South Korea</span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
 </footer>
@@ -1387,6 +1387,14 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       return allSlides[0] ? allSlides[0].offsetWidth : 0;
     }
 
+    function safeInit() {
+      if (getSlideWidth() > 0) {
+        updateCarousel(false);
+      } else {
+        requestAnimationFrame(safeInit);
+      }
+    }
+
     function jump() {
       if (window.carouselCurrent < clonesBefore) {
         window.carouselCurrent = window.carouselCurrent + total;
@@ -1457,7 +1465,11 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     });
 
     window.addEventListener('resize', function() { updateCarousel(false); });
-    updateCarousel(false);
+    if (document.readyState === 'complete') {
+      safeInit();
+    } else {
+      window.addEventListener('load', safeInit);
+    }
   })();
 
   /* RSVP — drawer on mobile, scroll + floating pill on desktop */
