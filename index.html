@@ -116,7 +116,7 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .hero-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid rgba(184,168,152,.5);margin:0 auto 2.5rem;display:block}
 
 /* CAROUSEL */
-.carousel{position:relative;width:100%;aspect-ratio:4/3;background:var(--cream);border:.5px solid var(--border);border-radius:4px;overflow:hidden}
+.carousel{position:relative;width:100%;aspect-ratio:4/3;background:var(--cream);border-radius:4px;overflow:hidden;box-shadow:0 8px 32px rgba(28,26,23,.1),0 2px 8px rgba(28,26,23,.06)}
 .carousel-slides{display:flex;height:100%;transition:transform .45s ease}
 .carousel-slide{min-width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:2rem}
 .carousel-slide img{width:100%;height:100%;object-fit:cover}
@@ -593,6 +593,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       <div class="carousel-dot" onclick="carouselGoTo(6)"></div>
       <div class="carousel-dot" onclick="carouselGoTo(7)"></div>
       <div class="carousel-dot" onclick="carouselGoTo(8)"></div>
+      <div class="carousel-dot" onclick="carouselGoTo(9)"></div>
       <div class="carousel-dot" onclick="carouselGoTo(9)"></div>
     </div>
   </div>
