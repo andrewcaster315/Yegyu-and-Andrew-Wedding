@@ -116,20 +116,20 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .hero-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid rgba(184,168,152,.5);margin:0 auto 2.5rem;display:block}
 
 /* CAROUSEL */
-.carousel-viewport{overflow:hidden;width:100%;position:relative}
-.carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform;align-items:center}
-.carousel-slide{flex:0 0 85%;padding:0 .75rem;box-sizing:border-box;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s;opacity:.5;transform:scale(.94);cursor:pointer}
-.carousel-slide.active{opacity:1;transform:scale(1);cursor:zoom-in}
+.carousel-viewport{position:relative;width:100%;overflow:hidden}
+.carousel-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:0}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-slide{flex:0 0 85%;scroll-snap-align:center;padding:0 .6rem;box-sizing:border-box;cursor:zoom-in}
 .carousel-slide img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block}
 .carousel-nav{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2rem}
 .carousel-arrow{-webkit-tap-highlight-color:transparent;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;transition:background .2s,border-color .2s;flex-shrink:0}
 .carousel-arrow:hover{background:rgba(255,255,255,.22);border-color:#fff}
 .carousel-dots{display:flex;justify-content:center;align-items:center;gap:10px}
-.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:background .2s,transform .2s}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:background .2s,transform .2s;-webkit-tap-highlight-color:transparent}
 .carousel-dot.active{background:#fff;transform:scale(1.25)}
 @media(min-width:600px){.carousel-slide{flex:0 0 70%}}
-@media(max-width:640px){.venue-grid{grid-template-columns:1fr!important}}
 @media(min-width:900px){.carousel-slide{flex:0 0 60%}}
+@media(max-width:640px){.venue-grid{grid-template-columns:1fr!important}}
 
 /* SCHEDULE */
 .schedule-list{list-style:none;display:flex;flex-direction:column}
@@ -243,30 +243,30 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cta);outline-offset
 }
 
 
-body.lang-ko #rsvp{background:var(--purple-light)!important}
+body.lang-ko #rsvp{background:var(--warm-white)!important}
 body.lang-ko #venue{background:var(--cream)!important}
 body.lang-ko #venue .venue-card{background:var(--warm-white)}
 /* RSVP FORM */
 .rsvp-form{display:flex;flex-direction:column;gap:1.75rem;max-width:520px}
 .rsvp-field{display:flex;flex-direction:column;gap:.5rem}
-.rsvp-field label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-mid)}
-.rsvp-field input,.rsvp-field textarea{font-family:var(--sans);font-size:.9375rem;color:var(--ink);background:#fff;border:.5px solid rgba(90,111,168,.4);border-radius:3px;padding:.7rem 1rem;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none}
-.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:var(--placeholder)}
-.rsvp-field input:focus,.rsvp-field textarea:focus{border-color:var(--cta);background:#fff}
+.rsvp-field label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-light)}
+.rsvp-field input,.rsvp-field textarea{font-family:var(--sans);font-size:.9375rem;color:var(--ink);background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:var(--accent)}
+.rsvp-field input:focus,.rsvp-field textarea:focus{border-color:var(--cta);background:var(--warm-white)}
 .rsvp-field textarea{resize:none;min-height:80px;line-height:1.7}
 /* Custom dropdown */
 .rsvp-select-wrap{position:relative}
-.rsvp-select-btn{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-family:var(--sans);font-size:.9375rem;color:#6B6B9E;background:#fff;border:.5px solid rgba(90,111,168,.4);border-radius:3px;padding:.7rem 1rem;width:100%;cursor:pointer;transition:border-color .2s;text-align:left;user-select:none}
+.rsvp-select-btn{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-family:var(--sans);font-size:.9375rem;color:var(--accent);background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;cursor:pointer;transition:border-color .2s;text-align:left;user-select:none}
 .rsvp-select-btn.selected{color:#2E2B27}
 .rsvp-select-btn:focus{border-color:var(--cta);outline:none}
 .rsvp-select-chevron{flex-shrink:0;transition:transform .2s;color:var(--muted-light)}
-.rsvp-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:.5px solid rgba(90,111,168,.4);border-radius:3px;overflow:hidden;z-index:50;display:none;box-shadow:0 8px 24px rgba(90,111,168,.12)}
+.rsvp-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--warm-white);border:.5px solid var(--border);border-radius:3px;overflow:hidden;z-index:50;display:none;box-shadow:0 8px 24px rgba(28,26,23,.08)}
 .rsvp-dropdown.open{display:block}
 .rsvp-option{padding:.75rem 1rem;font-size:.9375rem;color:var(--ink);cursor:pointer;transition:background .15s}
-.rsvp-option:hover{background:var(--purple-light)}
-.rsvp-option.chosen{color:var(--purple-mid);background:var(--purple-light)}
+.rsvp-option:hover{background:var(--cream)}
+.rsvp-option.chosen{color:var(--cta-dark);background:var(--cream)}
 .rsvp-select-wrap.open .rsvp-select-chevron{transform:rotate(180deg)}
-.rsvp-select-wrap.open .rsvp-select-btn{border-color:var(--cta);background:#fff}
+.rsvp-select-wrap.open .rsvp-select-btn{border-color:var(--cta);background:var(--warm-white)}
 /* hidden real select for form submission */
 .rsvp-select-hidden{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
 .rsvp-submit-row{padding-top:.75rem;display:flex;flex-direction:column;gap:1rem}
@@ -290,9 +290,10 @@ body.lang-ko #venue .venue-card{background:var(--warm-white)}
 }
 
 /* FOOTER */
-footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
+footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--border)}
 
 .footer-date{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:480px){.footer-date{font-size:.72rem;letter-spacing:.08em}}
 
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -424,7 +425,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </div>
 
 <!-- RSVP -->
-<div class="full-section" id="rsvp" style="background:var(--purple-light);border-top:.5px solid rgba(90,111,168,.2);border-bottom:.5px solid rgba(90,111,168,.2)">
+<div class="full-section" id="rsvp" style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner">
     <p class="section-eyebrow">Join us</p>
     <h2 class="section-title">RSVP</h2>
@@ -563,9 +564,9 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 <!-- PHOTOS -->
 <section id="photos" style="background:var(--purple-dark);border-top:.5px solid rgba(255,255,255,.06);border-bottom:.5px solid rgba(255,255,255,.06);max-width:100%;padding:7rem 0;display:flex;flex-direction:column;align-items:center;justify-content:center">
   <div style="width:100%">
-    <div class="carousel-viewport" id="carousel" role="region" aria-label="Photo carousel">
-      <div class="carousel-track" id="carouselSlides">
-        <div class="carousel-slide active" onclick="openLightbox(0)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-15.jpg" alt="Andrew and Yegyu"></div>
+    <div class="carousel-viewport" id="carousel">
+      <div class="carousel-track" id="carouselSlides" role="region" aria-label="Photo carousel">
+        <div class="carousel-slide" onclick="openLightbox(0)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-15.jpg" alt="Andrew and Yegyu"></div>
         <div class="carousel-slide" onclick="openLightbox(1)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-16.jpg" alt="Andrew and Yegyu"></div>
         <div class="carousel-slide" onclick="openLightbox(2)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-5.jpg" alt="Andrew and Yegyu"></div>
         <div class="carousel-slide" onclick="openLightbox(3)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-40.jpg" alt="Andrew and Yegyu"></div>
@@ -935,10 +936,15 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 </div>
 
 
+<!-- CLOSING PHOTO -->
+<div style="background:var(--cream);width:100%;overflow:hidden;line-height:0;padding:3rem 0 0">
+  <img loading="lazy" src="images/Yegyu-Andrew-Engagement-59.jpg" alt="Andrew and Yegyu" style="width:100%;max-height:70vh;object-fit:cover;display:block">
+</div>
+
 <footer>
-  <img loading="lazy" src="images/favicon.png" alt="Andrew and Yegyu" style="width:72px;height:72px;object-fit:contain;opacity:.7;margin-bottom:.75rem">
+  <img loading="lazy" src="images/favicon.png" alt="Andrew and Yegyu" style="width:96px;height:96px;object-fit:contain;opacity:.7;margin-bottom:.6rem">
   <p class="footer-names"><span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span><span class="ko-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span></p>
-  <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, South Korea</span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
+  <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, <span style="white-space:nowrap">South Korea</span></span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
 </footer>
 
 <!-- LIGHTBOX -->
@@ -1354,122 +1360,49 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     });
   })();
 
-  /* CAROUSEL — infinite loop */
+  /* CAROUSEL — scroll-snap */
   (function() {
     var track = document.getElementById('carouselSlides');
+    var slides = document.querySelectorAll('.carousel-slide');
     var dots = document.querySelectorAll('.carousel-dot');
-    var origSlides = Array.from(document.querySelectorAll('.carousel-slide'));
-    var total = origSlides.length;
-    var startX = 0;
-    var isDragging = false;
-    var clonesBefore = 4;
-    var clonesAfter = 4;
-    var jumpTimeout = null;
-
-    // Clone slides at both ends
-    for (var i = 0; i < clonesBefore; i++) {
-      var clone = origSlides[total - 1 - i].cloneNode(true);
-      clone.classList.remove('active');
-      clone.removeAttribute('onclick');
-      track.insertBefore(clone, track.firstChild);
-    }
-    for (var j = 0; j < clonesAfter; j++) {
-      var clone2 = origSlides[j].cloneNode(true);
-      clone2.classList.remove('active');
-      clone2.removeAttribute('onclick');
-      track.appendChild(clone2);
-    }
-
-    var allSlides = Array.from(track.querySelectorAll('.carousel-slide'));
-    window.carouselCurrent = clonesBefore;
+    var total = slides.length;
+    var current = 0;
 
     function getSlideWidth() {
-      return allSlides[0] ? allSlides[0].offsetWidth : 0;
+      return slides[0] ? slides[0].offsetWidth : 0;
     }
 
-    function safeInit() {
-      if (getSlideWidth() > 0) {
-        updateCarousel(false);
-      } else {
-        requestAnimationFrame(safeInit);
-      }
+    function updateDots() {
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
     }
 
-    function jump() {
-      if (window.carouselCurrent < clonesBefore) {
-        window.carouselCurrent = window.carouselCurrent + total;
-        updateCarousel(false);
-      } else if (window.carouselCurrent >= clonesBefore + total) {
-        window.carouselCurrent = window.carouselCurrent - total;
-        updateCarousel(false);
-      }
-    }
-
-    function updateCarousel(animate) {
+    function scrollTo(index) {
+      current = Math.max(0, Math.min(index, total - 1));
       var sw = getSlideWidth();
-      var viewportW = track.parentElement.offsetWidth;
-      var offset = (viewportW / 2) - (sw / 2) - (window.carouselCurrent * sw);
-      track.style.transition = animate ? 'transform .5s cubic-bezier(.4,0,.2,1)' : 'none';
-      track.style.transform = 'translateX(' + offset + 'px)';
-      if (!animate) requestAnimationFrame(function() { track.style.transition = ''; });
-      var realIndex = (window.carouselCurrent - clonesBefore % total + total * 2) % total;
-      allSlides.forEach(function(s, i) { s.classList.toggle('active', i === window.carouselCurrent); });
-      dots.forEach(function(d, i) { d.classList.toggle('active', i === realIndex); });
-      // Schedule jump after animation as fallback
-      if (animate) {
-        if (jumpTimeout) clearTimeout(jumpTimeout);
-        jumpTimeout = setTimeout(jump, 550);
-      }
+      var offset = current * sw - (track.offsetWidth / 2) + (sw / 2);
+      track.scrollTo({ left: offset, behavior: 'smooth' });
+      updateDots();
     }
 
-    track.addEventListener('transitionend', function(e) {
-      if (e.propertyName !== 'transform') return;
-      if (jumpTimeout) clearTimeout(jumpTimeout);
-      jump();
-    });
+    window.carouselGoTo = function(i) { scrollTo(i); };
+    window.carouselStep = function(dir) { scrollTo(current + dir); };
 
-    window.carouselGoTo = function(realIndex) {
-      window.carouselCurrent = clonesBefore + ((realIndex % total + total) % total);
-      updateCarousel(true);
-    };
-
-    window.carouselStep = function(dir) {
-      window.carouselCurrent += dir;
-      updateCarousel(true);
-    };
-
-    var startY = 0;
-    track.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      isDragging = true;
+    // Update dot on native scroll (swipe)
+    var scrollTimer;
+    track.addEventListener('scroll', function() {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+        var sw = getSlideWidth();
+        if (sw === 0) return;
+        var scrollCenter = track.scrollLeft + track.offsetWidth / 2;
+        current = Math.round((scrollCenter - sw / 2) / sw);
+        current = Math.max(0, Math.min(current, total - 1));
+        updateDots();
+      }, 80);
     }, { passive: true });
-    track.addEventListener('touchmove', function(e) {
-      if (!isDragging) return;
-      var dx = Math.abs(e.touches[0].clientX - startX);
-      var dy = Math.abs(e.touches[0].clientY - startY);
-      if (dx > dy) e.preventDefault(); // horizontal swipe — block page scroll
-    }, { passive: false });
-    track.addEventListener('touchend', function(e) {
-      if (!isDragging) return;
-      var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) window.carouselStep(diff > 0 ? 1 : -1);
-      isDragging = false;
-    }, { passive: true });
-    track.addEventListener('mousedown', function(e) { startX = e.clientX; isDragging = true; e.preventDefault(); });
-    track.addEventListener('mouseup', function(e) {
-      if (!isDragging) return;
-      var diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) window.carouselStep(diff > 0 ? 1 : -1);
-      isDragging = false;
-    });
 
-    window.addEventListener('resize', function() { updateCarousel(false); });
-    if (document.readyState === 'complete') {
-      safeInit();
-    } else {
-      window.addEventListener('load', safeInit);
-    }
+    // Init dots
+    updateDots();
   })();
 
   /* RSVP — drawer on mobile, scroll + floating pill on desktop */
