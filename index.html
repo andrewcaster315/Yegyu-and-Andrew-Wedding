@@ -79,7 +79,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .lang-btn.active{background:var(--warm-white);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 2rem 4rem;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 2rem 4rem;position:relative;overflow:hidden;background:var(--warm-white)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 80%,rgba(184,168,152,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 80% 20%,rgba(184,168,152,.08) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
 .hero-names{font-family:var(--serif);font-size:clamp(2.25rem,6vw,4.5rem);font-weight:300;line-height:1;color:var(--ink)}
@@ -256,20 +256,28 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cta);outline-offset
 }
 
 
-body.lang-ko #rsvp{background:var(--warm-white)!important}
-body.lang-ko #venue{background:var(--cream)!important}
-body.lang-ko #venue .venue-card{background:var(--warm-white)}
+body.lang-ko #rsvp{background:var(--cream)!important}
+/* KO RSVP form fields on cream background */
+body.lang-ko .rsvp-field label{color:var(--muted)}
+body.lang-ko .rsvp-field input,body.lang-ko .rsvp-field textarea{background:#fff;border:.5px solid #8C8888}
+body.lang-ko .rsvp-field input::placeholder,body.lang-ko .rsvp-field textarea::placeholder{color:#737070}
+body.lang-ko .rsvp-field input:focus,body.lang-ko .rsvp-field textarea:focus{background:#fff;border-color:var(--cta)}
+body.lang-ko .rsvp-select-btn{background:#fff;border:.5px solid #8C8888;color:#737070}
+body.lang-ko .rsvp-select-wrap.open .rsvp-select-btn{background:#fff}
+body.lang-ko .rsvp-dropdown{background:#fff;border:.5px solid #8C8888}
+body.lang-ko #venue{background:var(--warm-white)!important}
+body.lang-ko #venue .venue-card{background:var(--cream)}
 /* RSVP FORM */
 .rsvp-form{display:flex;flex-direction:column;gap:1.75rem;max-width:520px}
 .rsvp-field{display:flex;flex-direction:column;gap:.5rem}
 .rsvp-field label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-light)}
-.rsvp-field input,.rsvp-field textarea{font-family:var(--sans);font-size:.9375rem;color:var(--ink);background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none}
-.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:var(--accent)}
+.rsvp-field input,.rsvp-field textarea{font-family:var(--sans);font-size:.9375rem;color:var(--ink);background:var(--cream);border:.5px solid #8C8480;border-radius:3px;padding:.7rem 1rem;width:100%;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:#726C64}
 .rsvp-field input:focus,.rsvp-field textarea:focus{border-color:var(--cta);background:var(--warm-white)}
 .rsvp-field textarea{resize:none;min-height:80px;line-height:1.7}
 /* Custom dropdown */
 .rsvp-select-wrap{position:relative}
-.rsvp-select-btn{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-family:var(--sans);font-size:.9375rem;color:var(--accent);background:var(--cream);border:.5px solid var(--border);border-radius:3px;padding:.7rem 1rem;width:100%;cursor:pointer;transition:border-color .2s;text-align:left;user-select:none}
+.rsvp-select-btn{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-family:var(--sans);font-size:.9375rem;color:#726C64;background:var(--cream);border:.5px solid #8C8480;border-radius:3px;padding:.7rem 1rem;width:100%;cursor:pointer;transition:border-color .2s;text-align:left;user-select:none}
 .rsvp-select-btn.selected{color:#2E2B27}
 .rsvp-select-btn:focus{border-color:var(--cta);outline:none}
 .rsvp-select-chevron{flex-shrink:0;transition:transform .2s;color:var(--muted-light)}
@@ -336,7 +344,7 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
 
 <!-- NAV -->
 <nav>
-  <a href="#top" class="nav-monogram">A &amp; Y</a>
+  <a href="#top" class="nav-monogram"><img src="images/dancing-graphic.png" alt="Andrew and Yegyu" style="height:36px;width:auto;display:block;opacity:.85" draggable="false"></a>
   <div class="nav-right">
     <ul class="nav-links" role="list">
       <li class="en-inline-block"><a href="#venue">Venue</a></li>
@@ -363,7 +371,7 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
     <span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span>
     <span class="ko-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span>
   </h1>
-  <img src="images/dancing-graphic.png" alt="Andrew and Yegyu dancing" style="width:min(460px,88vw);height:auto;display:block;opacity:.92;margin-bottom:2rem" draggable="false">
+  <img loading="lazy" src="images/Yegyu-Andrew-Engagement-35.jpg" alt="Andrew and Yegyu" style="width:min(680px,92vw);aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block;margin-bottom:2rem" draggable="false">
   <p class="hero-eyebrow"><span class="en-inline">We are getting married</span><span class="ko-inline">We are getting married</span></p>
   <div class="hero-when-where">
     <div class="hero-when">
@@ -441,7 +449,7 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
 </div>
 
 <!-- RSVP -->
-<div class="full-section" id="rsvp" style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+<div class="full-section" id="rsvp" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner">
     <p class="section-eyebrow">Join us</p>
     <h2 class="section-title">RSVP</h2>
@@ -939,7 +947,7 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
 </section>
 
 <!-- NOTICE (Korean only) -->
-<div class="ko full-section" id="notice" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+<div class="ko full-section" id="notice" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner">
     <h2 class="section-title">Notice</h2>
     <div class="section-divider"></div>
