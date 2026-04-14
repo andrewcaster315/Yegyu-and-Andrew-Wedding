@@ -619,9 +619,9 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
   <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch">
 
     <!-- LEFT COLUMN -->
-    <div>
+    <div style="display:flex;flex-direction:column">
       <!-- English: venue photo -->
-      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);height:100%">
+      <div class="en" style="flex:1;border-radius:4px;overflow:hidden;border:.5px solid var(--border);min-height:0">
         <img id="venueImg" loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
 
