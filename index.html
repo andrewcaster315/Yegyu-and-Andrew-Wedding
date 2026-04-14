@@ -122,7 +122,7 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .carousel-slide.active{opacity:1;transform:scale(1);cursor:zoom-in}
 .carousel-slide img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block}
 .carousel-nav{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2rem}
-.carousel-arrow{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;transition:background .2s,border-color .2s;flex-shrink:0}
+.carousel-arrow{-webkit-tap-highlight-color:transparent;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;transition:background .2s,border-color .2s;flex-shrink:0}
 .carousel-arrow:hover{background:rgba(255,255,255,.22);border-color:#fff}
 .carousel-dots{display:flex;justify-content:center;align-items:center;gap:10px}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:background .2s,transform .2s}
@@ -170,7 +170,7 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--accent);padding:0}
 .faq-item:first-child{border-top:1px solid var(--accent)}
 .faq-item:last-child{border-bottom:none}
-.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:var(--ink);text-align:left;font-family:var(--sans)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:var(--ink);text-align:left;font-family:var(--sans);-webkit-tap-highlight-color:transparent}
 .faq-arrow{font-size:.9rem;color:var(--muted);transition:transform .25s;flex-shrink:0}
 .faq-item.open .faq-arrow{transform:rotate(180deg)}
 .faq-a{display:none;padding-bottom:1.5rem}
@@ -607,13 +607,13 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   <h2 class="section-title">Directions</h2>
   <div class="section-divider"></div>
   <p class="ko" style="font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:2rem;line-height:1.5">은덕문화원<br><span style="font-size:1rem;font-weight:400;color:var(--muted)">서울 종로구 창덕궁길 51</span></p>
-  <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+  <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch">
 
     <!-- LEFT COLUMN -->
     <div>
       <!-- English: venue photo -->
-      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
-        <img loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:360px;object-fit:cover;display:block">
+      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);height:100%">
+        <img id="venueImg" loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
 
       <!-- Korean: pin + address + naver map + buttons -->
@@ -631,7 +631,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     </div>
 
     <!-- RIGHT COLUMN: cream venue card -->
-    <div class="venue-card" style="background:var(--cream)">
+    <div class="venue-card" style="background:var(--cream);align-self:start">
 
       <!-- Name & Address — English only -->
       <div class="venue-detail en">
@@ -936,7 +936,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 
 <footer>
-  <img src="images/favicon.png" alt="Andrew and Yegyu" style="width:48px;height:48px;object-fit:contain;opacity:.7;margin-bottom:1.25rem">
+  <img src="images/favicon.png" alt="Andrew and Yegyu" style="width:72px;height:72px;object-fit:contain;opacity:.7;margin-bottom:.75rem">
   <p class="footer-names"><span class="en-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span><span class="ko-inline">Andrew <span class="ampersand">&amp;</span> Yegyu</span></p>
   <p class="footer-date"><span class="en-inline">September 19, 2026 &middot; Seoul, South Korea</span><span class="ko-inline">2026년 9월 19일 &middot; 서울, 대한민국</span></p>
 </footer>
@@ -1097,6 +1097,46 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
     if (e.key === 'ArrowRight') lightboxMove(1);
     if (e.key === 'Escape') closeLightbox();
   });
+  // Swipe support on lightbox
+  var lbStartX = 0;
+  lightboxEl.addEventListener('touchstart', function(e) { lbStartX = e.touches[0].clientX; }, { passive: true });
+  lightboxEl.addEventListener('touchend', function(e) {
+    var diff = lbStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) lightboxMove(diff > 0 ? 1 : -1);
+  }, { passive: true });
+
+  /* VENUE PHOTO LIGHTBOX */
+  (function() {
+    var venueImg = document.getElementById('venueImg');
+    if (!venueImg) return;
+    var overlay = document.createElement('div');
+    overlay.id = 'venueLightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Venue photo');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:1000;background:rgba(26,21,32,.97);display:none;align-items:center;justify-content:center';
+    var closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    closeBtn.setAttribute('aria-label', 'Close venue photo');
+    closeBtn.style.cssText = 'position:absolute;top:1.25rem;right:1.5rem;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:background .2s';
+    closeBtn.onclick = function() { overlay.style.display = 'none'; document.body.style.overflow = ''; };
+    var img = document.createElement('img');
+    img.src = 'images/venue.jpg';
+    img.alt = 'Eundeok Cultural Center';
+    img.style.cssText = 'max-width:92vw;max-height:90vh;object-fit:contain;border-radius:6px;user-select:none';
+    overlay.appendChild(closeBtn);
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    venueImg.style.cursor = 'zoom-in';
+    venueImg.addEventListener('click', function() {
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeBtn.onclick(); });
+    document.addEventListener('keydown', function(e) {
+      if (overlay.style.display !== 'none' && e.key === 'Escape') closeBtn.onclick();
+    });
+  })();
 
   /* RSVP FORM — AJAX SUBMISSION */
   (function() {
@@ -1390,7 +1430,18 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       updateCarousel(true);
     };
 
-    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+    var startY = 0;
+    track.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isDragging = true;
+    }, { passive: true });
+    track.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      var dx = Math.abs(e.touches[0].clientX - startX);
+      var dy = Math.abs(e.touches[0].clientY - startY);
+      if (dx > dy) e.preventDefault(); // horizontal swipe — block page scroll
+    }, { passive: false });
     track.addEventListener('touchend', function(e) {
       if (!isDragging) return;
       var diff = startX - e.changedTouches[0].clientX;
