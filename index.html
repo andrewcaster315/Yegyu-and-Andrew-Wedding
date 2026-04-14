@@ -128,6 +128,7 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:background .2s,transform .2s}
 .carousel-dot.active{background:#fff;transform:scale(1.25)}
 @media(min-width:600px){.carousel-slide{flex:0 0 70%}}
+@media(max-width:640px){.venue-grid{grid-template-columns:1fr!important}}
 @media(min-width:900px){.carousel-slide{flex:0 0 60%}}
 
 /* SCHEDULE */
@@ -191,16 +192,16 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .cal-btn:hover{background:var(--cta);color:var(--cta-text)}
 
 /* LIGHTBOX */
-.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(20,18,16,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(26,21,32,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
 .lightbox.open{opacity:1;visibility:visible}
-.lightbox-img{max-width:92vw;max-height:82vh;object-fit:contain;border-radius:2px;user-select:none;-webkit-user-drag:none}
-.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.7);font-size:2rem;cursor:pointer;line-height:1;padding:.25rem;transition:color .2s}
-.lightbox-close:hover{color:#fff}
-.lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;width:48px;height:48px;border-radius:50%;font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
-.lightbox-btn:hover{background:rgba(255,255,255,.25)}
+.lightbox-img{max-width:92vw;max-height:82vh;object-fit:contain;border-radius:6px;user-select:none;-webkit-user-drag:none}
+.lightbox-close{position:absolute;top:1.25rem;right:1.5rem;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-size:1.25rem;cursor:pointer;line-height:1;transition:background .2s,border-color .2s}
+.lightbox-close:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6);color:#fff}
+.lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+.lightbox-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
 .lightbox-prev{left:1rem}
 .lightbox-next{right:1rem}
-.lightbox-counter{position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.lightbox-counter{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
 
 /* HERO BACKGROUND IMAGE */
 .hero.has-bg{background-size:cover;background-position:center}
@@ -610,12 +611,12 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   <h2 class="section-title">Directions</h2>
   <div class="section-divider"></div>
   <p class="ko" style="font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:2rem;line-height:1.5">은덕문화원<br><span style="font-size:1rem;font-weight:400;color:var(--muted)">서울 종로구 창덕궁길 51</span></p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;align-items:start">
+  <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch">
 
     <!-- LEFT COLUMN -->
-    <div style="display:flex;flex-direction:column;align-self:stretch">
+    <div style="display:flex;flex-direction:column">
       <!-- English: venue photo -->
-      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);flex:1;min-height:200px">
+      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border);flex:1">
         <img loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
 
@@ -1372,7 +1373,8 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
       dots.forEach(function(d, i) { d.classList.toggle('active', i === realIndex); });
     }
 
-    track.addEventListener('transitionend', function() {
+    track.addEventListener('transitionend', function(e) {
+      if (e.propertyName !== 'transform') return;
       isTransitioning = false;
       if (window.carouselCurrent < clonesBefore) {
         window.carouselCurrent = window.carouselCurrent + total;
