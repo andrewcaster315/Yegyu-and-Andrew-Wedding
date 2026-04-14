@@ -48,7 +48,7 @@ body.lang-ko .venue-detail.ko{display:flex}
 body.lang-ko .venue-detail.en{display:none}
 /* rsvp form needs flex not block */
 body.lang-ko #rsvpSuccess{display:none!important}
-body.lang-ko #photos{background:var(--warm-white)!important}
+body.lang-ko #photos{background:#1A1520!important}
 body.lang-en .rsvp-form.en{display:flex}
 body.lang-ko .rsvp-form.ko{display:flex}
 .ko-inline,.en-inline{display:none}
@@ -116,19 +116,19 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .hero-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid rgba(184,168,152,.5);margin:0 auto 2.5rem;display:block}
 
 /* CAROUSEL */
-.carousel{position:relative;width:100%;aspect-ratio:4/3;background:var(--cream);border-radius:4px;overflow:hidden;box-shadow:0 8px 32px rgba(28,26,23,.1),0 2px 8px rgba(28,26,23,.06)}
-.carousel-slides{display:flex;height:100%;transition:transform .45s ease}
-.carousel-slide{min-width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:2rem}
-.carousel-slide img{width:100%;height:100%;object-fit:cover}
-.carousel-placeholder-icon{opacity:.25}
-.carousel-placeholder-text{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(253,252,250,.9);border:.5px solid var(--border);border-radius:2px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--ink);transition:background .2s;z-index:2}
-.carousel-btn:hover{background:var(--warm-white)}
-.carousel-prev{left:10px}
-.carousel-next{right:10px}
-.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:1rem}
-.carousel-dot{width:7px;height:7px;border-radius:50%;background:transparent;border:1.5px solid var(--muted-light);cursor:pointer;transition:background .2s,border-color .2s}
-.carousel-dot.active{background:var(--muted);border-color:var(--muted)}
+.carousel-viewport{overflow:hidden;width:100%;position:relative}
+.carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform;align-items:center}
+.carousel-slide{flex:0 0 70%;padding:0 .75rem;box-sizing:border-box;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s;opacity:.5;transform:scale(.92);cursor:pointer}
+.carousel-slide.active{opacity:1;transform:scale(1);cursor:zoom-in}
+.carousel-slide img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:1.5rem}
+.carousel-arrow{background:none;border:1.5px solid rgba(123,143,199,.5);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#7B8FC7;transition:background .2s,border-color .2s;flex-shrink:0}
+.carousel-arrow:hover{background:rgba(123,143,199,.12);border-color:#7B8FC7}
+.carousel-dots{display:flex;justify-content:center;gap:8px}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1.5px solid rgba(123,143,199,.5);cursor:pointer;transition:background .2s,border-color .2s}
+.carousel-dot.active{background:#7B8FC7;border-color:#7B8FC7}
+@media(min-width:600px){.carousel-slide{flex:0 0 55%}}
+@media(min-width:900px){.carousel-slide{flex:0 0 45%}}
 
 /* SCHEDULE */
 .schedule-list{list-style:none;display:flex;flex-direction:column}
@@ -201,7 +201,6 @@ section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .lightbox-prev{left:1rem}
 .lightbox-next{right:1rem}
 .lightbox-counter{position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.carousel-slide{cursor:zoom-in}
 
 /* HERO BACKGROUND IMAGE */
 .hero.has-bg{background-size:cover;background-position:center}
@@ -309,7 +308,7 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 /* RESPONSIVE */
 
 @media(max-width:700px){
-  .carousel{aspect-ratio:3/2}
+  /* mobile overrides */
   nav{padding:1rem 1.25rem}
   .nav-links{gap:1rem}
   .schedule-item{grid-template-columns:140px 1fr;gap:1rem}
@@ -565,36 +564,41 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
 
 
 <!-- PHOTOS -->
-<section id="photos" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);max-width:100%;padding:6rem 2rem">
+<section id="photos" style="background:#1A1520;border-top:.5px solid rgba(255,255,255,.06);border-bottom:.5px solid rgba(255,255,255,.06);max-width:100%;padding:7rem 2rem">
   <div style="max-width:860px;margin:0 auto">
-    <div class="carousel" id="carousel" role="region" aria-label="Photo carousel">
-      <div class="carousel-slides" id="carouselSlides">
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-15.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-16.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-5.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-40.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-43.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-45.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-62.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-34.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-35.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
-        <div class="carousel-slide"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-52.jpg" alt="Andrew and Yegyu" style="width:100%;height:100%;object-fit:contain"></div>
+    <div class="carousel-viewport" id="carousel" role="region" aria-label="Photo carousel">
+      <div class="carousel-track" id="carouselSlides">
+        <div class="carousel-slide active" onclick="openLightbox(0)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-15.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(1)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-16.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(2)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-5.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(3)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-40.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(4)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-43.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(5)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-45.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(6)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-62.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(7)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-34.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(8)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-35.jpg" alt="Andrew and Yegyu"></div>
+        <div class="carousel-slide" onclick="openLightbox(9)"><img loading="lazy" src="images/Yegyu-Andrew-Engagement-52.jpg" alt="Andrew and Yegyu"></div>
       </div>
-      <button class="carousel-btn carousel-prev" onclick="carouselMove(-1)" aria-label="Previous photo">&#8592;</button>
-      <button class="carousel-btn carousel-next" onclick="carouselMove(1)" aria-label="Next photo">&#8594;</button>
     </div>
-    <div class="carousel-dots" id="carouselDots">
-      <div class="carousel-dot active" onclick="carouselGoTo(0)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(1)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(2)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(3)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(4)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(5)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(6)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(7)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(8)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(9)"></div>
-      <div class="carousel-dot" onclick="carouselGoTo(9)"></div>
+    <div class="carousel-nav">
+      <button class="carousel-arrow" onclick="carouselGoTo(carouselCurrent-1)" aria-label="Previous photo">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-dots" id="carouselDots">
+        <div class="carousel-dot active" onclick="carouselGoTo(0)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(1)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(2)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(3)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(4)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(5)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(6)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(7)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(8)"></div>
+        <div class="carousel-dot" onclick="carouselGoTo(9)"></div>
+      </div>
+      <button class="carousel-arrow" onclick="carouselGoTo(carouselCurrent+1)" aria-label="Next photo">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -1323,23 +1327,53 @@ footer{text-align:center;padding:3rem 2rem;border-top:.5px solid var(--border)}
   })();
 
   /* CAROUSEL */
-  let carouselIndex = 0;
-  const slides = document.getElementById('carouselSlides');
-  const dots = document.querySelectorAll('.carousel-dot');
-  const total = document.querySelectorAll('.carousel-slide').length;
+  (function() {
+    var track = document.getElementById('carouselSlides');
+    var dots = document.querySelectorAll('.carousel-dot');
+    var slideEls = document.querySelectorAll('.carousel-slide');
+    var total = slideEls.length;
+    window.carouselCurrent = 0;
+    var startX = 0;
+    var isDragging = false;
 
-  function carouselUpdate() {
-    slides.style.transform = `translateX(-${carouselIndex * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
-  }
-  function carouselMove(dir) {
-    carouselIndex = (carouselIndex + dir + total) % total;
-    carouselUpdate();
-  }
-  function carouselGoTo(i) {
-    carouselIndex = i;
-    carouselUpdate();
-  }
+    function getSlideWidth() {
+      return slideEls[0] ? slideEls[0].offsetWidth : 0;
+    }
+
+    function updateCarousel(animate) {
+      var sw = getSlideWidth();
+      var viewportW = track.parentElement.offsetWidth;
+      var offset = (viewportW / 2) - (sw / 2) - (window.carouselCurrent * sw);
+      if (!animate) track.style.transition = 'none';
+      track.style.transform = 'translateX(' + offset + 'px)';
+      if (!animate) requestAnimationFrame(function() { track.style.transition = ''; });
+      slideEls.forEach(function(s, i) { s.classList.toggle('active', i === window.carouselCurrent); });
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === window.carouselCurrent); });
+    }
+
+    window.carouselGoTo = function(i) {
+      window.carouselCurrent = (i + total) % total;
+      updateCarousel(true);
+    };
+
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      if (!isDragging) return;
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) window.carouselGoTo(window.carouselCurrent + (diff > 0 ? 1 : -1));
+      isDragging = false;
+    }, { passive: true });
+    track.addEventListener('mousedown', function(e) { startX = e.clientX; isDragging = true; });
+    track.addEventListener('mouseup', function(e) {
+      if (!isDragging) return;
+      var diff = startX - e.clientX;
+      if (Math.abs(diff) > 40) window.carouselGoTo(window.carouselCurrent + (diff > 0 ? 1 : -1));
+      isDragging = false;
+    });
+
+    window.addEventListener('resize', function() { updateCarousel(false); });
+    updateCarousel(false);
+  })();
 
   /* RSVP — drawer on mobile, scroll + floating pill on desktop */
   function handleRsvpClick(e) {
