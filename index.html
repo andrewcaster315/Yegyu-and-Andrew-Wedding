@@ -61,6 +61,8 @@ body.lang-en .rsvp-form.en{display:flex}
 body.lang-ko .rsvp-form.ko{display:flex}
 .ko-inline,.en-inline{display:none}
 body.lang-ko .ko-inline{display:inline}body.lang-en .en-inline{display:inline}
+.ko-inline-block,.en-inline-block{display:none}
+body.lang-ko .ko-inline-block{display:list-item}body.lang-en .en-inline-block{display:list-item}
 body.lang-ko .stay-zone-name,.footer-names{font-family:var(--serif-kr);font-weight:300}
 
 
@@ -105,6 +107,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 /* SECTIONS */
 .full-section{padding:6rem 2rem}
+#rsvp,#photos,#venue,#schedule,#travel,#favorites,#faq,#parents,#notice{scroll-margin-top:70px}
 .full-section-inner{max-width:860px;margin:0 auto}
 section{padding:6rem 2rem;max-width:860px;margin:0 auto}
 .alt-bg{background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
@@ -334,11 +337,13 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
   <a href="#top" class="nav-monogram">A &amp; Y</a>
   <div class="nav-right">
     <ul class="nav-links" role="list">
-      <li><a href="#venue"><span class="en-inline">Venue</span><span class="ko-inline">장소</span></a></li>
-      <li><a href="#schedule"><span class="en-inline">Schedule</span><span class="ko-inline">일정</span></a></li>
-      <li><a href="#travel"><span class="en-inline">Stay</span><span class="ko-inline">숙박</span></a></li>
-      <li><a href="#favorites"><span class="en-inline">Favorites</span><span class="ko-inline">추천 장소</span></a></li>
-      <li><a href="#faq">Q &amp; A</a></li>
+      <li class="en-inline-block"><a href="#venue">Venue</a></li>
+      <li class="en-inline-block"><a href="#schedule">Schedule</a></li>
+      <li class="en-inline-block"><a href="#travel">Stay</a></li>
+      <li class="en-inline-block"><a href="#favorites">Favorites</a></li>
+      <li class="en-inline-block"><a href="#faq">Q &amp; A</a></li>
+      <li class="ko-inline-block"><a href="#parents">가족</a></li>
+      <li class="ko-inline-block"><a href="#venue">장소</a></li>
       <li><a href="#rsvp" class="nav-rsvp" onclick="handleRsvpClick(event)">RSVP</a></li>
     </ul>
     <div class="lang-toggle" onclick="toggleLang()" role="group" aria-label="Language selection">
@@ -383,7 +388,7 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
 </div>
 
 <!-- PARENTS (Korean only) -->
-<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+<div class="ko full-section" id="parents" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner" style="text-align:center">
 
     <!-- Intro poem -->
@@ -616,13 +621,13 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
   <h2 class="section-title">Directions</h2>
   <div class="section-divider"></div>
   <p class="ko" style="font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:2rem;line-height:1.5">은덕문화원<br><span style="font-size:1rem;font-weight:400;color:var(--muted)">서울 종로구 창덕궁길 51</span></p>
-  <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch">
+  <div class="venue-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
 
     <!-- LEFT COLUMN -->
-    <div style="display:flex;flex-direction:column">
+    <div>
       <!-- English: venue photo -->
-      <div class="en" style="flex:1;border-radius:4px;overflow:hidden;border:.5px solid var(--border);min-height:0">
-        <img id="venueImg" loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="en" style="border-radius:4px;overflow:hidden;border:.5px solid var(--border)">
+        <img id="venueImg" loading="lazy" src="images/venue.jpg" alt="Eundeok Cultural Center" style="width:100%;height:360px;object-fit:cover;display:block;cursor:zoom-in">
       </div>
 
       <!-- Korean: pin + address + naver map + buttons -->
@@ -699,8 +704,8 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
 </section>
 
 <!-- SCHEDULE (cream) -->
-<div class="full-section ko-hidden" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
-  <div class="full-section-inner" id="schedule">
+<div class="full-section ko-hidden" id="schedule" style="background:var(--cream);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+  <div class="full-section-inner">
     <p class="section-eyebrow">September 19, 2026</p>
     <h2 class="section-title">Day of Schedule</h2>
     <div class="section-divider"></div>
@@ -931,7 +936,7 @@ footer{text-align:center;padding:2rem 2rem 2.5rem;border-top:.5px solid var(--bo
 </section>
 
 <!-- NOTICE (Korean only) -->
-<div class="ko full-section" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
+<div class="ko full-section" id="notice" style="background:var(--warm-white);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)">
   <div class="full-section-inner">
     <h2 class="section-title">Notice</h2>
     <div class="section-divider"></div>
